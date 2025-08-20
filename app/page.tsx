@@ -165,7 +165,7 @@ export default function Home() {
                 <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
                   차이점 2
                 </div>
-                <CardTitle className="text-lg">주 1회, 본원 수업과 함께 들으면<br/>효율적 수업 운영</CardTitle>
+                <CardTitle className="text-lg">주 1회, 본원 수업과 함께 듣는<br/>효율적 수업 운영</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-gray-600 space-y-1 text-sm">
@@ -197,13 +197,13 @@ export default function Home() {
                 <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
                   차이점 4
                 </div>
-                <CardTitle className="text-lg">7급~1급 커리큘럼 이수 후<br/>Pass 안 되면 무료 재수강 완료</CardTitle>
+                <CardTitle className="text-lg">7급~1급 커리큘럼 이수 후<br/>Pass 인증으로 눈에 보이는 학습 완료</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-gray-600 space-y-1 text-sm">
                   <li>• 체계적인 7급~1급 시스템</li>
-                  <li>• Pass 보장 프로그램</li>
-                  <li>• 무료 재수강 지원</li>
+                  <li>• Pass 인증서 발급</li>
+                  <li>• 눈에 보이는 성취도 확인</li>
                 </ul>
               </CardContent>
             </Card>
