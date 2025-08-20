@@ -39,19 +39,19 @@ ALTER TABLE kmong_11_consultations ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Anyone can insert test results" ON kmong_11_test_results
   FOR INSERT WITH CHECK (true);
 
--- Service role만 SELECT 가능 (관리자만 조회)
-CREATE POLICY "Service role can select test results" ON kmong_11_test_results
-  FOR SELECT USING (auth.jwt() ->> 'role' = 'service_role');
+-- 누구나 SELECT 가능 (임시로 공개 - 실제 운영시 인증 추가 필요)
+CREATE POLICY "Anyone can select test results" ON kmong_11_test_results
+  FOR SELECT USING (true);
 
 -- 상담 예약 테이블 정책  
 -- 누구나 INSERT 가능 (상담 신청)
 CREATE POLICY "Anyone can insert consultations" ON kmong_11_consultations
   FOR INSERT WITH CHECK (true);
 
--- Service role만 SELECT 가능 (관리자만 조회)
-CREATE POLICY "Service role can select consultations" ON kmong_11_consultations
-  FOR SELECT USING (auth.jwt() ->> 'role' = 'service_role');
+-- 누구나 SELECT 가능 (임시로 공개 - 실제 운영시 인증 추가 필요)
+CREATE POLICY "Anyone can select consultations" ON kmong_11_consultations
+  FOR SELECT USING (true);
 
--- Service role만 UPDATE 가능 (상태 변경 등)
-CREATE POLICY "Service role can update consultations" ON kmong_11_consultations
-  FOR UPDATE USING (auth.jwt() ->> 'role' = 'service_role');
+-- 누구나 UPDATE 가능 (임시로 공개 - 실제 운영시 인증 추가 필요)
+CREATE POLICY "Anyone can update consultations" ON kmong_11_consultations
+  FOR UPDATE USING (true);

@@ -49,14 +49,20 @@ export default function AdminDashboard() {
     try {
       // 테스트 결과 가져오기
       const testResponse = await fetch('/api/admin/test-results')
-      const testData = await testResponse.json()
+      let testData = []
+      if (testResponse.ok) {
+        testData = await testResponse.json()
+      }
       
       // 상담 예약 가져오기
       const consultationResponse = await fetch('/api/admin/consultations')
-      const consultationData = await consultationResponse.json()
+      let consultationData = []
+      if (consultationResponse.ok) {
+        consultationData = await consultationResponse.json()
+      }
 
-      setTestResults(testData || [])
-      setConsultations(consultationData || [])
+      setTestResults(Array.isArray(testData) ? testData : [])
+      setConsultations(Array.isArray(consultationData) ? consultationData : [])
 
       // 통계 계산
       const today = new Date().toDateString()
