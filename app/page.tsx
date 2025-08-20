@@ -104,9 +104,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <span className="text-sm font-semibold">🎉 9월 문법센터 오픈</span>
-            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               30년 전통, 정상어학원<br />
               <span className="text-yellow-300">문법센터</span> 시작합니다!
@@ -140,55 +137,74 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            최선어학원에서 <span className="text-red-600">문법연구소</span>로 진화!
+          <h2 className="text-3xl font-bold text-center mb-4">
+            문법에서 문장력까지, <span className="text-red-600">완성의 마지막 한 조각</span>
           </h2>
+          <p className="text-center text-gray-600 mb-12">
+            정상어학원 문법센터만의 차별화된 교육 시스템
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <Card className="border-2 hover:border-red-500 transition-colors">
+            <Card className="border-2 hover:border-blue-500 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <Target className="text-red-600" />
+                <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
+                  차이점 1
                 </div>
-                <CardTitle className="text-lg">AI 진단 테스트</CardTitle>
+                <CardTitle className="text-lg">AI 진단 테스트 후,<br/>개인 맞춤 커리큘럼 설계 및 상담</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">개인 맞춤 커리큘럼 설계 상담</p>
+                <ul className="text-gray-600 space-y-1 text-sm">
+                  <li>• 정확한 레벨 진단</li>
+                  <li>• 맞춤형 학습 경로 설계</li>
+                  <li>• 1:1 전문 상담 제공</li>
+                </ul>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:border-red-500 transition-colors">
+            <Card className="border-2 hover:border-blue-500 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <BookOpen className="text-red-600" />
+                <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
+                  차이점 2
                 </div>
-                <CardTitle className="text-lg">체계적 문법 학습</CardTitle>
+                <CardTitle className="text-lg">주 1회, 본원 수업과 함께 들으면<br/>효율적 수업 운영</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">주1회, 본원 수업과 함께 들으면 효율적 수업 운영</p>
+                <ul className="text-gray-600 space-y-1 text-sm">
+                  <li>• 부담 없는 주 1회 수업</li>
+                  <li>• 본원 수업과 시너지 효과</li>
+                  <li>• 체계적인 진도 관리</li>
+                </ul>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:border-red-500 transition-colors">
+            <Card className="border-2 hover:border-blue-500 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <Trophy className="text-red-600" />
+                <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
+                  차이점 3
                 </div>
-                <CardTitle className="text-lg">패턴+소리 훈련</CardTitle>
+                <CardTitle className="text-lg">문법 핵심 패턴+소리 훈련으로<br/>내신/수행평가/수능 완벽 대비</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">문법 해심 패턴으로 내신/수행평가/수능 완벽 대비</p>
+                <ul className="text-gray-600 space-y-1 text-sm">
+                  <li>• 패턴으로 이해하는 문법</li>
+                  <li>• 소리 훈련으로 체득</li>
+                  <li>• 시험 완벽 대비</li>
+                </ul>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:border-red-500 transition-colors">
+            <Card className="border-2 hover:border-blue-500 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <Award className="text-red-600" />
+                <div className="bg-blue-600 text-white rounded-lg px-3 py-1 text-sm font-bold inline-block mb-3">
+                  차이점 4
                 </div>
-                <CardTitle className="text-lg">무료 재수강</CardTitle>
+                <CardTitle className="text-lg">7급~1급 커리큘럼 이수 후<br/>Pass 안 되면 무료 재수강 완료</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">7급~1급 커리큘럼 이수 후 Pass 안되면 무료 재수강</p>
+                <ul className="text-gray-600 space-y-1 text-sm">
+                  <li>• 체계적인 7급~1급 시스템</li>
+                  <li>• Pass 보장 프로그램</li>
+                  <li>• 무료 재수강 지원</li>
+                </ul>
               </CardContent>
             </Card>
           </div>

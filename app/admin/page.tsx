@@ -13,6 +13,7 @@ interface TestResult {
   parent_phone?: string
   level: string
   score: number
+  test_answers?: any
   created_at: string
 }
 
@@ -38,87 +39,64 @@ export default function AdminDashboard() {
     todayTests: 0,
     pendingConsultations: 0
   })
+  const [loading, setLoading] = useState(true)
 
-  // 더미 데이터 생성 (실제로는 Supabase에서 가져와야 함)
   useEffect(() => {
-    // 더미 테스트 결과
-    const dummyTestResults: TestResult[] = [
-      {
-        id: 1,
-        name: "김민준",
-        grade: "중1",
-        phone: "010-1234-5678",
-        parent_phone: "010-8765-4321",
-        level: "Intermediate",
-        score: 70,
-        created_at: new Date().toISOString()
-      },
-      {
-        id: 2,
-        name: "이서연",
-        grade: "초6",
-        phone: "010-2345-6789",
-        level: "Pre-Intermediate",
-        score: 55,
-        created_at: new Date(Date.now() - 86400000).toISOString()
-      },
-      {
-        id: 3,
-        name: "박지호",
-        grade: "중2",
-        phone: "010-3456-7890",
-        parent_phone: "010-9876-5432",
-        level: "Advanced",
-        score: 85,
-        created_at: new Date(Date.now() - 172800000).toISOString()
-      }
-    ]
-
-    // 더미 상담 예약
-    const dummyConsultations: Consultation[] = [
-      {
-        id: 1,
-        name: "김민준",
-        grade: "중1",
-        phone: "010-1234-5678",
-        parent_phone: "010-8765-4321",
-        level: "Intermediate",
-        preferred_date: "2024-08-28",
-        message: "평일 오후 시간대 희망합니다",
-        status: "pending",
-        created_at: new Date().toISOString()
-      },
-      {
-        id: 2,
-        name: "정하은",
-        grade: "초5",
-        phone: "010-4567-8901",
-        level: "Beginner",
-        preferred_date: "2024-08-29",
-        status: "confirmed",
-        created_at: new Date(Date.now() - 86400000).toISOString()
-      }
-    ]
-
-    setTestResults(dummyTestResults)
-    setConsultations(dummyConsultations)
-
-    // 통계 계산
-    const today = new Date().toDateString()
-    const todayTestCount = dummyTestResults.filter(
-      t => new Date(t.created_at).toDateString() === today
-    ).length
-    const pendingCount = dummyConsultations.filter(
-      c => c.status === "pending"
-    ).length
-
-    setStats({
-      totalTests: dummyTestResults.length,
-      totalConsultations: dummyConsultations.length,
-      todayTests: todayTestCount,
-      pendingConsultations: pendingCount
-    })
+    fetchData()
   }, [])
+
+  const fetchData = async () => {
+    try {
+      // 테스트 결과 가져오기
+      const testResponse = await fetch('/api/admin/test-results')
+      const testData = await testResponse.json()
+      
+      // 상담 예약 가져오기
+      const consultationResponse = await fetch('/api/admin/consultations')
+      const consultationData = await consultationResponse.json()
+
+      setTestResults(testData || [])
+      setConsultations(consultationData || [])
+
+      // 통계 계산
+      const today = new Date().toDateString()
+      const todayTestCount = (testData || []).filter(
+        (t: TestResult) => new Date(t.created_at).toDateString() === today
+      ).length
+      const pendingCount = (consultationData || []).filter(
+        (c: Consultation) => c.status === "pending"
+      ).length
+
+      setStats({
+        totalTests: testData?.length || 0,
+        totalConsultations: consultationData?.length || 0,
+        todayTests: todayTestCount,
+        pendingConsultations: pendingCount
+      })
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleStatusUpdate = async (id: number, status: string) => {
+    try {
+      const response = await fetch('/api/admin/consultations', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id, status })
+      })
+
+      if (response.ok) {
+        fetchData() // 데이터 새로고침
+      }
+    } catch (error) {
+      console.error('Error updating status:', error)
+    }
+  }
 
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -156,6 +134,13 @@ export default function AdminDashboard() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {loading && (
+          <div className="text-center py-8">
+            <p className="text-gray-500">데이터를 불러오는 중...</p>
+          </div>
+        )}
+        {!loading && (
+          <>
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
@@ -324,7 +309,11 @@ export default function AdminDashboard() {
                             연락
                           </Button>
                           {consultation.status === "pending" && (
-                            <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                            <Button 
+                              size="sm" 
+                              className="bg-green-600 hover:bg-green-700"
+                              onClick={() => handleStatusUpdate(consultation.id, 'confirmed')}
+                            >
                               확정
                             </Button>
                           )}
@@ -348,6 +337,8 @@ export default function AdminDashboard() {
             설명회 참석자 관리
           </Button>
         </div>
+        </>
+        )}
       </div>
     </div>
   )
