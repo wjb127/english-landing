@@ -357,6 +357,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Banner Image Section */}
+      <section className="bg-gray-100">
+        <div className="container mx-auto px-4">
+          <img 
+            src="/images/banner-bottom.png" 
+            alt="정상어학원 문법센터 - 30년 경력 James.Yoo 원장"
+            className="w-full max-w-6xl mx-auto block"
+          />
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
