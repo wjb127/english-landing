@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     
     // 테스트 결과 저장
     const { error } = await supabase
-      .from('test_results')
+      .from('kmong_11_test_results')
       .insert([
         {
           name: data.name,

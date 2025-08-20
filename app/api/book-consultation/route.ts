@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     
     // 상담 예약 저장
     const { error } = await supabase
-      .from('consultations')
+      .from('kmong_11_consultations')
       .insert([
         {
           name: data.name,

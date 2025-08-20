@@ -1,5 +1,5 @@
 -- 테스트 결과 테이블
-CREATE TABLE test_results (
+CREATE TABLE kmong_11_test_results (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   grade VARCHAR(20) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE test_results (
 );
 
 -- 상담 예약 테이블
-CREATE TABLE consultations (
+CREATE TABLE kmong_11_consultations (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   grade VARCHAR(20) NOT NULL,
@@ -26,6 +26,6 @@ CREATE TABLE consultations (
 );
 
 -- 인덱스 생성
-CREATE INDEX idx_test_results_created_at ON test_results(created_at DESC);
-CREATE INDEX idx_consultations_created_at ON consultations(created_at DESC);
-CREATE INDEX idx_consultations_status ON consultations(status);
+CREATE INDEX idx_kmong_11_test_results_created_at ON kmong_11_test_results(created_at DESC);
+CREATE INDEX idx_kmong_11_consultations_created_at ON kmong_11_consultations(created_at DESC);
+CREATE INDEX idx_kmong_11_consultations_status ON kmong_11_consultations(status);
