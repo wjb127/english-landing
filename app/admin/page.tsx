@@ -194,11 +194,11 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        {/* Recent Test Results */}
-        <Card className="mb-8">
+        {/* Consultation Bookings */}
+        <Card>
           <CardHeader>
-            <CardTitle>최근 레벨 테스트 결과</CardTitle>
-            <CardDescription>최근 응시한 학생들의 테스트 결과입니다</CardDescription>
+            <CardTitle>상담 예약 및 레벨 테스트 현황</CardTitle>
+            <CardDescription>레벨 테스트를 완료한 학생들의 상담 예약 현황입니다</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
@@ -229,54 +229,12 @@ export default function AdminDashboard() {
                         레벨
                       </div>
                     </th>
-                    <th className="text-left p-2">점수</th>
                     <th className="text-left p-2">
                       <div className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        응시일
+                        <Calendar className="h-4 w-4" />
+                        희망일
                       </div>
                     </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {testResults.map((result) => (
-                    <tr key={result.id} className="border-b hover:bg-gray-50">
-                      <td className="p-2 font-medium">{result.name}</td>
-                      <td className="p-2">{result.grade}</td>
-                      <td className="p-2">{result.phone}</td>
-                      <td className="p-2">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(result.level)}`}>
-                          {result.level}
-                        </span>
-                      </td>
-                      <td className="p-2">{result.score}점</td>
-                      <td className="p-2 text-sm text-gray-500">
-                        {new Date(result.created_at).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Consultation Bookings */}
-        <Card>
-          <CardHeader>
-            <CardTitle>상담 예약 현황</CardTitle>
-            <CardDescription>상담 예약 신청 목록입니다</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left p-2">이름</th>
-                    <th className="text-left p-2">학년</th>
-                    <th className="text-left p-2">연락처</th>
-                    <th className="text-left p-2">레벨</th>
-                    <th className="text-left p-2">희망일</th>
                     <th className="text-left p-2">상태</th>
                     <th className="text-left p-2">메모</th>
                     <th className="text-left p-2">액션</th>
