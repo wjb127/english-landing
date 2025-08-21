@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock, Lock } from "lucide-react"
 
 interface TestResult {
   id: number
@@ -32,6 +34,8 @@ interface Consultation {
 }
 
 export default function AdminDashboard() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [password, setPassword] = useState("")
   const [testResults, setTestResults] = useState<TestResult[]>([])
   const [consultations, setConsultations] = useState<Consultation[]>([])
   const [stats, setStats] = useState({
@@ -43,10 +47,35 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchData()
+    // Check if already authenticated in session
+    const authStatus = sessionStorage.getItem('adminAuth')
+    if (authStatus === 'true') {
+      setIsAuthenticated(true)
+      fetchData()
+    } else {
+      setLoading(false)
+    }
   }, [])
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (password === 'kmong_english_2025!') {
+      setIsAuthenticated(true)
+      sessionStorage.setItem('adminAuth', 'true')
+      fetchData()
+    } else {
+      alert('비밀번호가 올바르지 않습니다.')
+    }
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    sessionStorage.removeItem('adminAuth')
+    setPassword("")
+  }
+
   const fetchData = async () => {
+    setLoading(true)
     try {
       // 테스트 결과 가져오기
       const testResponse = await fetch('/api/admin/test-results')
@@ -124,6 +153,44 @@ export default function AdminDashboard() {
     }
   }
 
+  // Login Screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <Lock className="text-blue-600 w-8 h-8" />
+            </div>
+            <CardTitle className="text-2xl">관리자 로그인</CardTitle>
+            <CardDescription>
+              DYB최선 문법연구소 × 정상어학원 관리자 페이지
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <Label htmlFor="password">비밀번호</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="비밀번호를 입력하세요"
+                  autoFocus
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                로그인
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  // Admin Dashboard
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -133,8 +200,13 @@ export default function AdminDashboard() {
             <h1 className="text-2xl font-bold text-gray-900">
               DYB최선 문법연구소 × 정상어학원 - 관리자 대시보드
             </h1>
-            <div className="text-sm text-gray-500">
-              문법센터 관리 시스템
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-gray-500">
+                문법센터 관리 시스템
+              </div>
+              <Button variant="outline" size="sm" onClick={handleLogout}>
+                로그아웃
+              </Button>
             </div>
           </div>
         </div>
