@@ -5,96 +5,56 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import LevelTest from "@/components/LevelTest"
 import { ChevronRight, BookOpen, Trophy, Users, Clock, Phone, CheckCircle, Award, Target, Calendar } from "lucide-react"
 
 export default function Home() {
   const [showTest, setShowTest] = useState(false)
-  const [testStep, setTestStep] = useState(0)
-  const [userInfo, setUserInfo] = useState({
-    name: "",
-    grade: "",
-    phone: "",
-    parentPhone: ""
-  })
-  const [testAnswers, setTestAnswers] = useState<string[]>([])
   const [showResult, setShowResult] = useState(false)
-  const [userLevel, setUserLevel] = useState("")
+  const [testResult, setTestResult] = useState<any>(null)
 
-  const testQuestions = [
-    {
-      question: "Choose the correct form of the verb.",
-      sentence: "She _____ to school every day.",
-      options: ["go", "goes", "going", "gone"],
-      correct: 1
-    },
-    {
-      question: "Select the correct article.",
-      sentence: "I saw _____ eagle flying in the sky.",
-      options: ["a", "an", "the", "no article"],
-      correct: 1
-    },
-    {
-      question: "Choose the correct tense.",
-      sentence: "By next month, I _____ here for five years.",
-      options: ["will live", "will have lived", "am living", "have lived"],
-      correct: 1
-    },
-    {
-      question: "Select the correct preposition.",
-      sentence: "She is good _____ mathematics.",
-      options: ["in", "at", "on", "for"],
-      correct: 1
-    },
-    {
-      question: "Choose the correct form.",
-      sentence: "If I _____ rich, I would travel the world.",
-      options: ["am", "was", "were", "will be"],
-      correct: 2
-    }
-  ]
+  const handleTestComplete = (data: any) => {
+    setTestResult(data)
+    setShowResult(true)
+    setShowTest(false)
+    
+    // API 호출하여 데이터 저장
+    fetch('/api/submit-test', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...data.userInfo,
+        test_answers: data.testResult.answers,
+        level: data.testResult.level,
+        score: data.testResult.score
+      })
+    })
+  }
 
   const handleStartTest = () => {
-    if (userInfo.name && userInfo.grade && userInfo.phone) {
-      setShowTest(true)
-    } else {
-      alert("모든 정보를 입력해주세요.")
-    }
+    setShowTest(true)
   }
 
-  const handleTestAnswer = (answer: string) => {
-    const newAnswers = [...testAnswers, answer]
-    setTestAnswers(newAnswers)
+  const handleReservation = async () => {
+    if (!testResult) return
     
-    if (testStep < testQuestions.length - 1) {
-      setTestStep(testStep + 1)
-    } else {
-      calculateResult(newAnswers)
-    }
-  }
-
-  const calculateResult = (answers: string[]) => {
-    let correctCount = 0
-    answers.forEach((answer, index) => {
-      if (parseInt(answer) === testQuestions[index].correct) {
-        correctCount++
+    try {
+      const response = await fetch('/api/book-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...testResult.userInfo,
+          level: testResult.testResult.level,
+          message: '레벨 테스트 완료 후 상담 신청'
+        })
+      })
+      
+      if (response.ok) {
+        alert('상담 예약이 완료되었습니다. 곧 연락드리겠습니다.')
       }
-    })
-    
-    const percentage = (correctCount / testQuestions.length) * 100
-    let level = ""
-    
-    if (percentage >= 80) level = "Advanced"
-    else if (percentage >= 60) level = "Intermediate"
-    else if (percentage >= 40) level = "Pre-Intermediate"
-    else level = "Beginner"
-    
-    setUserLevel(level)
-    setShowResult(true)
-  }
-
-  const handleReservation = () => {
-    alert("상담 예약이 완료되었습니다. 곧 연락드리겠습니다.")
+    } catch (error) {
+      alert('예약 중 오류가 발생했습니다. 전화로 문의해주세요.')
+    }
   }
 
   return (
@@ -212,99 +172,45 @@ export default function Home() {
       </section>
 
       {/* Level Test Section */}
-      <section id="test-section" className="py-16">
+      <section id="test-section" className="py-8 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">
-              무료 레벨 테스트
-            </h2>
-            
+          <div className="max-w-4xl mx-auto">
             {!showTest && !showResult && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>학생 정보 입력</CardTitle>
-                  <CardDescription>
-                    정확한 레벨 측정을 위해 아래 정보를 입력해주세요.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">학생 이름</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="이름을 입력하세요"
-                      value={userInfo.name}
-                      onChange={(e) => setUserInfo({...userInfo, name: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="grade">학년</Label>
-                    <Input 
-                      id="grade" 
-                      placeholder="예: 초5, 중1"
-                      value={userInfo.grade}
-                      onChange={(e) => setUserInfo({...userInfo, grade: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">학생 연락처</Label>
-                    <Input 
-                      id="phone" 
-                      placeholder="010-0000-0000"
-                      value={userInfo.phone}
-                      onChange={(e) => setUserInfo({...userInfo, phone: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="parentPhone">학부모 연락처 (선택)</Label>
-                    <Input 
-                      id="parentPhone" 
-                      placeholder="010-0000-0000"
-                      value={userInfo.parentPhone}
-                      onChange={(e) => setUserInfo({...userInfo, parentPhone: e.target.value})}
-                    />
-                  </div>
-                  <Button 
-                    className="w-full bg-red-600 hover:bg-red-700"
-                    onClick={handleStartTest}
-                  >
-                    레벨 테스트 시작하기
-                  </Button>
-                </CardContent>
-              </Card>
+              <div className="text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  무료 레벨 테스트
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  AI 기반 진단으로 정확한 레벨을 측정하고 맞춤 학습을 시작하세요
+                </p>
+                <Card className="max-w-md mx-auto">
+                  <CardHeader>
+                    <CardTitle>7급 영어문법 진단테스트</CardTitle>
+                    <CardDescription>
+                      초등학교 5학년 수준 - 45문항 (약 20-30분 소요)
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button 
+                      className="w-full bg-red-600 hover:bg-red-700 text-lg py-6"
+                      onClick={handleStartTest}
+                    >
+                      무료 테스트 시작하기
+                      <ChevronRight className="ml-2" />
+                    </Button>
+                    <p className="text-sm text-gray-500 mt-4">
+                      * 테스트 후 즉시 레벨 확인 및 상담 예약 가능
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             )}
 
             {showTest && !showResult && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>문제 {testStep + 1} / {testQuestions.length}</CardTitle>
-                  <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
-                    <div 
-                      className="bg-red-600 h-2 rounded-full transition-all"
-                      style={{ width: `${((testStep + 1) / testQuestions.length) * 100}%` }}
-                    ></div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="font-semibold mb-2">{testQuestions[testStep].question}</p>
-                    <p className="text-lg mb-4 p-4 bg-gray-50 rounded">{testQuestions[testStep].sentence}</p>
-                    <RadioGroup onValueChange={handleTestAnswer}>
-                      {testQuestions[testStep].options.map((option, index) => (
-                        <div key={index} className="flex items-center space-x-2 mb-3">
-                          <RadioGroupItem value={index.toString()} id={`option-${index}`} />
-                          <Label htmlFor={`option-${index}`} className="cursor-pointer text-base">
-                            {option}
-                          </Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
-                  </div>
-                </CardContent>
-              </Card>
+              <LevelTest onComplete={handleTestComplete} />
             )}
 
-            {showResult && (
+            {showResult && testResult && (
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -314,31 +220,59 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <p className="text-gray-600 mb-2">{userInfo.name} 학생의 레벨은</p>
-                    <p className="text-4xl font-bold text-red-600">{userLevel}</p>
-                    <p className="text-gray-500 mt-2">레벨입니다</p>
+                    <p className="text-gray-600 mb-2">{testResult.userInfo.name} 학생의 진단 결과</p>
+                    <div className="bg-gradient-to-r from-red-50 to-blue-50 rounded-lg p-6 my-4">
+                      <p className="text-4xl font-bold text-red-600 mb-2">{testResult.testResult.level}</p>
+                      <div className="flex justify-center items-center gap-4 text-lg">
+                        <span className="font-semibold">점수:</span>
+                        <span className="text-2xl font-bold">{testResult.testResult.score}점</span>
+                      </div>
+                      <p className="text-gray-600 mt-2">
+                        {testResult.testResult.correctCount}/{testResult.testResult.totalQuestions} 문제 정답
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <p className="font-semibold mb-2">추천 학습 과정</p>
-                    <p className="text-gray-600">
-                      {userLevel === "Advanced" && "고급 문법 패턴과 실전 응용 중심 학습"}
-                      {userLevel === "Intermediate" && "중급 문법 강화 및 패턴 훈련"}
-                      {userLevel === "Pre-Intermediate" && "기본 문법 체계 확립 및 기초 패턴 학습"}
-                      {userLevel === "Beginner" && "기초 문법부터 차근차근 체계적 학습"}
-                    </p>
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h3 className="font-bold text-lg mb-3 flex items-center justify-center gap-2">
+                      <Target className="w-5 h-5" />
+                      맞춤 학습 추천
+                    </h3>
+                    <div className="text-left space-y-2">
+                      {testResult.testResult.score >= 80 ? (
+                        <>
+                          <p className="text-gray-700">✅ 7급 문법 기초가 탄탄합니다!</p>
+                          <p className="text-gray-700">✅ 6급 진급 준비가 가능합니다</p>
+                          <p className="text-gray-700">✅ 심화 패턴 학습을 추천합니다</p>
+                        </>
+                      ) : testResult.testResult.score >= 60 ? (
+                        <>
+                          <p className="text-gray-700">✅ 기본 문법 이해도가 양호합니다</p>
+                          <p className="text-gray-700">✅ 부족한 영역 집중 보완 필요</p>
+                          <p className="text-gray-700">✅ 체계적인 복습을 추천합니다</p>
+                        </>
+                      ) : (
+                        <>
+                          <p className="text-gray-700">✅ 기초부터 차근차근 시작하세요</p>
+                          <p className="text-gray-700">✅ 1:1 맞춤 지도가 효과적입니다</p>
+                          <p className="text-gray-700">✅ 꾸준한 학습이 중요합니다</p>
+                        </>
+                      )}
+                    </div>
                   </div>
                   
                   <div className="space-y-3">
                     <Button 
-                      className="w-full bg-red-600 hover:bg-red-700"
+                      className="w-full bg-red-600 hover:bg-red-700 text-lg py-6"
                       onClick={handleReservation}
                     >
-                      <Calendar className="mr-2" /> 상담 예약하기
+                      <Calendar className="mr-2" /> 무료 상담 예약하기
                     </Button>
-                    <p className="text-sm text-gray-500">
-                      상담 문의: 041-414-5115
-                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2 text-sm text-gray-500">
+                      <span>📞 전화 문의: 041-414-5115</span>
+                      <span className="hidden sm:inline">|</span>
+                      <span>⏰ 상담 시간: 평일 10:00 ~ 20:00</span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
