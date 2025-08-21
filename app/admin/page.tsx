@@ -130,10 +130,10 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-gray-900">
-              정상어학원 문법센터 - 관리자 대시보드
+              DYB최선 문법연구소 × 정상어학원 - 관리자 대시보드
             </h1>
             <div className="text-sm text-gray-500">
-              크몽 프로젝트 #11
+              문법센터 관리 시스템
             </div>
           </div>
         </div>

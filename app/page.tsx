@@ -105,11 +105,11 @@ export default function Home() {
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              30년 전통, 정상어학원<br />
-              <span className="text-yellow-300">문법센터</span> 시작합니다!
+              DYB최선 × 정상어학원<br />
+              <span className="text-yellow-300">문법센터</span> 새롭게 시작합니다!
             </h1>
             <p className="text-xl mb-4 opacity-95">
-              30년 경력 James.Yoo 원장이 직접 지도하는 체계적인 문법 교육
+              전 정상어학원 원장 James.Yoo와 DYB최선이 함께하는 문법연구소
             </p>
             <p className="text-lg mb-8 opacity-90">
               8월 26일 화요일 오전 11:00 설명회 | 초5~중3 학생 및 학부모 대상
@@ -141,7 +141,7 @@ export default function Home() {
             문법에서 문장력까지, <span className="text-red-600">완성의 마지막 한 조각</span>
           </h2>
           <p className="text-center text-gray-600 mb-12">
-            정상어학원 문법센터만의 차별화된 교육 시스템
+            DYB최선 문법연구소 × 정상어학원의 차별화된 교육 시스템
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <Card className="border-2 hover:border-blue-500 transition-all hover:shadow-lg">
@@ -387,9 +387,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="mb-2">정상어학원 문법센터</p>
-          <p className="text-gray-400">30년 경력 James.Yoo 원장</p>
-          <p className="text-gray-400 mt-4">© 2024 정상어학원. All rights reserved.</p>
+          <p className="mb-2 font-semibold">DYB최선 문법연구소 × 정상어학원</p>
+          <p className="text-gray-400 mb-2">문법센터 | 30년 경력 James.Yoo 원장</p>
+          <p className="text-gray-400 text-sm">전 정상어학원 원장과 DYB최선이 함께하는 새로운 문법교육 브랜드</p>
+          <p className="text-gray-400 mt-4 text-sm">© 2024 DYB최선 문법연구소. All rights reserved.</p>
         </div>
       </footer>
     </div>
