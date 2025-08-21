@@ -62,33 +62,60 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              DYB최선 × 정상어학원<br />
-              <span className="text-yellow-300">문법센터</span> 새롭게 시작합니다!
-            </h1>
-            <p className="text-xl mb-4 opacity-95">
-              전 정상어학원 원장 James.Yoo와 DYB최선이 함께하는 문법연구소
-            </p>
-            <p className="text-lg mb-8 opacity-90">
-              8월 26일 화요일 오전 11:00 설명회 | 초5~중3 학생 및 학부모 대상
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-yellow-400 text-black hover:bg-yellow-300 text-lg px-8"
-                onClick={() => document.getElementById('test-section')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                무료 레벨테스트 시작 <ChevronRight className="ml-2" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
-              >
-                <Phone className="mr-2" /> 041-414-5115
-              </Button>
+        <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left Content */}
+              <div className="text-center lg:text-left">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  <span className="text-yellow-300">문법센터</span>
+                  <span className="md:inline"> </span>
+                  <br className="md:hidden" />
+                  <span>설명회</span>
+                </h1>
+                <p className="text-lg md:text-xl mb-4 opacity-95">
+                  전 정상어학원 원장 James.Yoo와<br className="md:hidden" />
+                  <span className="md:inline-block">DYB최선이 함께하는 문법연구소</span>
+                </p>
+                <p className="text-base md:text-lg mb-8 opacity-90">
+                  8월 26일 화요일 오전 11:00<br className="md:hidden" />
+                  <span className="hidden md:inline"> | </span>
+                  <span className="md:inline-block">초5~중3 학생 및 학부모 대상</span>
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Button 
+                    size="lg" 
+                    className="bg-yellow-400 text-black hover:bg-yellow-300 text-lg px-8"
+                    onClick={() => document.getElementById('test-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    무료 레벨테스트 시작 <ChevronRight className="ml-2" />
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+                  >
+                    <Phone className="mr-2" /> 041-414-5115
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Right Image */}
+              <div className="relative lg:block">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-red-700/50 to-transparent rounded-2xl"></div>
+                  <img 
+                    src="/images/director.png" 
+                    alt="James.Yoo 원장님"
+                    className="w-full max-w-md mx-auto lg:max-w-full rounded-2xl shadow-2xl"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-1">James.Yoo 원장</h3>
+                    <p className="text-lg opacity-95">30년 영어교육 전문가</p>
+                    <p className="text-sm opacity-90">전 정상어학원 원장</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -242,7 +269,6 @@ export default function Home() {
                       {testResult.testResult.score >= 80 ? (
                         <>
                           <p className="text-gray-700">✅ 7급 문법 기초가 탄탄합니다!</p>
-                          <p className="text-gray-700">✅ 6급 진급 준비가 가능합니다</p>
                           <p className="text-gray-700">✅ 심화 패턴 학습을 추천합니다</p>
                         </>
                       ) : testResult.testResult.score >= 60 ? (
@@ -282,41 +308,32 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-red-600 text-white">
+      <section className="py-12 md:py-16 bg-red-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             8월 26일 설명회에 참여하세요!
           </h2>
-          <p className="text-xl mb-8 opacity-95">
+          <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-95">
             문법을 끝내고, 문장을 마스터하라!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
-              <p className="font-semibold">일시</p>
-              <p>8/26(화) 오전 11:00</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 md:px-6 py-3 md:py-4">
+              <p className="font-semibold text-sm md:text-base mb-1">일시</p>
+              <p className="text-sm md:text-base">8/26(화) 오전 11:00</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
-              <p className="font-semibold">대상</p>
-              <p>초5 ~ 중3 학생 및 학부모</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 md:px-6 py-3 md:py-4">
+              <p className="font-semibold text-sm md:text-base mb-1">대상</p>
+              <p className="text-sm md:text-base">초5 ~ 중3 학생 및 학부모</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
-              <p className="font-semibold">문의</p>
-              <p>041-414-5115</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 md:px-6 py-3 md:py-4">
+              <p className="font-semibold text-sm md:text-base mb-1">문의</p>
+              <p className="text-sm md:text-base">041-414-5115</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Banner Image Section */}
-      <section className="bg-gray-100">
-        <div className="container mx-auto px-4">
-          <img 
-            src="/images/banner-bottom.png" 
-            alt="정상어학원 문법센터 - 30년 경력 James.Yoo 원장"
-            className="w-full max-w-6xl mx-auto block"
-          />
-        </div>
-      </section>
+     
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">

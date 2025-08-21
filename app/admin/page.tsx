@@ -24,6 +24,7 @@ interface Consultation {
   phone: string
   parent_phone?: string
   level: string
+  score?: number
   preferred_date?: string
   message?: string
   status: string
@@ -226,13 +227,7 @@ export default function AdminDashboard() {
                     <th className="text-left p-2">
                       <div className="flex items-center gap-1">
                         <Award className="h-4 w-4" />
-                        레벨
-                      </div>
-                    </th>
-                    <th className="text-left p-2">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        희망일
+                        점수
                       </div>
                     </th>
                     <th className="text-left p-2">상태</th>
@@ -247,15 +242,9 @@ export default function AdminDashboard() {
                       <td className="p-2">{consultation.grade}</td>
                       <td className="p-2">{consultation.phone}</td>
                       <td className="p-2">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(consultation.level)}`}>
-                          {consultation.level}
+                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600">
+                          {consultation.score ? `${Math.round(consultation.score * 0.45)}/45` : '-'}
                         </span>
-                      </td>
-                      <td className="p-2">
-                        {consultation.preferred_date ? 
-                          new Date(consultation.preferred_date).toLocaleDateString() : 
-                          "-"
-                        }
                       </td>
                       <td className="p-2">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(consultation.status)}`}>

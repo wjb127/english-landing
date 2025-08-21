@@ -8,13 +8,12 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { ChevronRight, ChevronLeft, Trophy, Target, BookOpen, Clock } from "lucide-react"
 
-// 7급 테스트 문제 (초등학교 5학년 수준) - 객관식 40문항
+// 7급 테스트 문제 (초등학교 5학년 수준)
 const testQuestions = [
   // 인지적 문법능력 (1-25번)
   {
     id: 1,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 빈칸에 알맞은 것을 고르시오.",
     sentence: "Tom _______ a student.",
     options: ["am", "is", "are", "be", "been"],
@@ -24,7 +23,6 @@ const testQuestions = [
   {
     id: 2,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "She don't like pizza.",
@@ -39,7 +37,6 @@ const testQuestions = [
   {
     id: 3,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 문장을 의문문으로 바꾸면?",
     sentence: "They are happy.",
     options: [
@@ -55,7 +52,6 @@ const testQuestions = [
   {
     id: 4,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "My sister _______ English every day.",
     options: ["study", "studys", "studies", "studying", "studied"],
@@ -65,7 +61,6 @@ const testQuestions = [
   {
     id: 5,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 틀린 것은?",
     options: [
       "He plays soccer.",
@@ -80,7 +75,6 @@ const testQuestions = [
   {
     id: 6,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 문장에서 동사의 형태가 올바른 것은?",
     options: [
       "The boy run fast.",
@@ -95,7 +89,6 @@ const testQuestions = [
   {
     id: 7,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "I like _______. She is kind.",
     options: ["she", "her", "hers", "herself", "she's"],
@@ -105,7 +98,6 @@ const testQuestions = [
   {
     id: 8,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "He helps I.",
@@ -120,7 +112,6 @@ const testQuestions = [
   {
     id: 9,
     category: "인지적 문법능력",
-    type: "objective",
     question: "우리말을 영어로 올바르게 옮긴 것은?",
     sentence: "나는 그들을 본다.",
     options: [
@@ -136,7 +127,6 @@ const testQuestions = [
   {
     id: 10,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "The flower is _______.",
     options: ["beauty", "beautiful", "beautifully", "more beauty", "beautify"],
@@ -146,7 +136,6 @@ const testQuestions = [
   {
     id: 11,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "She looks happily.",
@@ -156,12 +145,11 @@ const testQuestions = [
       "She look happy."
     ],
     correct: 1,
-    topic: "감각동사 보어"
+    topic: "감각동사"
   },
   {
     id: 12,
     category: "인지적 문법능력",
-    type: "objective",
     question: "2형식 문장은?",
     options: [
       "I eat an apple.",
@@ -171,12 +159,11 @@ const testQuestions = [
       "He studies hard."
     ],
     correct: 1,
-    topic: "문장 형식"
+    topic: "문장형식"
   },
   {
     id: 13,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "I want _______ pizza.",
     options: ["eat", "to eat", "eating", "ate", "eats"],
@@ -186,7 +173,6 @@ const testQuestions = [
   {
     id: 14,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "I like read books.",
@@ -201,8 +187,7 @@ const testQuestions = [
   {
     id: 15,
     category: "인지적 문법능력",
-    type: "objective",
-    question: "\"내 취미는 노래하는 것이다\"를 영어로 하면?",
+    question: "내 취미는 노래하는 것이다를 영어로 하면?",
     options: [
       "My hobby is sing.",
       "My hobby is singing.",
@@ -216,7 +201,6 @@ const testQuestions = [
   {
     id: 16,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 들어갈 말로 가장 적절한 것은?",
     sentence: "My dream is _______ a doctor.",
     options: ["become", "to become", "becoming", "became", "becomes"],
@@ -226,7 +210,6 @@ const testQuestions = [
   {
     id: 17,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "She sings very _______.",
     options: ["good", "well", "nice", "pretty", "best"],
@@ -236,7 +219,6 @@ const testQuestions = [
   {
     id: 18,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "He is a carefully driver.",
@@ -251,7 +233,6 @@ const testQuestions = [
   {
     id: 19,
     category: "인지적 문법능력",
-    type: "objective",
     question: "감탄문으로 옳은 것은?",
     options: [
       "What a beautiful flower!",
@@ -266,7 +247,6 @@ const testQuestions = [
   {
     id: 20,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "I was late _______ the bus was delayed.",
     options: ["and", "but", "because", "so", "or"],
@@ -276,7 +256,6 @@ const testQuestions = [
   {
     id: 21,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "I like apples and oranges.",
@@ -291,7 +270,6 @@ const testQuestions = [
   {
     id: 22,
     category: "인지적 문법능력",
-    type: "objective",
     question: "문장을 자연스럽게 연결하면?",
     sentence: "It was raining. We stayed home.",
     options: [
@@ -307,7 +285,6 @@ const testQuestions = [
   {
     id: 23,
     category: "인지적 문법능력",
-    type: "objective",
     question: "빈칸에 알맞은 것을 고르시오.",
     sentence: "Tom is _______ than Mike.",
     options: ["tall", "taller", "tallest", "more tall", "most tall"],
@@ -317,7 +294,6 @@ const testQuestions = [
   {
     id: 24,
     category: "인지적 문법능력",
-    type: "objective",
     question: "다음 중 어법상 올바른 것은?",
     options: [
       "She is more prettier than her sister.",
@@ -332,7 +308,6 @@ const testQuestions = [
   {
     id: 25,
     category: "인지적 문법능력",
-    type: "objective",
     question: "최상급 표현으로 올바른 것은?",
     options: [
       "He is the most tall in the class.",
@@ -344,102 +319,92 @@ const testQuestions = [
     correct: 2,
     topic: "최상급"
   },
-  // 감각적 문법능력 (26-40번)
+  // 감각적 문법능력 (26-45번) - 틀린 부분 찾기 & 올바른 표현 선택
   {
     id: 26,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "I am more tall than my brother.",
     options: ["I", "am", "more tall", "than", "my brother"],
     correct: 2,
-    topic: "비교급"
+    topic: "비교급 오류"
   },
   {
     id: 27,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "She don't like apples very much.",
     options: ["She", "don't", "like", "apples", "very much"],
     correct: 1,
-    topic: "3인칭 단수"
+    topic: "3인칭 단수 오류"
   },
   {
     id: 28,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "He plays soccer very good.",
     options: ["He", "plays", "soccer", "very", "good"],
     correct: 4,
-    topic: "부사"
+    topic: "부사 오류"
   },
   {
     id: 29,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "They is playing in the park.",
     options: ["They", "is", "playing", "in", "the park"],
     correct: 1,
-    topic: "복수 주어"
+    topic: "주어-동사 불일치"
   },
   {
     id: 30,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "I want eat some delicious pizza.",
-    options: ["I", "want", "eat", "some", "delicious pizza"],
-    correct: 2,
-    topic: "to부정사"
+    options: ["I", "want eat", "some", "delicious", "pizza"],
+    correct: 1,
+    topic: "to부정사 누락"
   },
   {
     id: 31,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "My hobby is to swimming everyday.",
     options: ["My", "hobby", "is", "to swimming", "everyday"],
     correct: 3,
-    topic: "동명사"
+    topic: "동명사 오류"
   },
   {
     id: 32,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "She looks very beautifully today.",
     options: ["She", "looks", "very", "beautifully", "today"],
     correct: 3,
-    topic: "감각동사"
+    topic: "감각동사 보어"
   },
   {
     id: 33,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "The book is more interested than the movie.",
     options: ["The book", "is", "more", "interested", "than the movie"],
     correct: 3,
-    topic: "형용사"
+    topic: "형용사 선택"
   },
   {
     id: 34,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "I like he very much always.",
     options: ["I", "like", "he", "very much", "always"],
     correct: 2,
-    topic: "목적격"
+    topic: "목적격 오류"
   },
   {
     id: 35,
     category: "감각적 문법능력",
-    type: "objective",
-    question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+    question: "다음 문장에서 어법상 어색한 부분은?",
     sentence: "We doesn't have enough time.",
     options: ["We", "doesn't", "have", "enough", "time"],
     correct: 1,
@@ -448,7 +413,6 @@ const testQuestions = [
   {
     id: 36,
     category: "감각적 문법능력",
-    type: "objective",
     question: "올바른 표현을 선택하시오.",
     sentence: "She (look / looks) happy today.",
     options: ["look", "looks"],
@@ -458,7 +422,6 @@ const testQuestions = [
   {
     id: 37,
     category: "감각적 문법능력",
-    type: "objective",
     question: "올바른 표현을 선택하시오.",
     sentence: "I like (he / him) very much.",
     options: ["he", "him"],
@@ -468,7 +431,6 @@ const testQuestions = [
   {
     id: 38,
     category: "감각적 문법능력",
-    type: "objective",
     question: "올바른 표현을 선택하시오.",
     sentence: "The movie is very (interesting / interested).",
     options: ["interesting", "interested"],
@@ -478,7 +440,6 @@ const testQuestions = [
   {
     id: 39,
     category: "감각적 문법능력",
-    type: "objective",
     question: "올바른 표현을 선택하시오.",
     sentence: "We (don't / doesn't) like coffee.",
     options: ["don't", "doesn't"],
@@ -488,65 +449,56 @@ const testQuestions = [
   {
     id: 40,
     category: "감각적 문법능력",
-    type: "objective",
     question: "올바른 표현을 선택하시오.",
     sentence: "This is (a / an) orange.",
     options: ["a", "an"],
     correct: 1,
     topic: "관사"
-  }
-]
-
-// 주관식 문제 (41-45번)
-const subjectiveQuestions = [
+  },
   {
     id: 41,
-    category: "주관식 문제",
-    type: "subjective",
-    question: "다음 우리말을 영어로 완성하시오.",
-    korean: "나의 수학책은 나의 영어책보다 두 배나 두껍다.",
-    sentence: "My math book is _____________ my English book.",
-    hint: "(two times, thick)",
-    answers: ["two times thicker than", "twice thicker than", "2 times thicker than"],
-    topic: "비교급 + 배수표현"
+    category: "감각적 문법능력",
+    question: "올바른 표현을 선택하시오.",
+    sentence: "The test was (easy / easily) for me.",
+    options: ["easy", "easily"],
+    correct: 0,
+    topic: "형용사"
   },
   {
     id: 42,
-    category: "주관식 문제",
-    type: "subjective",
-    question: "빈칸에 알맞은 be동사를 쓰시오.",
-    sentence: "Tom and I _______ best friends. We _______ very happy together.",
-    answers: ["are, are", "are are"],
-    topic: "be동사 복수형"
+    category: "감각적 문법능력",
+    question: "올바른 표현을 선택하시오.",
+    sentence: "They (is / are) my best friends.",
+    options: ["is", "are"],
+    correct: 1,
+    topic: "be동사"
   },
   {
     id: 43,
-    category: "주관식 문제",
-    type: "subjective",
-    question: "다음 문장을 의문문으로 바꾸시오.",
-    sentence: "She studies English every day.",
-    prompt: "→ _____________________________?",
-    answers: ["Does she study English every day?", "Does she study English every day"],
-    topic: "일반동사 의문문"
+    category: "감각적 문법능력",
+    question: "올바른 표현을 선택하시오.",
+    sentence: "She runs (quick / quickly).",
+    options: ["quick", "quickly"],
+    correct: 1,
+    topic: "부사"
   },
   {
     id: 44,
-    category: "주관식 문제",
-    type: "subjective",
-    question: "빈칸에 알맞은 형태로 쓰시오. (동사의 형태 주의)",
-    sentence: "My sister _______ (watch) TV now. My brother _______ (play) soccer every Sunday.",
-    answers: ["is watching, plays", "is watching plays"],
-    topic: "현재진행 vs 현재"
+    category: "감각적 문법능력",
+    question: "올바른 표현을 선택하시오.",
+    sentence: "I have (a / an) useful book.",
+    options: ["a", "an"],
+    correct: 0,
+    topic: "관사"
   },
   {
     id: 45,
-    category: "주관식 문제",
-    type: "subjective",
-    question: "다음 우리말을 영어로 완성하시오.",
-    korean: "나는 피자 먹는 것을 좋아한다.",
-    sentence: "I like _____________ pizza.",
-    answers: ["eating", "to eat"],
-    topic: "좋아하는 것 표현"
+    category: "감각적 문법능력",
+    question: "올바른 표현을 선택하시오.",
+    sentence: "This is (my / mine) pencil.",
+    options: ["my", "mine"],
+    correct: 0,
+    topic: "소유격"
   }
 ]
 
@@ -570,7 +522,7 @@ interface LevelTestProps {
       parentPhone?: string
     }
     testResult: {
-      answers: any[]
+      answers: number[]
       score: number
       level: string
       correctCount: number
@@ -580,9 +532,8 @@ interface LevelTestProps {
 }
 
 export default function LevelTest({ onComplete }: LevelTestProps) {
-  const [step, setStep] = useState<'info' | 'test' | 'subjective' | 'result'>('info')
+  const [step, setStep] = useState<'info' | 'test' | 'result'>('info')
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [currentSubjective, setCurrentSubjective] = useState(0)
   const [userInfo, setUserInfo] = useState({
     name: '',
     grade: '',
@@ -590,9 +541,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     parentPhone: ''
   })
   const [answers, setAnswers] = useState<number[]>([])
-  const [subjectiveAnswers, setSubjectiveAnswers] = useState<string[]>([])
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')
-  const [subjectiveInput, setSubjectiveInput] = useState<string>('')
   const [startTime, setStartTime] = useState<Date | null>(null)
   const [showProgress, setShowProgress] = useState(false)
 
@@ -601,14 +550,14 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       alert('필수 정보를 모두 입력해주세요.')
       return
     }
-    setStartTime(new Date())
     setStep('test')
+    setStartTime(new Date())
     setShowProgress(true)
   }
 
   const handleAnswer = () => {
-    if (selectedAnswer === '') {
-      alert('답을 선택해주세요!')
+    if (!selectedAnswer) {
+      alert('답을 선택해주세요.')
       return
     }
 
@@ -619,27 +568,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     if (currentQuestion < testQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      // 객관식 완료 후 주관식으로 이동
-      setStep('subjective')
-      setCurrentSubjective(0)
-      setSubjectiveInput('')
-    }
-  }
-
-  const handleSubjectiveAnswer = () => {
-    if (subjectiveInput.trim() === '') {
-      alert('답을 입력해주세요!')
-      return
-    }
-
-    const newSubjectiveAnswers = [...subjectiveAnswers, subjectiveInput.trim()]
-    setSubjectiveAnswers(newSubjectiveAnswers)
-    setSubjectiveInput('')
-
-    if (currentSubjective < subjectiveQuestions.length - 1) {
-      setCurrentSubjective(currentSubjective + 1)
-    } else {
-      calculateResult(answers, newSubjectiveAnswers)
+      calculateResult(newAnswers)
     }
   }
 
@@ -647,70 +576,41 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1)
       setSelectedAnswer(answers[currentQuestion - 1]?.toString() || '')
+      setAnswers(answers.slice(0, -1))
     }
   }
 
-  const handlePreviousSubjective = () => {
-    if (currentSubjective > 0) {
-      setCurrentSubjective(currentSubjective - 1)
-      setSubjectiveInput(subjectiveAnswers[currentSubjective - 1] || '')
-    } else {
-      // 주관식 첫 문제에서 이전 누르면 객관식 마지막으로
-      setStep('test')
-      setCurrentQuestion(testQuestions.length - 1)
-      setSelectedAnswer(answers[testQuestions.length - 1]?.toString() || '')
-    }
-  }
-
-  const calculateResult = (objectiveAnswers: number[], subjAnswers: string[]) => {
+  const calculateResult = (allAnswers: number[]) => {
     let correctCount = 0
-    
-    // 객관식 채점
-    testQuestions.forEach((question, index) => {
-      if (objectiveAnswers[index] === question.correct) {
+    allAnswers.forEach((answer, index) => {
+      if (answer === testQuestions[index].correct) {
         correctCount++
       }
     })
 
-    // 주관식 채점
-    subjectiveQuestions.forEach((question, index) => {
-      const userAnswer = subjAnswers[index]?.toLowerCase().replace(/\s+/g, ' ').trim()
-      const isCorrect = question.answers.some(answer => 
-        userAnswer === answer.toLowerCase().replace(/\s+/g, ' ').trim()
-      )
-      if (isCorrect) {
-        correctCount++
-      }
-    })
-
-    const totalQuestions = testQuestions.length + subjectiveQuestions.length
-    const score = Math.round((correctCount / totalQuestions) * 100)
+    const score = Math.round((correctCount / testQuestions.length) * 100)
     
+    // 점수에 따른 레벨 판정
     let level = ''
-    if (score >= 90) level = 'Advanced'
-    else if (score >= 75) level = 'Intermediate'
-    else if (score >= 60) level = 'Pre-Intermediate'
-    else level = 'Beginner'
+    if (score >= 90) level = '7급 완벽 마스터'
+    else if (score >= 80) level = '7급 우수'
+    else if (score >= 70) level = '7급 보통'
+    else if (score >= 60) level = '7급 보완필요'
+    else level = '7급 재학습 권장'
 
     const testResult = {
-      answers: [...objectiveAnswers, ...subjAnswers],
+      answers: allAnswers,
       score,
       level,
       correctCount,
-      totalQuestions
+      totalQuestions: testQuestions.length
     }
 
     setStep('result')
     onComplete({ userInfo, testResult })
   }
 
-  const totalQuestionCount = testQuestions.length + subjectiveQuestions.length
-  const currentQuestionNumber = step === 'test' 
-    ? currentQuestion + 1 
-    : step === 'subjective' 
-      ? testQuestions.length + currentSubjective + 1
-      : 0
-  const progress = (currentQuestionNumber / totalQuestionCount) * 100
+  const progress = ((currentQuestion + 1) / testQuestions.length) * 100
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -732,7 +632,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 테스트 구성
               </h3>
               <ul className="space-y-1 text-sm text-gray-600">
-                <li>• 총 45문항 (객관식 40문항 + 주관식 5문항)</li>
+                <li>• 총 45문항 (인지적 25문항 + 감각적 20문항)</li>
                 <li>• 예상 소요시간: 약 20-30분</li>
                 <li>• 즉시 레벨 측정 및 맞춤 상담 예약</li>
               </ul>
@@ -793,7 +693,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
           <CardHeader>
             <div className="flex justify-between items-center mb-4">
               <CardTitle>
-                문제 {currentQuestion + 1} / {totalQuestionCount}
+                문제 {currentQuestion + 1} / {testQuestions.length}
               </CardTitle>
               <span className="text-sm text-gray-500">
                 {testQuestions[currentQuestion].category}
@@ -851,92 +751,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 className="bg-blue-600 hover:bg-blue-700"
                 onClick={handleAnswer}
               >
-                {currentQuestion === testQuestions.length - 1 ? '주관식으로' : '다음'}
-                <ChevronRight className="ml-2" />
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {step === 'subjective' && (
-        <Card>
-          <CardHeader>
-            <div className="flex justify-between items-center mb-4">
-              <CardTitle>
-                문제 {testQuestions.length + currentSubjective + 1} / {totalQuestionCount}
-              </CardTitle>
-              <span className="text-sm text-gray-500">
-                주관식 문제
-              </span>
-            </div>
-            {showProgress && (
-              <div className="w-full bg-gray-200 rounded-full h-3">
-                <div 
-                  className="bg-blue-600 h-3 rounded-full transition-all duration-300"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-            )}
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-4">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="font-semibold text-lg mb-2">
-                  {subjectiveQuestions[currentSubjective].question}
-                </p>
-                {subjectiveQuestions[currentSubjective].korean && (
-                  <p className="text-base text-gray-700 mb-2">
-                    {subjectiveQuestions[currentSubjective].korean}
-                  </p>
-                )}
-                {subjectiveQuestions[currentSubjective].sentence && (
-                  <p className="text-lg bg-white p-3 rounded border font-mono">
-                    {subjectiveQuestions[currentSubjective].sentence}
-                  </p>
-                )}
-                {subjectiveQuestions[currentSubjective].prompt && (
-                  <p className="text-lg mt-2">
-                    {subjectiveQuestions[currentSubjective].prompt}
-                  </p>
-                )}
-                {subjectiveQuestions[currentSubjective].hint && (
-                  <p className="text-sm text-gray-500 mt-2">
-                    힌트: {subjectiveQuestions[currentSubjective].hint}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Label htmlFor="subjective-answer">답안 입력</Label>
-                <Input
-                  id="subjective-answer"
-                  value={subjectiveInput}
-                  onChange={(e) => setSubjectiveInput(e.target.value)}
-                  placeholder="답을 입력하세요"
-                  className="mt-2 text-lg"
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') {
-                      handleSubjectiveAnswer()
-                    }
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="flex justify-between pt-4">
-              <Button
-                variant="outline"
-                onClick={handlePreviousSubjective}
-              >
-                <ChevronLeft className="mr-2" />
-                이전
-              </Button>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700"
-                onClick={handleSubjectiveAnswer}
-              >
-                {currentSubjective === subjectiveQuestions.length - 1 ? '제출하기' : '다음'}
+                {currentQuestion === testQuestions.length - 1 ? '제출하기' : '다음'}
                 <ChevronRight className="ml-2" />
               </Button>
             </div>
