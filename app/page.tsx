@@ -253,11 +253,8 @@ export default function Home() {
                       <p className="text-4xl font-bold text-red-600 mb-2">{testResult.testResult.level}</p>
                       <div className="flex justify-center items-center gap-4 text-lg">
                         <span className="font-semibold">점수:</span>
-                        <span className="text-2xl font-bold">{testResult.testResult.score}점</span>
+                        <span className="text-2xl font-bold">{testResult.testResult.correctCount}/{testResult.testResult.totalQuestions}</span>
                       </div>
-                      <p className="text-gray-600 mt-2">
-                        {testResult.testResult.correctCount}/{testResult.testResult.totalQuestions} 문제 정답
-                      </p>
                     </div>
                   </div>
                   
@@ -267,12 +264,12 @@ export default function Home() {
                       맞춤 학습 추천
                     </h3>
                     <div className="text-left space-y-2">
-                      {testResult.testResult.score >= 80 ? (
+                      {testResult.testResult.correctCount >= 36 ? (
                         <>
                           <p className="text-gray-700">✅ 7급 문법 기초가 탄탄합니다!</p>
                           <p className="text-gray-700">✅ 심화 패턴 학습을 추천합니다</p>
                         </>
-                      ) : testResult.testResult.score >= 60 ? (
+                      ) : testResult.testResult.correctCount >= 27 ? (
                         <>
                           <p className="text-gray-700">✅ 기본 문법 이해도가 양호합니다</p>
                           <p className="text-gray-700">✅ 부족한 영역 집중 보완 필요</p>

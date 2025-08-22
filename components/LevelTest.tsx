@@ -694,7 +694,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
 
     const testResult = {
       answers: [...objectiveAnswers, ...subjAnswers],
-      score,
+      score: correctCount,  // 맞춘 문제 수를 score로 전달
       level,
       correctCount,
       totalQuestions

@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock, Lock } from "lucide-react"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock, Lock, Edit, Trash2, X } from "lucide-react"
 
 interface TestResult {
   id: number
@@ -45,6 +47,8 @@ export default function AdminDashboard() {
     pendingConsultations: 0
   })
   const [loading, setLoading] = useState(true)
+  const [editingConsultation, setEditingConsultation] = useState<Consultation | null>(null)
+  const [editForm, setEditForm] = useState<Consultation | null>(null)
 
   useEffect(() => {
     // Check if already authenticated in session
@@ -116,21 +120,58 @@ export default function AdminDashboard() {
     }
   }
 
-  const handleStatusUpdate = async (id: number, status: string) => {
+  const handleEdit = (consultation: Consultation) => {
+    setEditingConsultation(consultation)
+    setEditForm({ ...consultation })
+  }
+
+  const handleSaveEdit = async () => {
+    if (!editForm) return
+
     try {
       const response = await fetch('/api/admin/consultations', {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id, status })
+        body: JSON.stringify(editForm)
       })
 
       if (response.ok) {
-        fetchData() // 데이터 새로고침
+        setEditingConsultation(null)
+        setEditForm(null)
+        fetchData()
+        alert('수정되었습니다.')
+      } else {
+        alert('수정 중 오류가 발생했습니다.')
       }
     } catch (error) {
-      console.error('Error updating status:', error)
+      console.error('Error updating consultation:', error)
+      alert('수정 중 오류가 발생했습니다.')
+    }
+  }
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('정말 삭제하시겠습니까?')) return
+
+    try {
+      const response = await fetch('/api/admin/consultations', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id })
+      })
+
+      if (response.ok) {
+        fetchData()
+        alert('삭제되었습니다.')
+      } else {
+        alert('삭제 중 오류가 발생했습니다.')
+      }
+    } catch (error) {
+      console.error('Error deleting consultation:', error)
+      alert('삭제 중 오류가 발생했습니다.')
     }
   }
 
@@ -299,7 +340,7 @@ export default function AdminDashboard() {
                     <th className="text-left p-2">
                       <div className="flex items-center gap-1">
                         <Award className="h-4 w-4" />
-                        점수
+                        맞춘 문제수
                       </div>
                     </th>
                     <th className="text-left p-2">상태</th>
@@ -315,7 +356,7 @@ export default function AdminDashboard() {
                       <td className="p-2">{consultation.phone}</td>
                       <td className="p-2">
                         <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600">
-                          {consultation.score ? `${Math.round(consultation.score * 0.45)}/45` : '-'}
+                          {consultation.score ? `${consultation.score}/45` : '-'}
                         </span>
                       </td>
                       <td className="p-2">
@@ -329,19 +370,21 @@ export default function AdminDashboard() {
                       </td>
                       <td className="p-2">
                         <div className="flex gap-2">
-                          <Button size="sm" variant="outline">
-                            <Phone className="h-3 w-3 mr-1" />
-                            연락
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => handleEdit(consultation)}
+                          >
+                            <Edit className="h-3 w-3" />
                           </Button>
-                          {consultation.status === "pending" && (
-                            <Button 
-                              size="sm" 
-                              className="bg-green-600 hover:bg-green-700"
-                              onClick={() => handleStatusUpdate(consultation.id, 'confirmed')}
-                            >
-                              확정
-                            </Button>
-                          )}
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            className="text-red-600 hover:bg-red-50"
+                            onClick={() => handleDelete(consultation.id)}
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
                         </div>
                       </td>
                     </tr>
@@ -365,6 +408,97 @@ export default function AdminDashboard() {
         </>
         )}
       </div>
+
+      {/* Edit Modal */}
+      {editingConsultation && editForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <Card className="w-full max-w-lg mx-4">
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <CardTitle>상담 정보 수정</CardTitle>
+                <Button 
+                  size="sm" 
+                  variant="ghost"
+                  onClick={() => {
+                    setEditingConsultation(null)
+                    setEditForm(null)
+                  }}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label htmlFor="edit-name">이름</Label>
+                <Input
+                  id="edit-name"
+                  value={editForm.name}
+                  onChange={(e) => setEditForm({...editForm, name: e.target.value})}
+                />
+              </div>
+              <div>
+                <Label htmlFor="edit-grade">학년</Label>
+                <Input
+                  id="edit-grade"
+                  value={editForm.grade}
+                  onChange={(e) => setEditForm({...editForm, grade: e.target.value})}
+                />
+              </div>
+              <div>
+                <Label htmlFor="edit-phone">연락처</Label>
+                <Input
+                  id="edit-phone"
+                  value={editForm.phone}
+                  onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
+                />
+              </div>
+              <div>
+                <Label htmlFor="edit-status">상태</Label>
+                <Select 
+                  value={editForm.status}
+                  onValueChange={(value) => setEditForm({...editForm, status: value})}
+                >
+                  <SelectTrigger id="edit-status">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="pending">대기중</SelectItem>
+                    <SelectItem value="confirmed">확정</SelectItem>
+                    <SelectItem value="completed">완료</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="edit-message">메모</Label>
+                <Textarea
+                  id="edit-message"
+                  value={editForm.message || ''}
+                  onChange={(e) => setEditForm({...editForm, message: e.target.value})}
+                  rows={3}
+                />
+              </div>
+              <div className="flex justify-end gap-2 pt-4">
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    setEditingConsultation(null)
+                    setEditForm(null)
+                  }}
+                >
+                  취소
+                </Button>
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700"
+                  onClick={handleSaveEdit}
+                >
+                  저장
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   )
 }
