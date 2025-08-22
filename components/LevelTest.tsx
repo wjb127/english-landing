@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, ChevronLeft, Trophy, Target, BookOpen, Clock } from "lucide-react"
+import { gradeInfo, grade6Questions } from "@/lib/testData"
 
 // 7급 테스트 문제 (초등학교 5학년 수준) - 객관식 40문항
 const testQuestions = [
@@ -581,7 +582,8 @@ interface LevelTestProps {
 }
 
 export default function LevelTest({ onComplete }: LevelTestProps) {
-  const [step, setStep] = useState<'info' | 'test' | 'subjective' | 'result'>('info')
+  const [step, setStep] = useState<'grade' | 'info' | 'test' | 'subjective' | 'result'>('grade')
+  const [selectedGrade, setSelectedGrade] = useState<string>('')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [currentSubjective, setCurrentSubjective] = useState(0)
   const [userInfo, setUserInfo] = useState({
@@ -598,9 +600,22 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
   const [startTime, setStartTime] = useState<Date | null>(null)
   const [showProgress, setShowProgress] = useState(false)
 
+  // 선택된 급수에 따라 문제 선택
+  const currentTestQuestions = selectedGrade === '6급' ? 
+    (grade6Questions.objective.length > 0 ? grade6Questions.objective : currentTestQuestions) : 
+    currentTestQuestions
+  const currentSubjectiveQuestions = selectedGrade === '6급' ? 
+    (grade6Questions.subjective.length > 0 ? grade6Questions.subjective : currentSubjectiveQuestions) : 
+    currentSubjectiveQuestions
+
+  const handleSelectGrade = (grade: string) => {
+    setSelectedGrade(grade)
+    setStep('info')
+  }
+
   const handleStartTest = () => {
-    if (!userInfo.name || !userInfo.grade || !userInfo.phone) {
-      alert('필수 정보를 모두 입력해주세요.')
+    if (!userInfo.name || !userInfo.grade || !userInfo.phone || !userInfo.parentPhone) {
+      alert('필수 정보를 모두 입력해주세요. (학부모 연락처 포함)')
       return
     }
     setStartTime(new Date())
@@ -618,7 +633,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     setAnswers(newAnswers)
     setSelectedAnswer('')
 
-    if (currentQuestion < testQuestions.length - 1) {
+    if (currentQuestion < currentTestQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
       // 객관식 완료 후 주관식으로 이동
@@ -638,7 +653,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     setSubjectiveAnswers(newSubjectiveAnswers)
     setSubjectiveInput('')
 
-    if (currentSubjective < subjectiveQuestions.length - 1) {
+    if (currentSubjective < currentSubjectiveQuestions.length - 1) {
       setCurrentSubjective(currentSubjective + 1)
     } else {
       calculateResult(answers, newSubjectiveAnswers)
@@ -659,8 +674,8 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     } else {
       // 주관식 첫 문제에서 이전 누르면 객관식 마지막으로
       setStep('test')
-      setCurrentQuestion(testQuestions.length - 1)
-      setSelectedAnswer(answers[testQuestions.length - 1]?.toString() || '')
+      setCurrentQuestion(currentTestQuestions.length - 1)
+      setSelectedAnswer(answers[currentTestQuestions.length - 1]?.toString() || '')
     }
   }
 
@@ -668,14 +683,14 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     let correctCount = 0
     
     // 객관식 채점
-    testQuestions.forEach((question, index) => {
+    currentTestQuestions.forEach((question, index) => {
       if (objectiveAnswers[index] === question.correct) {
         correctCount++
       }
     })
 
     // 주관식 채점
-    subjectiveQuestions.forEach((question, index) => {
+    currentSubjectiveQuestions.forEach((question, index) => {
       const userAnswer = subjAnswers[index]?.toLowerCase()
         .replace(/\s+/g, ' ')  // 연속된 공백을 하나로
         .replace(/,\s*/g, ',') // 쉼표 뒤 공백 제거
@@ -694,7 +709,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       }
     })
 
-    const totalQuestions = testQuestions.length + subjectiveQuestions.length
+    const totalQuestions = currentTestQuestions.length + currentSubjectiveQuestions.length
     const score = Math.round((correctCount / totalQuestions) * 100)
     
     let level = ''
@@ -715,25 +730,52 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     onComplete({ userInfo, testResult })
   }
 
-  const totalQuestionCount = testQuestions.length + subjectiveQuestions.length
+  const totalQuestionCount = currentTestQuestions.length + currentSubjectiveQuestions.length
   const currentQuestionNumber = step === 'test' 
     ? currentQuestion + 1 
     : step === 'subjective' 
-      ? testQuestions.length + currentSubjective + 1
+      ? currentTestQuestions.length + currentSubjective + 1
       : 0
   const progress = (currentQuestionNumber / totalQuestionCount) * 100
 
   return (
     <div className="max-w-4xl mx-auto">
+      {step === 'grade' && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-center text-2xl">급수 선택</CardTitle>
+            <CardDescription className="text-center">
+              자신의 학년에 맞는 급수를 선택해주세요
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.entries(gradeInfo).map(([key, info]) => (
+                <Button
+                  key={key}
+                  variant="outline"
+                  className="h-auto p-4 flex flex-col items-start text-left hover:bg-blue-50 hover:border-blue-500"
+                  onClick={() => handleSelectGrade(key)}
+                >
+                  <div className="font-bold text-lg mb-1">{info.level}</div>
+                  <div className="text-sm text-gray-600 mb-1">추천 학년: {info.grade}</div>
+                  <div className="text-xs text-gray-500">{info.description}</div>
+                </Button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       {step === 'info' && (
         <Card>
           <CardHeader className="text-center">
             <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
               <Target className="text-blue-600 w-8 h-8" />
             </div>
-            <CardTitle className="text-2xl">7급 영어문법 진단테스트</CardTitle>
+            <CardTitle className="text-2xl">{selectedGrade} 영어문법 진단테스트</CardTitle>
             <CardDescription className="text-lg mt-2">
-              초등학교 5학년 수준 - 영어 기초 문법 완전 정복!
+              {gradeInfo[selectedGrade as keyof typeof gradeInfo]?.grade} 수준 - {gradeInfo[selectedGrade as keyof typeof gradeInfo]?.description}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -778,12 +820,13 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 />
               </div>
               <div>
-                <Label htmlFor="parentPhone">학부모 연락처 (선택)</Label>
+                <Label htmlFor="parentPhone">학부모 연락처 <span className="text-red-500">*</span></Label>
                 <Input
                   id="parentPhone"
                   value={userInfo.parentPhone}
                   onChange={(e) => setUserInfo({...userInfo, parentPhone: e.target.value})}
                   placeholder="010-0000-0000"
+                  required
                 />
               </div>
               <div className="md:col-span-2">
@@ -817,7 +860,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 문제 {currentQuestion + 1} / {totalQuestionCount}
               </CardTitle>
               <span className="text-sm text-gray-500">
-                {testQuestions[currentQuestion].category}
+                {currentTestQuestions[currentQuestion].category}
               </span>
             </div>
             {showProgress && (
@@ -833,18 +876,18 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
             <div className="space-y-4">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="font-semibold text-lg mb-2">
-                  {testQuestions[currentQuestion].question}
+                  {currentTestQuestions[currentQuestion].question}
                 </p>
-                {testQuestions[currentQuestion].sentence && (
+                {currentTestQuestions[currentQuestion].sentence && (
                   <p className="text-lg bg-white p-3 rounded border">
-                    {testQuestions[currentQuestion].sentence}
+                    {currentTestQuestions[currentQuestion].sentence}
                   </p>
                 )}
               </div>
 
               <RadioGroup value={selectedAnswer} onValueChange={setSelectedAnswer}>
                 <div className="space-y-3">
-                  {testQuestions[currentQuestion].options.map((option, index) => (
+                  {currentTestQuestions[currentQuestion].options.map((option, index) => (
                     <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition">
                       <RadioGroupItem value={index.toString()} id={`option-${index}`} />
                       <Label 
@@ -872,7 +915,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 className="bg-blue-600 hover:bg-blue-700"
                 onClick={handleAnswer}
               >
-                {currentQuestion === testQuestions.length - 1 ? '주관식으로' : '다음'}
+                {currentQuestion === currentTestQuestions.length - 1 ? '주관식으로' : '다음'}
                 <ChevronRight className="ml-2" />
               </Button>
             </div>
@@ -885,7 +928,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
           <CardHeader>
             <div className="flex justify-between items-center mb-4">
               <CardTitle>
-                문제 {testQuestions.length + currentSubjective + 1} / {totalQuestionCount}
+                문제 {currentTestQuestions.length + currentSubjective + 1} / {totalQuestionCount}
               </CardTitle>
               <span className="text-sm text-gray-500">
                 주관식 문제
@@ -904,26 +947,26 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
             <div className="space-y-4">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="font-semibold text-lg mb-2">
-                  {subjectiveQuestions[currentSubjective].question}
+                  {currentSubjectiveQuestions[currentSubjective].question}
                 </p>
-                {subjectiveQuestions[currentSubjective].korean && (
+                {currentSubjectiveQuestions[currentSubjective].korean && (
                   <p className="text-base text-gray-700 mb-2">
-                    {subjectiveQuestions[currentSubjective].korean}
+                    {currentSubjectiveQuestions[currentSubjective].korean}
                   </p>
                 )}
-                {subjectiveQuestions[currentSubjective].sentence && (
+                {currentSubjectiveQuestions[currentSubjective].sentence && (
                   <p className="text-lg bg-white p-3 rounded border font-mono">
-                    {subjectiveQuestions[currentSubjective].sentence}
+                    {currentSubjectiveQuestions[currentSubjective].sentence}
                   </p>
                 )}
-                {subjectiveQuestions[currentSubjective].prompt && (
+                {currentSubjectiveQuestions[currentSubjective].prompt && (
                   <p className="text-lg mt-2">
-                    {subjectiveQuestions[currentSubjective].prompt}
+                    {currentSubjectiveQuestions[currentSubjective].prompt}
                   </p>
                 )}
-                {subjectiveQuestions[currentSubjective].hint && (
+                {currentSubjectiveQuestions[currentSubjective].hint && (
                   <p className="text-sm text-gray-500 mt-2">
-                    힌트: {subjectiveQuestions[currentSubjective].hint}
+                    힌트: {currentSubjectiveQuestions[currentSubjective].hint}
                   </p>
                 )}
               </div>
@@ -957,7 +1000,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 className="bg-blue-600 hover:bg-blue-700"
                 onClick={handleSubjectiveAnswer}
               >
-                {currentSubjective === subjectiveQuestions.length - 1 ? '제출하기' : '다음'}
+                {currentSubjective === currentSubjectiveQuestions.length - 1 ? '제출하기' : '다음'}
                 <ChevronRight className="ml-2" />
               </Button>
             </div>
