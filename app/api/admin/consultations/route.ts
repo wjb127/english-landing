@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { supabaseAdmin } from '@/lib/supabase-admin'
 
 export async function GET() {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('kmong_11_consultations')
       .select('*')
       .order('created_at', { ascending: false })
@@ -25,7 +25,7 @@ export async function PUT(request: Request) {
     const data = await request.json()
     const { id, ...updateData } = data
 
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from('kmong_11_consultations')
       .update(updateData)
       .eq('id', id)
@@ -51,7 +51,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID is required' }, { status: 400 })
     }
 
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from('kmong_11_consultations')
       .delete()
       .eq('id', id)
