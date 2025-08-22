@@ -333,6 +333,7 @@ export default function AdminDashboard() {
                         연락처
                       </div>
                     </th>
+                    <th className="text-left p-2">학부모 연락처</th>
                     <th className="text-left p-2">
                       <div className="flex items-center gap-1">
                         <Award className="h-4 w-4" />
@@ -350,6 +351,7 @@ export default function AdminDashboard() {
                       <td className="p-2 font-medium">{consultation.name}</td>
                       <td className="p-2">{consultation.grade}</td>
                       <td className="p-2">{consultation.phone}</td>
+                      <td className="p-2">{consultation.parent_phone || '-'}</td>
                       <td className="p-2">
                         <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600">
                           {consultation.score ? `${consultation.score}/45` : '-'}
@@ -447,6 +449,14 @@ export default function AdminDashboard() {
                   id="edit-phone"
                   value={editForm.phone}
                   onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
+                />
+              </div>
+              <div>
+                <Label htmlFor="edit-parent-phone">학부모 연락처</Label>
+                <Input
+                  id="edit-parent-phone"
+                  value={editForm.parent_phone || ''}
+                  onChange={(e) => setEditForm({...editForm, parent_phone: e.target.value})}
                 />
               </div>
               <div>
