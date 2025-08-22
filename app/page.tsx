@@ -45,6 +45,7 @@ export default function Home() {
         body: JSON.stringify({
           ...testResult.userInfo,
           level: testResult.testResult.level,
+          score: testResult.testResult.score,
           message: '레벨 테스트 완료 후 상담 신청'
         })
       })

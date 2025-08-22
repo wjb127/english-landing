@@ -19,6 +19,7 @@ CREATE TABLE kmong_11_consultations (
   phone VARCHAR(20) NOT NULL,
   parent_phone VARCHAR(20),
   level VARCHAR(50),
+  score INTEGER,
   preferred_date DATE,
   message TEXT,
   status VARCHAR(20) DEFAULT 'pending',
