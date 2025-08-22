@@ -534,9 +534,9 @@ const subjectiveQuestions = [
     id: 44,
     category: "주관식 문제",
     type: "subjective",
-    question: "빈칸에 알맞은 형태로 쓰시오. (동사의 형태 주의)",
+    question: "빈칸에 알맞은 형태로 쓰시오. (동사의 형태 주의, 답을 쉼표로 구분하세요)",
     sentence: "My sister _______ (watch) TV now. My brother _______ (play) soccer every Sunday.",
-    answers: ["is watching, plays", "is watching plays"],
+    answers: ["is watching, plays", "is watching plays", "is watching,plays"],
     topic: "현재진행 vs 현재"
   },
   {
@@ -676,10 +676,19 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
 
     // 주관식 채점
     subjectiveQuestions.forEach((question, index) => {
-      const userAnswer = subjAnswers[index]?.toLowerCase().replace(/\s+/g, ' ').trim()
-      const isCorrect = question.answers.some(answer => 
-        userAnswer === answer.toLowerCase().replace(/\s+/g, ' ').trim()
-      )
+      const userAnswer = subjAnswers[index]?.toLowerCase()
+        .replace(/\s+/g, ' ')  // 연속된 공백을 하나로
+        .replace(/,\s*/g, ',') // 쉼표 뒤 공백 제거
+        .trim()
+      
+      const isCorrect = question.answers.some(answer => {
+        const normalizedAnswer = answer.toLowerCase()
+          .replace(/\s+/g, ' ')  // 연속된 공백을 하나로
+          .replace(/,\s*/g, ',') // 쉼표 뒤 공백 제거
+          .trim()
+        return userAnswer === normalizedAnswer
+      })
+      
       if (isCorrect) {
         correctCount++
       }
