@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, ChevronLeft, Trophy, Target, BookOpen, Clock } from "lucide-react"
 
 // 7급 테스트 문제 (초등학교 5학년 수준) - 객관식 40문항
@@ -587,7 +588,8 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     name: '',
     grade: '',
     phone: '',
-    parentPhone: ''
+    parentPhone: '',
+    memo: ''
   })
   const [answers, setAnswers] = useState<number[]>([])
   const [subjectiveAnswers, setSubjectiveAnswers] = useState<string[]>([])
@@ -773,6 +775,16 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                   value={userInfo.parentPhone}
                   onChange={(e) => setUserInfo({...userInfo, parentPhone: e.target.value})}
                   placeholder="010-0000-0000"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <Label htmlFor="memo">상담 시 참고사항 (선택)</Label>
+                <Textarea
+                  id="memo"
+                  value={userInfo.memo}
+                  onChange={(e) => setUserInfo({...userInfo, memo: e.target.value})}
+                  placeholder="상담 시 참고하실 내용이나 질문사항을 입력해주세요."
+                  rows={3}
                 />
               </div>
             </div>

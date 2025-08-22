@@ -5,15 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog"
 import LevelTest from "@/components/LevelTest"
 import { ChevronRight, BookOpen, Trophy, Users, Clock, Phone, CheckCircle, Award, Target, Calendar } from "lucide-react"
 
@@ -21,8 +12,6 @@ export default function Home() {
   const [showTest, setShowTest] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const [testResult, setTestResult] = useState<any>(null)
-  const [showReservationModal, setShowReservationModal] = useState(false)
-  const [reservationMemo, setReservationMemo] = useState('')
 
   const handleTestComplete = (data: any) => {
     setTestResult(data)
@@ -46,12 +35,7 @@ export default function Home() {
     setShowTest(true)
   }
 
-  const handleReservation = () => {
-    if (!testResult) return
-    setShowReservationModal(true)
-  }
-
-  const handleConfirmReservation = async () => {
+  const handleReservation = async () => {
     if (!testResult) return
     
     try {
@@ -62,14 +46,12 @@ export default function Home() {
           ...testResult.userInfo,
           level: testResult.testResult.level,
           score: testResult.testResult.score,
-          message: reservationMemo || '레벨 테스트 완료 후 상담 신청'
+          message: testResult.userInfo.memo || '레벨 테스트 완료 후 상담 신청'
         })
       })
       
       if (response.ok) {
         alert('상담 예약이 완료되었습니다. 곧 연락드리겠습니다.')
-        setShowReservationModal(false)
-        setReservationMemo('')
       }
     } catch (error) {
       alert('예약 중 오류가 발생했습니다. 전화로 문의해주세요.')
@@ -361,47 +343,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Reservation Modal */}
-      <Dialog open={showReservationModal} onOpenChange={setShowReservationModal}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>무료 상담 예약</DialogTitle>
-            <DialogDescription>
-              상담 예약을 위한 추가 정보를 입력해주세요.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label>학생 정보</Label>
-              <div className="text-sm text-gray-600 space-y-1">
-                <p>이름: {testResult?.userInfo?.name}</p>
-                <p>학년: {testResult?.userInfo?.grade}</p>
-                <p>연락처: {testResult?.userInfo?.phone}</p>
-                <p>학부모 연락처: {testResult?.userInfo?.parentPhone || '-'}</p>
-                <p>레벨: {testResult?.testResult?.level} ({testResult?.testResult?.correctCount}/{testResult?.testResult?.totalQuestions}문제 정답)</p>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="memo">상담 시 참고사항 (선택)</Label>
-              <Textarea
-                id="memo"
-                placeholder="상담 시 참고하실 내용이나 질문사항을 입력해주세요."
-                value={reservationMemo}
-                onChange={(e) => setReservationMemo(e.target.value)}
-                rows={4}
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setShowReservationModal(false)}>
-              취소
-            </Button>
-            <Button onClick={handleConfirmReservation}>
-              예약 확정
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   )
 }
