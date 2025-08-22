@@ -155,12 +155,8 @@ export default function AdminDashboard() {
     if (!confirm('정말 삭제하시겠습니까?')) return
 
     try {
-      const response = await fetch('/api/admin/consultations', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id })
+      const response = await fetch(`/api/admin/consultations?id=${id}`, {
+        method: 'DELETE'
       })
 
       if (response.ok) {
