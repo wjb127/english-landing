@@ -643,6 +643,29 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     }
   }
 
+  // 답변 선택 시 자동으로 다음 문제로 이동
+  const handleAnswerSelection = (value: string) => {
+    setSelectedAnswer(value)
+    
+    // 답변이 저장되지 않은 문제에서만 자동 진행
+    if (answers.length === currentQuestion) {
+      setTimeout(() => {
+        const newAnswers = [...answers, parseInt(value)]
+        setAnswers(newAnswers)
+        setSelectedAnswer('')
+
+        if (currentQuestion < currentTestQuestions.length - 1) {
+          setCurrentQuestion(currentQuestion + 1)
+        } else {
+          // 객관식 완료 후 주관식으로 이동
+          setStep('subjective')
+          setCurrentSubjective(0)
+          setSubjectiveInput('')
+        }
+      }, 300) // 300ms 딜레이로 선택 확인 후 이동
+    }
+  }
+
   const handleSubjectiveAnswer = () => {
     if (subjectiveInput.trim() === '') {
       alert('답을 입력해주세요!')
@@ -886,7 +909,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 )}
               </div>
 
-              <RadioGroup value={selectedAnswer} onValueChange={setSelectedAnswer}>
+              <RadioGroup value={selectedAnswer} onValueChange={handleAnswerSelection}>
                 <div className="space-y-3">
                   {currentTestQuestions[currentQuestion].options.map((option, index) => (
                     <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition">
@@ -908,17 +931,27 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 variant="outline"
                 onClick={handlePrevious}
                 disabled={currentQuestion === 0}
+                className={currentQuestion > 0 ? "bg-yellow-100 hover:bg-yellow-200 border-yellow-400 text-yellow-800" : ""}
               >
                 <ChevronLeft className="mr-2" />
                 이전
               </Button>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700"
-                onClick={handleAnswer}
-              >
-                {currentQuestion === currentTestQuestions.length - 1 ? '주관식으로' : '다음'}
-                <ChevronRight className="ml-2" />
-              </Button>
+              {/* 마지막 문제이거나 이미 답변한 문제일 때만 다음 버튼 표시 */}
+              {(currentQuestion === currentTestQuestions.length - 1 || answers.length > currentQuestion) && (
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700"
+                  onClick={handleAnswer}
+                >
+                  {currentQuestion === currentTestQuestions.length - 1 ? '주관식으로' : '다음'}
+                  <ChevronRight className="ml-2" />
+                </Button>
+              )}
+              {/* 아직 답변하지 않은 문제에서는 힌트 텍스트 표시 */}
+              {currentQuestion < currentTestQuestions.length - 1 && answers.length === currentQuestion && (
+                <div className="text-sm text-gray-500 flex items-center">
+                  답변을 선택하면 자동으로 다음 문제로 이동합니다
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -993,6 +1026,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
               <Button
                 variant="outline"
                 onClick={handlePreviousSubjective}
+                className="bg-yellow-100 hover:bg-yellow-200 border-yellow-400 text-yellow-800"
               >
                 <ChevronLeft className="mr-2" />
                 이전
