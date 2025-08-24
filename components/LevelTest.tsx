@@ -955,9 +955,11 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
               <CardTitle>
                 문제 {currentQuestion + 1} / {totalQuestionCount}
               </CardTitle>
-              <span className="text-sm text-gray-500">
-                {currentTestQuestions[currentQuestion].category}
-              </span>
+              {selectedLevel === '1급' && (
+                <span className="text-sm text-gray-500">
+                  {(currentTestQuestions[currentQuestion] as any).category}
+                </span>
+              )}
             </div>
             {showProgress && (
               <div className="w-full bg-gray-200 rounded-full h-3">
