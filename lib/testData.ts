@@ -1176,6 +1176,147 @@ export const grade1Questions = {
       sentence: "I would rather you _______ me the truth.",
       options: ["tell", "told", "telling", "to tell", "have told"],
       correct: 1
+    },
+    // 감각적 문법능력 (26-45번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① is ② always ③ complained ④ about ⑤ the weather.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① wish ② I ③ will ④ be ⑤ taller.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "It ① is ② said ③ him ④ to ⑤ be honest.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Five ① million ② dollars ③ are ④ a ⑤ lot of money.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Neither ① of ② the ③ answers ④ are ⑤ correct.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① explained ② her ③ how ④ to ⑤ solve the problem.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① While ② crossed ③ the ④ street, ⑤ he saw an accident.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① man ② said ③ to ④ be ⑤ a genius is actually ordinary.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "This ① is ② the ③ very ④ place ⑤ where I was looking for.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 4
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① Should ② you ③ will ④ come, ⑤ please call me.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He speaks English _______ he were a native speaker.",
+      options: ["as if", "as though", "both as if and as though", "like", "as"],
+      correct: 2
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ yesterday did I realize my mistake.",
+      options: ["Not until", "Until not", "Not when", "Until", "Not"],
+      correct: 0
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ had the concert begun when it started raining.",
+      options: ["Hardly", "Hard", "Hardily", "Hardy", "Harder"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I would rather _______ home than go out tonight.",
+      options: ["stay", "stayed", "staying", "to stay", "have stayed"],
+      correct: 0
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "There is no doubt _______ he is the best candidate.",
+      options: ["that", "what", "whether", "if", "which"],
+      correct: 0
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ carefully you read, the better you understand.",
+      options: ["The more", "More", "Much", "The much", "Most"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't think this plan _______ effectively.",
+      options: ["will work", "won't work", "doesn't work", "work", "working"],
+      correct: 0
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "It was not until midnight _______ he came home.",
+      options: ["that", "when", "which", "where", "while"],
+      correct: 0
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ difficult was the exam that many students failed.",
+      options: ["So", "Such", "Too", "Very", "Much"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He is _______ a teacher than I am a student.",
+      options: ["no more", "not more", "no less", "not less", "neither"],
+      correct: 0
     }
   ],
   subjective: [
