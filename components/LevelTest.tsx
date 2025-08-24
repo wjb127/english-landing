@@ -955,7 +955,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
               <CardTitle>
                 문제 {currentQuestion + 1} / {totalQuestionCount}
               </CardTitle>
-              {selectedLevel === '1급' && (
+              {selectedGrade === '1급' && (
                 <span className="text-sm text-gray-500">
                   {(currentTestQuestions[currentQuestion] as any).category}
                 </span>
@@ -1057,9 +1057,9 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 <p className="font-semibold text-lg mb-2">
                   {currentSubjectiveQuestions[currentSubjective].question}
                 </p>
-                {currentSubjectiveQuestions[currentSubjective].korean && (
+                {(currentSubjectiveQuestions[currentSubjective] as any).korean && (
                   <p className="text-base text-gray-700 mb-2">
-                    {currentSubjectiveQuestions[currentSubjective].korean}
+                    {(currentSubjectiveQuestions[currentSubjective] as any).korean}
                   </p>
                 )}
                 {currentSubjectiveQuestions[currentSubjective].sentence && (
@@ -1067,14 +1067,14 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                     {currentSubjectiveQuestions[currentSubjective].sentence}
                   </p>
                 )}
-                {currentSubjectiveQuestions[currentSubjective].prompt && (
+                {(currentSubjectiveQuestions[currentSubjective] as any).prompt && (
                   <p className="text-lg mt-2">
-                    {currentSubjectiveQuestions[currentSubjective].prompt}
+                    {(currentSubjectiveQuestions[currentSubjective] as any).prompt}
                   </p>
                 )}
-                {currentSubjectiveQuestions[currentSubjective].hint && (
+                {(currentSubjectiveQuestions[currentSubjective] as any).hint && (
                   <p className="text-sm text-gray-500 mt-2">
-                    힌트: {currentSubjectiveQuestions[currentSubjective].hint}
+                    힌트: {(currentSubjectiveQuestions[currentSubjective] as any).hint}
                   </p>
                 )}
               </div>
