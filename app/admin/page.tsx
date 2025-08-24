@@ -17,6 +17,7 @@ interface TestResult {
   parent_phone?: string
   level: string
   score: number
+  grade_level?: string
   test_answers?: any
   created_at: string
 }
@@ -29,6 +30,7 @@ interface Consultation {
   parent_phone?: string
   level: string
   score?: number
+  grade_level?: string
   preferred_date?: string
   message?: string
   status: string
@@ -327,6 +329,7 @@ export default function AdminDashboard() {
                         학년
                       </div>
                     </th>
+                    <th className="text-left p-2">급수</th>
                     <th className="text-left p-2">
                       <div className="flex items-center gap-1">
                         <Phone className="h-4 w-4" />
@@ -350,6 +353,11 @@ export default function AdminDashboard() {
                     <tr key={consultation.id} className="border-b hover:bg-gray-50">
                       <td className="p-2 font-medium">{consultation.name}</td>
                       <td className="p-2">{consultation.grade}</td>
+                      <td className="p-2">
+                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-600">
+                          {consultation.grade_level || '7급'}
+                        </span>
+                      </td>
                       <td className="p-2">{consultation.phone}</td>
                       <td className="p-2">{consultation.parent_phone || '-'}</td>
                       <td className="p-2">
@@ -458,6 +466,26 @@ export default function AdminDashboard() {
                   value={editForm.parent_phone || ''}
                   onChange={(e) => setEditForm({...editForm, parent_phone: e.target.value})}
                 />
+              </div>
+              <div>
+                <Label htmlFor="edit-grade-level">급수</Label>
+                <Select 
+                  value={editForm.grade_level || '7급'}
+                  onValueChange={(value) => setEditForm({...editForm, grade_level: value})}
+                >
+                  <SelectTrigger id="edit-grade-level">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1급">1급 (고2~고3)</SelectItem>
+                    <SelectItem value="2급">2급 (고1~고2)</SelectItem>
+                    <SelectItem value="3급">3급 (중3~고1)</SelectItem>
+                    <SelectItem value="4급">4급 (중2~중3)</SelectItem>
+                    <SelectItem value="5급">5급 (중1~중2)</SelectItem>
+                    <SelectItem value="6급">6급 (초6~중1)</SelectItem>
+                    <SelectItem value="7급">7급 (초5~초6)</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="edit-status">상태</Label>

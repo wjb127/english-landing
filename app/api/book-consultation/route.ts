@@ -16,6 +16,7 @@ export async function POST(request: Request) {
           parent_phone: data.parentPhone,
           level: data.level,
           score: data.score,
+          grade_level: data.gradeLevel,
           preferred_date: data.preferredDate,
           message: data.message,
           created_at: new Date().toISOString()

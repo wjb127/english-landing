@@ -17,6 +17,7 @@ export async function POST(request: Request) {
           test_answers: data.answers,
           level: data.level,
           score: data.score,
+          grade_level: data.gradeLevel,
           created_at: new Date().toISOString()
         }
       ])

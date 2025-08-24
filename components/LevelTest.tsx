@@ -723,7 +723,8 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       score: correctCount,  // 맞춘 문제 수를 score로 전달
       level,
       correctCount,
-      totalQuestions
+      totalQuestions,
+      gradeLevel: selectedGrade  // 급수 정보 추가
     }
 
     setStep('result')
