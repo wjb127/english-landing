@@ -8,7 +8,15 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, ChevronLeft, Trophy, Target, BookOpen, Clock } from "lucide-react"
-import { gradeInfo, grade6Questions } from "@/lib/testData"
+import { 
+  gradeInfo, 
+  grade1Questions,
+  grade2Questions,
+  grade3Questions,
+  grade4Questions,
+  grade5Questions,
+  grade6Questions 
+} from "@/lib/testData"
 
 // 7급 테스트 문제 (초등학교 5학년 수준) - 객관식 40문항
 const testQuestions = [
@@ -601,12 +609,29 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
   const [showProgress, setShowProgress] = useState(false)
 
   // 선택된 급수에 따라 문제 선택
-  const currentTestQuestions = selectedGrade === '6급' ? 
-    (grade6Questions.objective.length > 0 ? grade6Questions.objective : currentTestQuestions) : 
-    currentTestQuestions
-  const currentSubjectiveQuestions = selectedGrade === '6급' ? 
-    (grade6Questions.subjective.length > 0 ? grade6Questions.subjective : currentSubjectiveQuestions) : 
-    currentSubjectiveQuestions
+  const getQuestionsForGrade = (grade: string) => {
+    switch(grade) {
+      case '1급':
+        return { objective: grade1Questions.objective, subjective: grade1Questions.subjective }
+      case '2급':
+        return { objective: grade2Questions.objective, subjective: grade2Questions.subjective }
+      case '3급':
+        return { objective: grade3Questions.objective, subjective: grade3Questions.subjective }
+      case '4급':
+        return { objective: grade4Questions.objective, subjective: grade4Questions.subjective }
+      case '5급':
+        return { objective: grade5Questions.objective, subjective: grade5Questions.subjective }
+      case '6급':
+        return { objective: grade6Questions.objective, subjective: grade6Questions.subjective }
+      case '7급':
+      default:
+        return { objective: testQuestions, subjective: subjectiveQuestions }
+    }
+  }
+  
+  const gradeQuestions = getQuestionsForGrade(selectedGrade)
+  const currentTestQuestions = gradeQuestions.objective
+  const currentSubjectiveQuestions = gradeQuestions.subjective
 
   const handleSelectGrade = (grade: string) => {
     setSelectedGrade(grade)
@@ -712,18 +737,65 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       }
     })
 
-    // 주관식 채점
+    // 주관식 채점 - 유연한 답변 검증 로직
     currentSubjectiveQuestions.forEach((question, index) => {
-      const userAnswer = subjAnswers[index]?.toLowerCase()
-        .replace(/\s+/g, ' ')  // 연속된 공백을 하나로
-        .replace(/,\s*/g, ',') // 쉼표 뒤 공백 제거
-        .trim()
+      const normalizeAnswer = (text: string) => {
+        return text
+          .toLowerCase() // 대소문자 구분 없이
+          .replace(/[.!?;]/g, '') // 구두점 제거 (마침표, 느낌표, 물음표, 세미콜론)
+          .replace(/\s+/g, ' ') // 연속된 공백을 하나로
+          .replace(/,\s*/g, ',') // 쉼표 뒤 공백 표준화
+          .replace(/wouldn't/g, 'would not')
+          .replace(/won't/g, 'will not')
+          .replace(/can't/g, 'cannot')
+          .replace(/couldn't/g, 'could not')
+          .replace(/shouldn't/g, 'should not')
+          .replace(/didn't/g, 'did not')
+          .replace(/doesn't/g, 'does not')
+          .replace(/don't/g, 'do not')
+          .replace(/hasn't/g, 'has not')
+          .replace(/haven't/g, 'have not')
+          .replace(/hadn't/g, 'had not')
+          .replace(/isn't/g, 'is not')
+          .replace(/aren't/g, 'are not')
+          .replace(/wasn't/g, 'was not')
+          .replace(/weren't/g, 'were not')
+          .replace(/i've/g, 'i have')
+          .replace(/you've/g, 'you have')
+          .replace(/we've/g, 'we have')
+          .replace(/they've/g, 'they have')
+          .replace(/he's/g, 'he is')
+          .replace(/she's/g, 'she is')
+          .replace(/it's/g, 'it is')
+          .replace(/that's/g, 'that is')
+          .replace(/there's/g, 'there is')
+          .replace(/who's/g, 'who is')
+          .replace(/what's/g, 'what is')
+          .replace(/i'll/g, 'i will')
+          .replace(/you'll/g, 'you will')
+          .replace(/he'll/g, 'he will')
+          .replace(/she'll/g, 'she will')
+          .replace(/we'll/g, 'we will')
+          .replace(/they'll/g, 'they will')
+          .replace(/i'd/g, 'i would')
+          .replace(/you'd/g, 'you would')
+          .replace(/he'd/g, 'he would')
+          .replace(/she'd/g, 'she would')
+          .replace(/we'd/g, 'we would')
+          .replace(/they'd/g, 'they would')
+          .trim()
+      }
+      
+      const userAnswer = normalizeAnswer(subjAnswers[index] || '')
       
       const isCorrect = question.answers.some(answer => {
-        const normalizedAnswer = answer.toLowerCase()
-          .replace(/\s+/g, ' ')  // 연속된 공백을 하나로
-          .replace(/,\s*/g, ',') // 쉼표 뒤 공백 제거
-          .trim()
+        const normalizedAnswer = normalizeAnswer(answer)
+        // 쉼표로 구분된 답변의 경우 순서 상관없이 비교
+        if (normalizedAnswer.includes(',') || userAnswer.includes(',')) {
+          const answerParts = normalizedAnswer.split(',').map(s => s.trim()).sort()
+          const userParts = userAnswer.split(',').map(s => s.trim()).sort()
+          return JSON.stringify(answerParts) === JSON.stringify(userParts)
+        }
         return userAnswer === normalizedAnswer
       })
       
