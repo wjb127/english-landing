@@ -1,12 +1,12 @@
 // 급수별 테스트 데이터
 export const gradeInfo = {
-  '1급': { level: '1급', grade: '고2~고3', description: '최고 수준의 영어 실력' },
-  '2급': { level: '2급', grade: '고1~고2', description: '고급 영어 실력' },
-  '3급': { level: '3급', grade: '중3~고1', description: '중상급 영어 실력' },
-  '4급': { level: '4급', grade: '중2~중3', description: '중급 영어 실력' },
-  '5급': { level: '5급', grade: '중1~중2', description: '초중급 영어 실력' },
-  '6급': { level: '6급', grade: '초6~중1', description: '초급 영어 실력' },
-  '7급': { level: '7급', grade: '초5~초6', description: '기초 영어 실력' },
+  '1급': { level: '1급', grade: '고1', description: '고등학교 1학년' },
+  '2급': { level: '2급', grade: '중3', description: '중학교 3학년 수준/고급 문법' },
+  '3급': { level: '3급', grade: '중2', description: '중학교 2학년 2학기 수준/복합 문법' },
+  '4급': { level: '4급', grade: '중2', description: '중학교 2학년 1학기 수준/심화 문법' },
+  '5급': { level: '5급', grade: '중1', description: '중학교 1학년 수준/문법의 체계적 이해' },
+  '6급': { level: '6급', grade: '초6', description: '초등학교 6학년' },
+  '7급': { level: '7급', grade: '초5', description: '초등학교 5학년' },
 }
 
 // 6급 테스트 문제 (초등학교 6학년 수준)

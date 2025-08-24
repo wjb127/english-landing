@@ -1,0 +1,36 @@
+
+> english-landing@0.1.0 build
+> next build
+
+   ▲ Next.js 14.1.0
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/9) ...
+   Generating static pages (2/9) 
+   Generating static pages (4/9) 
+   Generating static pages (6/9) 
+ ✓ Generating static pages (9/9) 
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    22.2 kB         117 kB
+├ ○ /_not-found                          882 B            85 kB
+├ ○ /admin                               28.4 kB         123 kB
+├ λ /api/admin/consultations             0 B                0 B
+├ ○ /api/admin/test-results              0 B                0 B
+├ λ /api/book-consultation               0 B                0 B
+└ λ /api/submit-test                     0 B                0 B
++ First Load JS shared by all            84.2 kB
+  ├ chunks/69-c0878c64eb6f2883.js        28.9 kB
+  ├ chunks/fd9d1056-608fb00f5228e2fe.js  53.4 kB
+  └ other shared chunks (total)          1.87 kB
+
+
+○  (Static)   prerendered as static content
+λ  (Dynamic)  server-rendered on demand using Node.js
+

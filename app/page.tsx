@@ -213,9 +213,9 @@ export default function Home() {
                 </p>
                 <Card className="max-w-md mx-auto">
                   <CardHeader>
-                    <CardTitle>7급 영어문법 진단테스트</CardTitle>
+                    <CardTitle>영어문법 진단테스트</CardTitle>
                     <CardDescription>
-                      초등학교 5학년 수준 - 45문항 (약 20-30분 소요)
+                      초등학교 ~ 고등학교 전 학년 대상 (약 20-30분 소요)
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -227,7 +227,7 @@ export default function Home() {
                       <ChevronRight className="ml-2" />
                     </Button>
                     <p className="text-sm text-gray-500 mt-4">
-                      * 테스트 후 즉시 레벨 확인 및 상담 예약 가능
+                      * 테스트 시작 후 자신의 학년에 맞는 급수를 선택할 수 있습니다
                     </p>
                   </CardContent>
                 </Card>
