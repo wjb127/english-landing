@@ -1,7 +1,113 @@
-  질문사항:
+기존 질문사항:
   - 주관식 46번: "If he had listened to my advice, he wouldn't have made a mistake" - 가정법
   과거완료 답변인데, "would not have" 또는 "wouldn't have" 둘 다 정답 처리하나요?
+  → 현재 구현: 둘 다 정답 처리됨 (축약형 자동 변환)
+
   - 주관식 47번: "Hardly had he finished speaking when the phone rang" - 문장 끝에 마침표(.) 있는
   것과 없는 것 둘 다 정답 처리하나요?
+  → 현재 구현: 둘 다 정답 처리됨 (구두점 선택적)
+
   - 주관식 50번: "Not all students like English" - "All students do not like English"도
   부분부정으로 인정하나요?
+  → 현재 구현: PDF에 명시된 답변만 정답 (추가 확인 필요)
+
+================================================================================
+
+추가 확인 필요 사항 (구현 시 애매했던 부분):
+
+[주관식 답변 검증 관련]
+
+1. 동의어/유사 표현 처리
+   - 7급 객관식 3번: "There __ many students in the classroom" (정답: are)
+     → "a lot of students"였다면 is/are 둘 다 가능했을지?
+   - 현재: 정확히 일치하는 답변만 정답 처리
+
+2. 어순 변형 허용 범위
+   - 3급 주관식 46번: "My father gave me this watch" → 4형식 수동태
+     → 현재 정답: "I was given this watch by my father"
+     → "By my father, I was given this watch"도 문법적으로 맞는데 허용?
+   - 현재: PDF에 명시된 답변만 정답
+
+3. 관사(a/an/the) 처리
+   - 7급 주관식 47번: "There __ a book on the table"
+     → 문제에 이미 "a book"으로 명시되어 있어 관사 변경 불가
+   - 하지만 다른 문제에서 관사가 애매한 경우 처리 방법?
+   - 현재: PDF 답안 그대로만 인정
+
+4. 시제 변형 허용
+   - 문제에서 시제를 명시하지 않은 경우
+   - 예: "He plays tennis" vs "He is playing tennis"
+   - 현재: PDF 답안의 시제만 정답
+
+5. 철자 실수 허용 범위
+   - 4급 주관식 46번: "Someone has stolen my bicycle" → 수동태
+     → 학생이 "bycicle" (철자 실수)로 썼다면?
+   - 1글자 오타 허용? (예: "recieve" vs "receive")
+   - 현재: 정확한 철자만 정답 처리
+
+6. 복수 정답 추가 필요 케이스
+   - 3급 46번 (4형식 수동태): "My father gave me this watch"
+     → 현재 정답: "I was given this watch by my father" / "This watch was given to me by my father"
+     → 질문: by 구 생략 가능? "I was given this watch" / "This watch was given to me"도 정답?
+   
+   - 7급 주관식 47번: "There __ a book on the table. There __ many people in the park."
+     → 현재 정답: "is, are" / "is,are"
+     → 질문: "is are" (쉼표 없이 공백만)도 허용?
+
+7. 부분 점수 시스템
+   - 주관식에서 부분적으로 맞은 경우 점수 부여?
+   - 예: 문장 구조는 맞지만 철자 1개 틀린 경우
+   - 현재: 완전 정답만 인정 (0점 or 만점)
+
+8. 대문자 처리 세부 규칙
+   - 문장 첫 글자 대문자 필수인지?
+   - 고유명사 대문자 체크 여부?
+   - 현재: 모든 대소문자 무시
+
+9. 숫자 표기 방법
+   - 2급 객관식 3번: "She __ her homework for two hours" (정답: has been doing)
+     → 만약 주관식이었다면 "2 hours"도 허용?
+   - "1st" vs "first" vs "First"
+   - 현재: PDF 표기 방식만 인정
+
+10. 특수한 축약형 처리
+    - "gonna" → "going to"
+    - "wanna" → "want to"
+    - "gotta" → "got to"
+    - 구어체 축약형 허용 여부?
+    - 현재: 표준 축약형만 처리
+
+[시스템 기능 관련]
+
+11. 시간 제한
+    - 각 문제별 또는 전체 테스트 시간 제한 필요?
+    - 시간 초과 시 자동 제출?
+
+12. 문제 건너뛰기
+    - 주관식 문제 건너뛰고 나중에 돌아오기 기능?
+    - 현재: 순차적으로만 진행
+
+13. 힌트 시스템
+    - 주관식 오답 시 힌트 제공?
+    - 재시도 기회 부여?
+
+14. 결과 표시
+    - 틀린 문제 정답 공개 여부?
+    - 상세 해설 제공 필요?
+
+15. 재응시 정책
+    - 동일 학생 재응시 허용?
+    - 재응시 간격 제한?
+
+[데이터 관리]
+
+16. 답안 로그
+    - 학생이 입력한 오답도 저장 필요?
+    - 문제별 소요 시간 기록?
+
+17. 통계 분석
+    - 문제별 정답률 통계 필요?
+    - 급수별 평균 점수 집계?
+
+※ 이상의 사항들은 현재 구현에서 명확한 지침이 없어 기본적인 방식으로 처리했습니다.
+   클라이언트의 구체적인 요구사항 확인이 필요합니다.
