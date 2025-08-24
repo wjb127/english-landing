@@ -354,8 +354,12 @@ export default function AdminDashboard() {
                       <td className="p-2 font-medium">{consultation.name}</td>
                       <td className="p-2">{consultation.grade}</td>
                       <td className="p-2">
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-600">
-                          {consultation.grade_level || '7급'}
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          consultation.grade_level === '미분류' || !consultation.grade_level
+                            ? 'bg-gray-100 text-gray-600'
+                            : 'bg-purple-100 text-purple-600'
+                        }`}>
+                          {consultation.grade_level || '미분류'}
                         </span>
                       </td>
                       <td className="p-2">{consultation.phone}</td>

@@ -816,7 +816,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     const testResult = {
       answers: [...objectiveAnswers, ...subjAnswers],
       score: correctCount,  // 맞춘 문제 수를 score로 전달
-      level,
+      level: `${selectedGrade} - ${level}`,  // 급수와 레벨을 함께 표시
       correctCount,
       totalQuestions,
       gradeLevel: selectedGrade  // 급수 정보 추가

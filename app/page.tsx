@@ -26,7 +26,8 @@ export default function Home() {
         ...data.userInfo,
         test_answers: data.testResult.answers,
         level: data.testResult.level,
-        score: data.testResult.score
+        score: data.testResult.score,
+        gradeLevel: data.testResult.gradeLevel
       })
     })
   }
@@ -46,6 +47,7 @@ export default function Home() {
           ...testResult.userInfo,
           level: testResult.testResult.level,
           score: testResult.testResult.score,
+          gradeLevel: testResult.testResult.gradeLevel,
           message: testResult.userInfo.memo || '레벨 테스트 완료 후 상담 신청'
         })
       })
@@ -250,7 +252,7 @@ export default function Home() {
                   <div>
                     <p className="text-gray-600 mb-2">{testResult.userInfo.name} 학생의 진단 결과</p>
                     <div className="bg-gradient-to-r from-red-50 to-blue-50 rounded-lg p-6 my-4">
-                      <p className="text-4xl font-bold text-red-600 mb-2">{testResult.testResult.level}</p>
+                      <p className="text-3xl font-bold text-red-600 mb-2">{testResult.testResult.level}</p>
                       <div className="flex justify-center items-center gap-4 text-lg">
                         <span className="font-semibold">점수:</span>
                         <span className="text-2xl font-bold">{testResult.testResult.correctCount}/{testResult.testResult.totalQuestions}</span>
@@ -266,18 +268,19 @@ export default function Home() {
                     <div className="text-left space-y-2">
                       {testResult.testResult.correctCount >= 36 ? (
                         <>
-                          <p className="text-gray-700">✅ 7급 문법 기초가 탄탄합니다!</p>
-                          <p className="text-gray-700">✅ 심화 패턴 학습을 추천합니다</p>
+                          <p className="text-gray-700">✅ {testResult.testResult.gradeLevel || testResult.testResult.level.split(' - ')[0]} 문법 기초가 탄탄합니다!</p>
+                          <p className="text-gray-700">✅ 다음 급수 도전을 추천합니다</p>
+                          <p className="text-gray-700">✅ 심화 패턴 학습으로 실력 향상 가능</p>
                         </>
                       ) : testResult.testResult.correctCount >= 27 ? (
                         <>
-                          <p className="text-gray-700">✅ 기본 문법 이해도가 양호합니다</p>
+                          <p className="text-gray-700">✅ {testResult.testResult.gradeLevel || testResult.testResult.level.split(' - ')[0]} 문법 이해도가 양호합니다</p>
                           <p className="text-gray-700">✅ 부족한 영역 집중 보완 필요</p>
                           <p className="text-gray-700">✅ 체계적인 복습을 추천합니다</p>
                         </>
                       ) : (
                         <>
-                          <p className="text-gray-700">✅ 기초부터 차근차근 시작하세요</p>
+                          <p className="text-gray-700">✅ {testResult.testResult.gradeLevel || testResult.testResult.level.split(' - ')[0]} 기초부터 차근차근 시작하세요</p>
                           <p className="text-gray-700">✅ 1:1 맞춤 지도가 효과적입니다</p>
                           <p className="text-gray-700">✅ 꾸준한 학습이 중요합니다</p>
                         </>
