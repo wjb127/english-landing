@@ -5,8 +5,8 @@ export const gradeInfo = {
   '3급': { level: '3급', grade: '중2', description: '중학교 2학년 2학기 수준/복합 문법' },
   '4급': { level: '4급', grade: '중2', description: '중학교 2학년 1학기 수준/심화 문법' },
   '5급': { level: '5급', grade: '중1', description: '중학교 1학년 수준/문법의 체계적 이해' },
-  '6급': { level: '6급', grade: '초6', description: '초등학교 6학년' },
-  '7급': { level: '7급', grade: '초5', description: '초등학교 5학년' },
+  '6급': { level: '6급', grade: '초6', description: '초등학교 6학년 수준' },
+  '7급': { level: '7급', grade: '초5', description: '초등학교 5학년 수준' },
 }
 
 // 6급 테스트 문제 (초등학교 6학년 수준)
