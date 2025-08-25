@@ -602,9 +602,10 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     memo: ''
   })
   const [answers, setAnswers] = useState<number[]>([])
-  const [subjectiveAnswers, setSubjectiveAnswers] = useState<string[]>([])
+  const [subjectiveAnswers, setSubjectiveAnswers] = useState<(string | string[])[]>([])
   const [selectedAnswer, setSelectedAnswer] = useState<string>('')
   const [subjectiveInput, setSubjectiveInput] = useState<string>('')
+  const [subjectiveInputs, setSubjectiveInputs] = useState<string[]>([])
   const [startTime, setStartTime] = useState<Date | null>(null)
   const [showProgress, setShowProgress] = useState(false)
 
@@ -665,6 +666,10 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       setStep('subjective')
       setCurrentSubjective(0)
       setSubjectiveInput('')
+      // 첫 번째 주관식 문제의 답변 개수에 맞게 입력 필드 초기화
+      const firstQuestion = currentSubjectiveQuestions[0]
+      const answerCount = (firstQuestion as any).answerCount || 1
+      setSubjectiveInputs(Array(answerCount).fill(''))
     }
   }
 
@@ -686,25 +691,60 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
           setStep('subjective')
           setCurrentSubjective(0)
           setSubjectiveInput('')
+          // 첫 번째 주관식 문제의 답변 개수에 맞게 입력 필드 초기화
+          const firstQuestion = currentSubjectiveQuestions[0]
+          const answerCount = (firstQuestion as any).answerCount || 1
+          setSubjectiveInputs(Array(answerCount).fill(''))
         }
       }, 300) // 300ms 딜레이로 선택 확인 후 이동
     }
   }
 
   const handleSubjectiveAnswer = () => {
-    if (subjectiveInput.trim() === '') {
-      alert('답을 입력해주세요!')
-      return
-    }
-
-    const newSubjectiveAnswers = [...subjectiveAnswers, subjectiveInput.trim()]
-    setSubjectiveAnswers(newSubjectiveAnswers)
-    setSubjectiveInput('')
-
-    if (currentSubjective < currentSubjectiveQuestions.length - 1) {
-      setCurrentSubjective(currentSubjective + 1)
+    const currentQ = currentSubjectiveQuestions[currentSubjective]
+    const answerCount = (currentQ as any).answerCount || 1
+    
+    // 복수 답변 처리
+    if (answerCount > 1) {
+      // 모든 입력 필드가 채워졌는지 확인
+      if (subjectiveInputs.some(input => input.trim() === '')) {
+        alert('모든 답을 입력해주세요!')
+        return
+      }
+      
+      const trimmedAnswers = subjectiveInputs.map(input => input.trim())
+      const newSubjectiveAnswers = [...subjectiveAnswers, trimmedAnswers]
+      setSubjectiveAnswers(newSubjectiveAnswers)
+      
+      if (currentSubjective < currentSubjectiveQuestions.length - 1) {
+        const nextQuestion = currentSubjectiveQuestions[currentSubjective + 1]
+        const nextAnswerCount = (nextQuestion as any).answerCount || 1
+        setSubjectiveInputs(Array(nextAnswerCount).fill(''))
+        setCurrentSubjective(currentSubjective + 1)
+      } else {
+        calculateResult(answers, newSubjectiveAnswers)
+      }
     } else {
-      calculateResult(answers, newSubjectiveAnswers)
+      // 단일 답변 처리
+      if (subjectiveInput.trim() === '') {
+        alert('답을 입력해주세요!')
+        return
+      }
+
+      const newSubjectiveAnswers = [...subjectiveAnswers, subjectiveInput.trim()]
+      setSubjectiveAnswers(newSubjectiveAnswers)
+      setSubjectiveInput('')
+
+      if (currentSubjective < currentSubjectiveQuestions.length - 1) {
+        const nextQuestion = currentSubjectiveQuestions[currentSubjective + 1]
+        const nextAnswerCount = (nextQuestion as any).answerCount || 1
+        if (nextAnswerCount > 1) {
+          setSubjectiveInputs(Array(nextAnswerCount).fill(''))
+        }
+        setCurrentSubjective(currentSubjective + 1)
+      } else {
+        calculateResult(answers, newSubjectiveAnswers)
+      }
     }
   }
 
@@ -718,7 +758,15 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
   const handlePreviousSubjective = () => {
     if (currentSubjective > 0) {
       setCurrentSubjective(currentSubjective - 1)
-      setSubjectiveInput(subjectiveAnswers[currentSubjective - 1] || '')
+      const prevQuestion = currentSubjectiveQuestions[currentSubjective - 1]
+      const prevAnswerCount = (prevQuestion as any).answerCount || 1
+      const prevAnswer = subjectiveAnswers[currentSubjective - 1]
+      
+      if (prevAnswerCount > 1 && Array.isArray(prevAnswer)) {
+        setSubjectiveInputs(prevAnswer)
+      } else {
+        setSubjectiveInput(typeof prevAnswer === 'string' ? prevAnswer : '')
+      }
     } else {
       // 주관식 첫 문제에서 이전 누르면 객관식 마지막으로
       setStep('test')
@@ -727,7 +775,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
     }
   }
 
-  const calculateResult = (objectiveAnswers: number[], subjAnswers: string[]) => {
+  const calculateResult = (objectiveAnswers: number[], subjAnswers: (string | string[])[]) => {
     let correctCount = 0
     
     // 객관식 채점
@@ -786,21 +834,48 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
           .trim()
       }
       
-      const userAnswer = normalizeAnswer(subjAnswers[index] || '')
+      const userAnswer = subjAnswers[index]
+      const answerCount = (question as any).answerCount || 1
       
-      const isCorrect = question.answers.some(answer => {
-        const normalizedAnswer = normalizeAnswer(answer)
-        // 쉼표로 구분된 답변의 경우 순서 상관없이 비교
-        if (normalizedAnswer.includes(',') || userAnswer.includes(',')) {
-          const answerParts = normalizedAnswer.split(',').map(s => s.trim()).sort()
-          const userParts = userAnswer.split(',').map(s => s.trim()).sort()
-          return JSON.stringify(answerParts) === JSON.stringify(userParts)
+      // 복수 답변 문제 처리 (부분 점수 없음)
+      if (answerCount > 1 && Array.isArray(userAnswer)) {
+        const correctAnswers = (question as any).answers || question.answer
+        
+        if (Array.isArray(correctAnswers)) {
+          // 모든 답이 정확히 일치해야 정답 (부분 점수 없음)
+          const allCorrect = correctAnswers.every((correctAns: string, idx: number) => {
+            const userAns = userAnswer[idx] || ''
+            return normalizeAnswer(userAns) === normalizeAnswer(correctAns)
+          })
+          
+          if (allCorrect) {
+            correctCount++
+          }
         }
-        return userAnswer === normalizedAnswer
-      })
-      
-      if (isCorrect) {
-        correctCount++
+      } else {
+        // 단일 답변 문제 처리 (기존 로직)
+        const userAnswerStr = typeof userAnswer === 'string' ? userAnswer : ''
+        const normalizedUserAnswer = normalizeAnswer(userAnswerStr)
+        
+        const possibleAnswers = (question as any).answers || 
+                               (question as any).answer || 
+                               []
+        const answersArray = Array.isArray(possibleAnswers) ? possibleAnswers : [possibleAnswers]
+        
+        const isCorrect = answersArray.some((answer: string) => {
+          const normalizedAnswer = normalizeAnswer(answer)
+          // 쉼표로 구분된 답변의 경우 순서 상관없이 비교
+          if (normalizedAnswer.includes(',') || normalizedUserAnswer.includes(',')) {
+            const answerParts = normalizedAnswer.split(',').map(s => s.trim()).sort()
+            const userParts = normalizedUserAnswer.split(',').map(s => s.trim()).sort()
+            return JSON.stringify(answerParts) === JSON.stringify(userParts)
+          }
+          return normalizedUserAnswer === normalizedAnswer
+        })
+        
+        if (isCorrect) {
+          correctCount++
+        }
       }
     })
 
@@ -1080,19 +1155,63 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
               </div>
 
               <div>
-                <Label htmlFor="subjective-answer">답안 입력</Label>
-                <Input
-                  id="subjective-answer"
-                  value={subjectiveInput}
-                  onChange={(e) => setSubjectiveInput(e.target.value)}
-                  placeholder="답을 입력하세요"
-                  className="mt-2 text-lg"
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') {
-                      handleSubjectiveAnswer()
-                    }
-                  }}
-                />
+                {(() => {
+                  const answerCount = (currentSubjectiveQuestions[currentSubjective] as any).answerCount || 1
+                  
+                  if (answerCount > 1) {
+                    return (
+                      <div className="space-y-3">
+                        <Label>답안 입력 ({answerCount}개의 답변이 필요합니다)</Label>
+                        {Array.from({ length: answerCount }, (_, i) => (
+                          <div key={i} className="flex gap-2 items-center">
+                            <span className="text-sm font-medium w-8">{i + 1}.</span>
+                            <Input
+                              value={subjectiveInputs[i] || ''}
+                              onChange={(e) => {
+                                const newInputs = [...subjectiveInputs]
+                                newInputs[i] = e.target.value
+                                setSubjectiveInputs(newInputs)
+                              }}
+                              placeholder={`${i + 1}번째 답을 입력하세요`}
+                              className="text-lg"
+                              onKeyPress={(e) => {
+                                if (e.key === 'Enter' && i === answerCount - 1) {
+                                  handleSubjectiveAnswer()
+                                } else if (e.key === 'Enter') {
+                                  // 다음 입력 필드로 포커스 이동
+                                  const nextInput = document.querySelector(`#subjective-input-${i + 1}`) as HTMLInputElement
+                                  if (nextInput) nextInput.focus()
+                                }
+                              }}
+                              id={`subjective-input-${i}`}
+                            />
+                          </div>
+                        ))}
+                        <p className="text-sm text-gray-500 mt-2">
+                          ※ 모든 답이 정확해야 정답으로 인정됩니다 (부분 점수 없음)
+                        </p>
+                      </div>
+                    )
+                  } else {
+                    return (
+                      <>
+                        <Label htmlFor="subjective-answer">답안 입력</Label>
+                        <Input
+                          id="subjective-answer"
+                          value={subjectiveInput}
+                          onChange={(e) => setSubjectiveInput(e.target.value)}
+                          placeholder="답을 입력하세요"
+                          className="mt-2 text-lg"
+                          onKeyPress={(e) => {
+                            if (e.key === 'Enter') {
+                              handleSubjectiveAnswer()
+                            }
+                          }}
+                        />
+                      </>
+                    )
+                  }
+                })()}
               </div>
             </div>
 

@@ -9,6 +9,15 @@ export const gradeInfo = {
   '7급': { level: '7급', grade: '초5', description: '초등학교 5학년 수준' },
 }
 
+// 타입 정의
+export interface SubjectiveQuestion {
+  id: number;
+  question: string;
+  answerCount?: number; // 답변 개수 (기본값 1)
+  answers?: string | string[]; // 단일 또는 복수 답변
+  answer?: string | string[]; // 이전 버전 호환
+}
+
 // 3급 테스트 문제 (중학교 2학년 2학기)
 export const grade3Questions = {
   objective: [
@@ -1228,7 +1237,7 @@ export const grade6Questions = {
     }
   ],
   subjective: [
-    // 주관식 영작 문제 (46-50번)
+    // 주관식 영작 문제 (46-50번) - 복수 답변 예시
     {
       id: 46,
       question: "그녀는 어제 도서관에 갔었다.",
@@ -1241,13 +1250,15 @@ export const grade6Questions = {
     },
     {
       id: 48,
-      question: "너는 언제 숙제를 끝냈니?",
-      answer: "When did you finish your homework?"
+      question: "다음 문장의 빈칸을 채우시오. (2개의 답을 쉼표로 구분)\nThere _____ a book on the table. There _____ many students in the classroom.",
+      answerCount: 2,
+      answers: ["is", "are"]
     },
     {
       id: 49,
-      question: "이것은 내가 읽은 책 중에서 가장 재미있다.",
-      answer: "This is the most interesting book (that) I have read."
+      question: "다음 문장을 과거형으로 바꾸시오. (2개의 답을 쉼표로 구분)\nShe _____ (go) to school. They _____ (play) soccer.",
+      answerCount: 2,
+      answers: ["went", "played"]
     },
     {
       id: 50,
@@ -1570,7 +1581,7 @@ export const grade7Questions = {
     }
   ],
   subjective: [
-    // 영작 능력 문제 (Part C: 46-50번)
+    // 영작 능력 문제 (Part C: 46-50번) - 복수 답변 예시
     {
       id: 46,
       question: "나는 매일 아침 7시에 일어나.",
@@ -1578,13 +1589,15 @@ export const grade7Questions = {
     },
     {
       id: 47,
-      question: "그녀는 영어 선생님이야.",
-      answer: "She is an English teacher."
+      question: "다음 빈칸을 채우시오. (2개의 답을 쉼표로 구분)\nTom and I _____ (be) good friends. She _____ (have) a cat.",
+      answerCount: 2,
+      answers: ["are", "has"]
     },
     {
       id: 48,
-      question: "너는 피자를 좋아하니?",
-      answer: "Do you like pizza?"
+      question: "다음 문장을 의문문으로 바꾸시오. (2개의 답을 쉼표로 구분)\n_____ you like pizza? _____ she go to school?",
+      answerCount: 2,
+      answers: ["Do", "Does"]
     },
     {
       id: 49,

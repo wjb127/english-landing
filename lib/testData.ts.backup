@@ -1,0 +1,2895 @@
+// 급수별 테스트 데이터
+export const gradeInfo = {
+  '1급': { level: '1급', grade: '고1', description: '고등학교 1학년' },
+  '2급': { level: '2급', grade: '중3', description: '중학교 3학년 수준/고급 문법' },
+  '3급': { level: '3급', grade: '중2', description: '중학교 2학년 2학기 수준/복합 문법' },
+  '4급': { level: '4급', grade: '중2', description: '중학교 2학년 1학기 수준/심화 문법' },
+  '5급': { level: '5급', grade: '중1', description: '중학교 1학년 수준/문법의 체계적 이해' },
+  '6급': { level: '6급', grade: '초6', description: '초등학교 6학년 수준' },
+  '7급': { level: '7급', grade: '초5', description: '초등학교 5학년 수준' },
+}
+
+// 6급 테스트 문제 (초등학교 6학년 수준)
+export const grade6Questions = {
+  objective: [
+    {
+      id: 1,
+      question: "다음 문장에서 빈칸에 알맞은 것을 고르시오.",
+      sentence: "My father _____ to work by subway yesterday.",
+      options: ["go", "goes", "went", "going", "gone"],
+      correct: 2
+    },
+    {
+      id: 2,
+      question: "다음 문장에서 빈칸에 알맞은 것을 고르시오.",
+      sentence: "There _____ many people at the concert last night.",
+      options: ["is", "are", "was", "were", "be"],
+      correct: 3
+    },
+    {
+      id: 3,
+      question: "다음 문장에서 빈칸에 알맞은 것을 고르시오.",
+      sentence: "She _____ swimming every weekend.",
+      options: ["go", "goes", "going", "is go", "does goes"],
+      correct: 1
+    },
+    {
+      id: 4,
+      question: "다음 문장에서 빈칸에 알맞은 것을 고르시오.",
+      sentence: "What _____ you want for your birthday?",
+      options: ["do", "does", "is", "are", "were"],
+      correct: 0
+    },
+    {
+      id: 5,
+      question: "다음 문장에서 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I will call you _____ I arrive home.",
+      options: ["when", "where", "what", "who", "which"],
+      correct: 0
+    },
+    {
+      id: 6,
+      question: "다음 중 어법상 틀린 것은?",
+      options: [
+        "Children like to play games.",
+        "People are walking in the street.",
+        "This news are very interesting.",
+        "My family is happy.",
+        "Those boys are my friends."
+      ],
+      correct: 2
+    },
+    {
+      id: 7,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I want to buy _______ for my mother.",
+      options: ["something special", "special something", "anything special", "special anything", "nothing special"],
+      correct: 0
+    },
+    {
+      id: 8,
+      question: "다음 문장을 과거형으로 바꾸면? \"She teaches English.\"",
+      options: [
+        "She teach English.",
+        "She teached English.",
+        "She taught English.",
+        "She teaching English.",
+        "She will teach English."
+      ],
+      correct: 2
+    },
+    {
+      id: 9,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This book is _______ than that one.",
+      options: ["interesting", "more interesting", "most interesting", "interestinger", "much interesting"],
+      correct: 1
+    },
+    {
+      id: 10,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "He give me the book.",
+        "He gives me the book.",
+        "He gave to me the book.",
+        "He gives to me the book.",
+        "He give the book to me."
+      ],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "빈칸에 들어갈 말로 가장 적절한 것은?",
+      sentence: "I'm sorry _______ that news.",
+      options: ["hear", "to hear", "hearing", "heard", "for hear"],
+      correct: 1
+    },
+    {
+      id: 12,
+      question: "다음 중 미래를 나타내는 표현은?",
+      options: [
+        "I go to Seoul tomorrow.",
+        "I will go to Seoul tomorrow.",
+        "I went to Seoul tomorrow.",
+        "I am go to Seoul tomorrow.",
+        "I goes to Seoul tomorrow."
+      ],
+      correct: 1
+    },
+    {
+      id: 13,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She is good _______ playing the piano.",
+      options: ["in", "on", "at", "for", "with"],
+      correct: 2
+    },
+    {
+      id: 14,
+      question: "다음 문장의 의미는? \"Don't you like pizza?\"",
+      options: [
+        "너는 피자를 좋아하니?",
+        "너는 피자를 좋아하지 않니?",
+        "너는 피자를 먹지 마라.",
+        "피자를 좋아해야 한다.",
+        "피자는 맛이 없다."
+      ],
+      correct: 1
+    },
+    {
+      id: 15,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I have _______ friends at school.",
+      options: ["much", "many", "a lot", "few", "little"],
+      correct: 1
+    },
+    {
+      id: 16,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "She's much tall than me.",
+        "She's much taller than me.",
+        "She's much more tall than me.",
+        "She's many taller than me.",
+        "She's very taller than me."
+      ],
+      correct: 1
+    },
+    {
+      id: 17,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I was born _______ May 15th.",
+      options: ["in", "on", "at", "by", "for"],
+      correct: 1
+    },
+    {
+      id: 18,
+      question: "다음 중 관계대명사가 들어갈 자리는? \"This is the book _______ I bought yesterday.\"",
+      options: ["who", "whose", "which", "where", "when"],
+      correct: 2
+    },
+    {
+      id: 19,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "If it _______ tomorrow, we'll stay home.",
+      options: ["rain", "rains", "will rain", "rained", "raining"],
+      correct: 1
+    },
+    {
+      id: 20,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I study to pass the exam.",
+        "I study for pass the exam.",
+        "I study passing the exam.",
+        "I study pass the exam.",
+        "I study for passing the exam."
+      ],
+      correct: 0
+    },
+    {
+      id: 21,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ a number of students absent today?",
+      options: ["Is", "Are", "Do", "Does", "Have"],
+      correct: 1
+    },
+    {
+      id: 22,
+      question: "다음 중 어법상 틀린 것은?",
+      options: [
+        "I have never been to Korea.",
+        "She has went to the market.",
+        "They have finished their homework.",
+        "We have lived here for five years.",
+        "He has already eaten lunch."
+      ],
+      correct: 1
+    },
+    {
+      id: 23,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The weather is getting _______.",
+      options: ["cold", "colder", "more cold", "coldest", "most cold"],
+      correct: 1
+    },
+    {
+      id: 24,
+      question: "다음 문장을 간접의문문으로 바꾸면? \"Where does he live?\"",
+      options: [
+        "I don't know where does he live.",
+        "I don't know where he live.",
+        "I don't know where he lives.",
+        "I don't know where did he live.",
+        "I don't know he lives where."
+      ],
+      correct: 2
+    },
+    {
+      id: 25,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I _______ him since last year.",
+      options: ["know", "knew", "have known", "will know", "am knowing"],
+      correct: 2
+    },
+    // 감각적 문법능력 - 오류 찾기 (26-35번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① doesn't ② knows ③ how ④ to ⑤ swim.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "There ① is ② many ③ students ④ in ⑤ the classroom.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 0
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I'm ① interesting ② in ③ learning ④ computer ⑤ programming.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 0
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "He ① gave ② to me ③ a ④ nice ⑤ present.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Children ① is ② playing ③ in ④ the ⑤ park.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 0
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① have ② never ③ been ④ to ⑤ foreign country.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 4
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① Although ② it ③ was raining, ④ but ⑤ we went out.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① asked ② me ③ what ④ was ⑤ my name.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Tom ① study ② hard ③ every ④ single ⑤ day.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 0
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "It ① is ② rain ③ outside ④ right ⑤ now.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    // 감각적 문법능력 - 빈칸 채우기 (36-45번)
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Each of the students _______ a different opinion.",
+      options: ["have", "has", "are", "is", "were"],
+      correct: 1
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I'm looking forward to _______ you soon.",
+      options: ["meet", "meeting", "met", "meets", "to meet"],
+      correct: 1
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This problem is _______ easier than that one.",
+      options: ["much", "many", "more", "most", "very"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He speaks English _______ enough to communicate.",
+      options: ["good", "well", "better", "best", "very"],
+      correct: 1
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Children _______ playing in the park now.",
+      options: ["is", "are", "was", "were", "be"],
+      correct: 1
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I want to buy _______ special for you.",
+      options: ["something", "anything", "nothing", "everything", "someone"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She is _______ than her sister.",
+      options: ["more tall", "taller", "most tall", "tallest", "very tall"],
+      correct: 1
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "We went to the zoo _______ it was sunny.",
+      options: ["because", "so", "but", "although", "if"],
+      correct: 0
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I _______ here since 2020.",
+      options: ["have lived", "lived", "live", "am living", "will live"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He _______ like coffee very much.",
+      options: ["doesn't", "don't", "isn't", "aren't", "won't"],
+      correct: 0
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 문장을 과거형으로 바꾸시오.",
+      sentence: "She goes to school by bus every day.",
+      answers: ["She went to school by bus every day.", "She went to school by bus every day"]
+    },
+    {
+      id: 47,
+      question: "빈칸에 알맞은 be동사를 쓰시오. (쉼표로 구분)",
+      sentence: "There _______ a book on the table. There _______ many people in the park.",
+      answers: ["is, are", "is,are"]
+    },
+    {
+      id: 48,
+      question: "다음 문장을 의문문으로 바꾸시오.",
+      sentence: "They played soccer yesterday.",
+      answers: ["Did they play soccer yesterday?", "Did they play soccer yesterday"]
+    },
+    {
+      id: 49,
+      question: "빈칸에 알맞은 형태로 쓰시오. (쉼표로 구분)",
+      sentence: "She _______ (can, play) the piano very well. I want _______ (eat) some pizza.",
+      answers: ["can play, to eat", "can play,to eat"]
+    },
+    {
+      id: 50,
+      question: "다음 우리말을 영어로 완성하시오.",
+      sentence: "나는 그에게 선물을 주었다. = I _______ a present.",
+      answers: ["gave him", "gave him a", "gave to him"]
+    }
+  ]
+}
+
+// 3급 테스트 문제 (중학교 2학년 2학기 수준 - 복합 문법 구조의 완성!)
+export const grade3Questions = {
+  objective: [
+    // 인지적 문법능력 (1-25번)
+    {
+      id: 1,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "Do you think _____ he will come to the party?",
+      options: ["that", "if", "what", "which", "whether"],
+      correct: 0
+    },
+    {
+      id: 2,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "She _____ studying English for three hours.",
+      options: ["has been", "have been", "is", "was", "will be"],
+      correct: 0
+    },
+    {
+      id: 3,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I think you _____ see a doctor.",
+      options: ["had better", "would better", "have better", "will better", "can better"],
+      correct: 0
+    },
+    {
+      id: 4,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "The news _____ good for everyone.",
+      options: ["is", "are", "were", "have been", "being"],
+      correct: 0
+    },
+    {
+      id: 5,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I wonder _____ to solve this problem.",
+      options: ["how", "what", "that", "if", "which"],
+      correct: 0
+    },
+    {
+      id: 6,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "She stopped _____ to me when she saw her teacher.",
+      options: ["to talk", "talking", "talk", "talked", "and talked"],
+      correct: 1
+    },
+    {
+      id: 7,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "_____ tired, he continued working.",
+      options: ["Being", "To be", "Been", "Be", "Having"],
+      correct: 0
+    },
+    {
+      id: 8,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is the place _____ I was born.",
+      options: ["which", "that", "where", "when", "what"],
+      correct: 2
+    },
+    {
+      id: 9,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "The teacher made the announcement, _____ surprised everyone.",
+      options: ["which", "that", "what", "it", "this"],
+      correct: 0
+    },
+    {
+      id: 10,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I wish I _____ speak French fluently.",
+      options: ["can", "could", "will", "would", "may"],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "다음 빈칸에 들어갈 수 없는 것을 고르시오.",
+      sentence: "She appears _____.",
+      options: ["happy", "to be happy", "happily", "tired", "to be tired"],
+      correct: 2
+    },
+    {
+      id: 12,
+      question: "다음 빈칸에 들어갈 수 없는 것을 고르시오.",
+      sentence: "I remember _____ the door.",
+      options: ["locking", "to lock", "having locked", "lock", "that I locked"],
+      correct: 3
+    },
+    {
+      id: 13,
+      question: "다음 빈칸에 들어갈 수 없는 것을 고르시오.",
+      sentence: "A lot of students _____ late today.",
+      options: ["is", "are", "was", "has been", "being"],
+      correct: 0
+    },
+    {
+      id: 14,
+      question: "다음 짝지어진 대화 중 어법상 틀린 것을 고르시오.",
+      options: [
+        "A: How long have you been waiting? B: I've been waiting for an hour.",
+        "A: What seems to be the problem? B: It seems that something is wrong.",
+        "A: Do you remember meeting him? B: No, I don't remember to meet him.",
+        "A: Where is the book? B: It's on the table where I left it.",
+        "A: I wish I were rich. B: Me too, I wish I had more money."
+      ],
+      correct: 2
+    },
+    {
+      id: 15,
+      question: "다음 짝지어진 대화 중 어법상 틀린 것을 고르시오.",
+      options: [
+        "A: The movie was disappointing. B: Yes, I was disappointed too.",
+        "A: Having finished his work, he went home. B: That's good.",
+        "A: It takes me an hour to get there. B: Really? It takes me only 30 minutes.",
+        "A: Either you or I am wrong. B: I think you're right.",
+        "A: A number of students is absent. B: Yes, many are sick."
+      ],
+      correct: 4
+    },
+    {
+      id: 16,
+      question: "다음 짝지어진 대화 중 어법상 틀린 것을 고르시오.",
+      options: [
+        "A: I'll call you as soon as I arrive. B: Okay, I'll be waiting.",
+        "A: That's all I need. B: Is that everything?",
+        "A: Not only does he speak English, but he also speaks French. B: Amazing!",
+        "A: The harder I study, the more confused I get. B: Take a break.",
+        "A: I spent two hours to finish my homework. B: That's a long time."
+      ],
+      correct: 4
+    },
+    {
+      id: 17,
+      question: "다음 짝지어진 대화 중 어법상 올바른 것을 고르시오.",
+      options: [
+        "A: I remember meeting him. B: When did you meet him?",
+        "A: She forgot to lock the door. B: That's dangerous.",
+        "A: I'm used to getting up early. B: That's good.",
+        "A: He stopped smoking last year. B: Good for him.",
+        "A: Try solving this problem. B: I'll try to solve it."
+      ],
+      correct: 4
+    },
+    {
+      id: 18,
+      question: "다음 문장 전환 중 잘못된 것을 고르시오.",
+      options: [
+        "He gave me the book. → The book was given to me by him.",
+        "They told us the story. → We were told the story by them.",
+        "She bought him a gift. → A gift was bought for him by her.",
+        "I asked her a question. → She was asked a question by me.",
+        "We showed them the way. → The way was showed to them by us."
+      ],
+      correct: 4
+    },
+    {
+      id: 19,
+      question: "다음 문장 전환 중 잘못된 것을 고르시오.",
+      options: [
+        "He is too young to drive. → He is so young that he can't drive.",
+        "She was old enough to vote. → She was so old that she can vote.",
+        "I don't know what to do. → I don't know what I should do.",
+        "Tell me where to go. → Tell me where I should go.",
+        "Reading books, I fell asleep. → While I was reading books, I fell asleep."
+      ],
+      correct: 1
+    },
+    {
+      id: 20,
+      question: "다음 문장 전환 중 잘못된 것을 고르시오.",
+      options: [
+        "Not a word did he say. → He didn't say a word.",
+        "Only then did I realize the truth. → I realized the truth only then.",
+        "So tired was she that she fell asleep. → She was so tired that she fell asleep.",
+        "Had I known, I would have helped. → If I had known, I would have helped.",
+        "Not until yesterday I knew the truth. → I didn't know the truth until yesterday."
+      ],
+      correct: 4
+    },
+    {
+      id: 21,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "_____ of the students has submitted the assignment.",
+      options: ["Each", "Every", "All", "Both", "Much"],
+      correct: 0
+    },
+    {
+      id: 22,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't mind _____ alone.",
+      options: ["to be", "being", "be", "been", "to being"],
+      correct: 1
+    },
+    {
+      id: 23,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is the reason _____ he was late.",
+      options: ["why", "which", "that", "what", "how"],
+      correct: 0
+    },
+    {
+      id: 24,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "_____ he studied hard, he failed the exam.",
+      options: ["Despite", "Although", "In spite", "Because of", "Due to"],
+      correct: 1
+    },
+    {
+      id: 25,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "The building _____ they are constructing will be the tallest in the city.",
+      options: ["what", "which", "where", "when", "how"],
+      correct: 1
+    },
+    // 감각적 문법능력 (26-45번) - 어법상 어색한 부분 찾기
+    {
+      id: 26,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "Do you think (A)what (B)will happen (C)next (D)?",
+      options: ["A", "B", "C", "D"],
+      correct: 0
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "She (A)has been (B)studied (C)English for years (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "Physics (A)are (B)my favorite (C)subject (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 0
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "I (A)remember (B)to meeting (C)him last year (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "It (A)seems (B)to raining (C)outside now (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "(A)Study hard, (B)he (C)passed (D)the exam.",
+      options: ["A", "B", "C", "D"],
+      correct: 0
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "What (A)I want (B)are (C)more time (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "He (A)is known (B)to having (C)written many books (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "I wish (A)I (B)can (C)help you more (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "The book, (A)that (B)I bought yesterday, (C)is interesting (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 0
+    },
+    {
+      id: 36,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "A number of (A)students (B)has (C)come late (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 37,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "(A)Hearing (B)the news, (C)she shocked (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 2
+    },
+    {
+      id: 38,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "I (A)prefer (B)coffee (C)than tea (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 2
+    },
+    {
+      id: 39,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "It (A)is (B)important (C)that he goes there (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 2
+    },
+    {
+      id: 40,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "The number of (A)students (B)are (C)increasing (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 41,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "She (A)seems (B)happily (C)today (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 42,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "I (A)spent (B)three hours (C)to read the book (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 2
+    },
+    {
+      id: 43,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "Those (A)who (B)wants success (C)must work hard (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 1
+    },
+    {
+      id: 44,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "As soon as (A)he will arrive, (B)I (C)will call you (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "다음 문장에서 (A), (B), (C), (D)로 표시된 부분 중 문법적으로 어색한 것을 고르시오.",
+      sentence: "She (A)is (B)as tall (C)so her brother (D).",
+      options: ["A", "B", "C", "D"],
+      correct: 2
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 우리말을 영어로 쓰시오.",
+      sentence: "그가 정직하다는 것은 모든 사람이 안다.",
+      answers: [
+        "That he is honest is known to everyone.",
+        "Everyone knows that he is honest.",
+        "That he is honest is known to everyone",
+        "Everyone knows that he is honest"
+      ]
+    },
+    {
+      id: 47,
+      question: "다음 우리말을 영어로 쓰시오. (분사구문 사용)",
+      sentence: "비가 와서, 우리는 경기를 취소했다.",
+      answers: [
+        "As it was raining, we canceled the game.",
+        "It raining, we canceled the game.",
+        "As it was raining, we canceled the game",
+        "It raining, we canceled the game"
+      ]
+    },
+    {
+      id: 48,
+      question: "다음 우리말을 영어로 쓰시오.",
+      sentence: "나는 그녀가 그 일을 할 수 있을지 궁금하다.",
+      answers: [
+        "I wonder if she can do the work.",
+        "I wonder whether she can do the work.",
+        "I wonder if she can do the work",
+        "I wonder whether she can do the work"
+      ]
+    },
+    {
+      id: 49,
+      question: "다음 우리말을 영어로 쓰시오.",
+      sentence: "이 책은 많은 사람들에게 읽혀진다.",
+      answers: [
+        "This book is read by many people.",
+        "This book is read by many people"
+      ]
+    },
+    {
+      id: 50,
+      question: "다음 우리말을 영어로 쓰시오. (관계대명사 사용)",
+      sentence: "열심히 공부하는 학생들이 성공할 것이다.",
+      answers: [
+        "Students who study hard will succeed.",
+        "The students who study hard will succeed.",
+        "Students who study hard will succeed",
+        "The students who study hard will succeed"
+      ]
+    }
+  ]
+}
+
+// 4급 테스트 문제 (중2~중3 수준)
+export const grade4Questions = {
+  objective: [
+    {
+      id: 1,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I wonder _______ so late last night.",
+      options: ["why did he come home", "why he came home", "why does he come home", "why he comes home", "why he had come home"],
+      correct: 1
+    },
+    {
+      id: 2,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I have went to Seoul many times.",
+        "I have been to Seoul many times.",
+        "I have gone to Seoul many times.",
+        "I have been gone to Seoul many times.",
+        "I have being to Seoul many times."
+      ],
+      correct: 1
+    },
+    {
+      id: 3,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She _______ her homework for two hours.",
+      options: ["does", "did", "has done", "has been doing", "will do"],
+      correct: 3
+    },
+    {
+      id: 4,
+      question: "다음 문장의 의미로 올바른 것은? \"You should study harder.\"",
+      options: [
+        "너는 더 열심히 공부할 수 있다.",
+        "너는 더 열심히 공부해야 한다.",
+        "너는 더 열심히 공부하고 있다.",
+        "너는 더 열심히 공부했다.",
+        "너는 더 열심히 공부할 것이다."
+      ],
+      correct: 1
+    },
+    {
+      id: 5,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This book _______ by many people.",
+      options: ["reads", "is read", "read", "reading", "to read"],
+      correct: 1
+    },
+    {
+      id: 6,
+      question: "다음 중 수동태로 바꿀 수 없는 것은?",
+      options: [
+        "She teaches English.",
+        "They built a house.",
+        "He looks happy.",
+        "I wrote a letter.",
+        "We clean the room."
+      ],
+      correct: 2
+    },
+    {
+      id: 7,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Either Tom or his friends _______ coming to the party.",
+      options: ["is", "are", "was", "has", "have"],
+      correct: 1
+    },
+    {
+      id: 8,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Neither the teacher nor the students was happy.",
+        "Neither the teacher nor the students were happy.",
+        "Neither the teacher nor the student were happy.",
+        "Neither the teachers nor the student were happy.",
+        "Neither teachers nor student was happy."
+      ],
+      correct: 1
+    },
+    {
+      id: 9,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "We should discuss _______ this problem carefully.",
+      options: ["about", "on", "for", "with", "(no preposition)"],
+      correct: 4
+    },
+    {
+      id: 10,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I'm good at play the piano.",
+        "I'm good at playing the piano.",
+        "I'm good at to play the piano.",
+        "I'm good at played the piano.",
+        "I'm good in playing the piano."
+      ],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't know _______ this computer.",
+      options: ["how use", "how to use", "how using", "how used", "how I use"],
+      correct: 1
+    },
+    {
+      id: 12,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "We elected him president.",
+        "We elected him a president.",
+        "We elected him to president.",
+        "We elected him as president.",
+        "We elected him for president."
+      ],
+      correct: 0
+    },
+    {
+      id: 13,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The news made me _______.",
+      options: ["surprising", "surprised", "surprise", "to surprise", "being surprised"],
+      correct: 1
+    },
+    {
+      id: 14,
+      question: "다음 중 어법상 틀린 것은?",
+      options: [
+        "I saw him cross the street.",
+        "I saw him crossing the street.",
+        "I saw him to cross the street.",
+        "She made me laugh.",
+        "They let us go home early."
+      ],
+      correct: 2
+    },
+    {
+      id: 15,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ is my favorite hobby.",
+      options: ["Read books", "Reading books", "To reading books", "Books reading", "Read book"],
+      correct: 1
+    },
+    {
+      id: 16,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I'm exciting about the trip.",
+        "I'm excited about the trip.",
+        "The trip is excited.",
+        "I'm excitement about the trip.",
+        "The trip makes me exciting."
+      ],
+      correct: 1
+    },
+    {
+      id: 17,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The man _______ is my uncle.",
+      options: ["stands there", "standing there", "stood there", "to stand there", "who stand there"],
+      correct: 1
+    },
+    {
+      id: 18,
+      question: "다음 중 관계대명사가 생략 가능한 것은?",
+      options: [
+        "The book which is on the table is mine.",
+        "The book which I bought yesterday is interesting.",
+        "The man who came here is my friend.",
+        "The girl who is singing is my sister.",
+        "The house which was built last year is beautiful."
+      ],
+      correct: 1
+    },
+    {
+      id: 19,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I bought some flowers _______ my mother would be happy.",
+      options: ["so that", "so as", "in order", "because", "since"],
+      correct: 0
+    },
+    {
+      id: 20,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The box is too heavy for me to carry it.",
+        "The box is too heavy for me to carry.",
+        "The box is so heavy for me to carry.",
+        "The box is enough heavy for me to carry.",
+        "The box is very heavy for me to carry."
+      ],
+      correct: 1
+    },
+    {
+      id: 21,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ you study, _______ your grades will be.",
+      options: ["The harder / the better", "The more hard / the more good", "Harder / better", "The hardest / the best", "More harder / more better"],
+      correct: 0
+    },
+    {
+      id: 22,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "This movie is superior than that one.",
+        "This movie is superior to that one.",
+        "This movie is superior from that one.",
+        "This movie is superior of that one.",
+        "This movie is superior with that one."
+      ],
+      correct: 1
+    },
+    {
+      id: 23,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He _______ work hard when he was young.",
+      options: ["did", "does", "do", "was", "has"],
+      correct: 0
+    },
+    {
+      id: 24,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Not all students like math.",
+        "All students don't like math.",
+        "Students all don't like math.",
+        "Students don't all like math.",
+        "Don't all students like math."
+      ],
+      correct: 0
+    },
+    {
+      id: 25,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I know the reason _______ he was absent.",
+      options: ["which", "that", "why", "when", "where"],
+      correct: 2
+    },
+    // 감각적 문법능력 - 오류 찾기 (26-35번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① wonder ② what ③ does ④ she ⑤ want.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① has ② went ③ to ④ the ⑤ market.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① letter ② was ③ wrote ④ by ⑤ him.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Either ① you ② or ③ I ④ are ⑤ wrong.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Not ① only ② Tom ③ but ④ also ⑤ his friends is coming.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 4
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① want ② to ③ discuss ④ about ⑤ this problem.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① is ② interested ③ at ④ learning ⑤ languages.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "They ① made ② him ③ to ④ study ⑤ harder.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I'm ① very ② exciting ③ about ④ the ⑤ trip.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① girl ② stood ③ there ④ is ⑤ my sister.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    // 감각적 문법능력 - 빈칸 채우기 (36-45번)
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I have been _______ here for five years.",
+      options: ["live", "living", "lived", "to live", "lives"],
+      correct: 1
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The problem is too difficult for me _______.",
+      options: ["to solve", "to solve it", "solving", "solve", "solved"],
+      correct: 0
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He is one of the students _______.",
+      options: ["who study", "who studies", "which study", "that studies", "whom study"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I bought a book _______ improve my English.",
+      options: ["so that", "in order to", "because", "although", "unless"],
+      correct: 1
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ you work, the better results you'll get.",
+      options: ["The harder", "The more hard", "Harder", "More hard", "Most hard"],
+      correct: 0
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I _______ finish my homework yesterday, despite being tired.",
+      options: ["do", "did", "does", "done", "doing"],
+      correct: 1
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ birds can fly well.",
+      options: ["Not all", "All don't", "Not every", "Every not", "All not"],
+      correct: 0
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is the house _______ I was born.",
+      options: ["which", "where", "that", "when", "what"],
+      correct: 1
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The movie was _______ boring that I fell asleep.",
+      options: ["so", "such", "very", "too", "enough"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I prefer tea _______ coffee in the morning.",
+      options: ["than", "to", "over", "from", "with"],
+      correct: 1
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 문장을 수동태로 바꾸시오.",
+      sentence: "Someone has stolen my bicycle.",
+      answers: [
+        "My bicycle has been stolen.",
+        "My bicycle has been stolen",
+        "My bicycle has been stolen by someone.",
+        "My bicycle has been stolen by someone"
+      ]
+    },
+    {
+      id: 47,
+      question: "다음 두 문장을 관계대명사를 사용하여 하나로 연결하시오.",
+      sentence: "I met a man yesterday. He speaks five languages.",
+      answers: [
+        "I met a man yesterday who speaks five languages.",
+        "I met a man yesterday who speaks five languages",
+        "I met a man who speaks five languages yesterday.",
+        "I met a man who speaks five languages yesterday"
+      ]
+    },
+    {
+      id: 48,
+      question: "빈칸에 알맞은 형태로 쓰시오.",
+      sentence: "I'm _____________ (surprise) at the news. The news is _____________ (surprise) to me.",
+      answers: ["surprised, surprising", "surprised,surprising"]
+    },
+    {
+      id: 49,
+      question: "다음 우리말을 영어로 완성하시오. (목적 표현)",
+      sentence: "나는 영어를 잘하기 위해 열심히 공부한다. = I study hard _________________________________ English well.",
+      answers: ["so that I can speak", "in order to speak", "to speak"]
+    },
+    {
+      id: 50,
+      question: "다음 문장을 완성하시오. (부분부정)",
+      sentence: "모든 학생이 수학을 좋아하는 것은 아니다. = _________________________________ like math.",
+      answers: ["Not all students", "not all students"]
+    }
+  ]
+}
+
+// 5급 테스트 문제 (중1~중2 수준)
+export const grade5Questions = {
+  objective: [
+    {
+      id: 1,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't know where _______ last night.",
+      options: ["did he go", "he went", "does he go", "he goes", "went he"],
+      correct: 1
+    },
+    {
+      id: 2,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "You must to study hard.",
+        "You must study hard.",
+        "You must studying hard.",
+        "You musts study hard.",
+        "You must studied hard."
+      ],
+      correct: 1
+    },
+    {
+      id: 3,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ you help me with this problem?",
+      options: ["Can", "Must", "Should", "Would", "Might"],
+      correct: 0
+    },
+    {
+      id: 4,
+      question: "다음 문장의 의미로 올바른 것은? \"Could you open the window?\"",
+      options: [
+        "너는 창문을 열 수 있니?",
+        "창문을 열어주시겠어요?",
+        "너는 창문을 열어야 한다.",
+        "창문을 열지 마세요.",
+        "창문이 열려 있나요?"
+      ],
+      correct: 1
+    },
+    {
+      id: 5,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Everyone _______ ready for the test.",
+      options: ["are", "is", "have", "were", "has been"],
+      correct: 1
+    },
+    {
+      id: 6,
+      question: "다음 중 어법상 틀린 것은?",
+      options: [
+        "Each student has a book.",
+        "Somebody is calling you.",
+        "Everyone are happy today.",
+        "Nobody knows the answer.",
+        "Everybody likes ice cream."
+      ],
+      correct: 2
+    },
+    {
+      id: 7,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Both Tom and Jerry _______ good at English.",
+      options: ["is", "are", "was", "has", "have"],
+      correct: 1
+    },
+    {
+      id: 8,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Several students was absent.",
+        "Several students were absent.",
+        "Several student were absent.",
+        "Several students is absent.",
+        "Several student was absent."
+      ],
+      correct: 1
+    },
+    {
+      id: 9,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "My clothes _______ dirty, so I need to wash them.",
+      options: ["is", "are", "was", "has", "have"],
+      correct: 1
+    },
+    {
+      id: 10,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The box of apples are heavy.",
+        "The box of apples is heavy.",
+        "The box of apple is heavy.",
+        "The box of apples were heavy.",
+        "The box of apple are heavy."
+      ],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She _______ me a beautiful present yesterday.",
+      options: ["give", "gives", "gave", "given", "giving"],
+      correct: 2
+    },
+    {
+      id: 12,
+      question: "다음 문장을 3형식으로 바꾸면? \"I gave him a book.\"",
+      options: [
+        "I gave a book him.",
+        "I gave a book to him.",
+        "I gave to him a book.",
+        "A book gave I to him.",
+        "Him gave I a book."
+      ],
+      correct: 1
+    },
+    {
+      id: 13,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "We are looking _______ our lost cat.",
+      options: ["at", "for", "after", "up", "into"],
+      correct: 1
+    },
+    {
+      id: 14,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "She looks like happy.",
+        "She looks happily.",
+        "She looks happy.",
+        "She looks happiness.",
+        "She look happy."
+      ],
+      correct: 2
+    },
+    {
+      id: 15,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The weather is getting _______.",
+      options: ["warm", "warmly", "more warm", "warmness", "warmer"],
+      correct: 4
+    },
+    {
+      id: 16,
+      question: "다음 중 5형식 문장은?",
+      options: [
+        "I found the key.",
+        "She looks tired.",
+        "We made him happy.",
+        "They arrived late.",
+        "He gave me advice."
+      ],
+      correct: 2
+    },
+    {
+      id: 17,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I like _______ books in my free time.",
+      options: ["read", "to read", "reading", "both ② and ③", "reads"],
+      correct: 3
+    },
+    {
+      id: 18,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I have something eat.",
+        "I have something to eat.",
+        "I have something eating.",
+        "I have something ate.",
+        "I have eat something."
+      ],
+      correct: 1
+    },
+    {
+      id: 19,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The movie was very _______.",
+      options: ["interesting", "interested", "interest", "interestingly", "interests"],
+      correct: 0
+    },
+    {
+      id: 20,
+      question: "다음 중 어법상 틀린 것은?",
+      options: [
+        "I'm interested in music.",
+        "The book is very interesting.",
+        "She feels boring today.",
+        "The class was exciting.",
+        "We were surprised at the news."
+      ],
+      correct: 2
+    },
+    {
+      id: 21,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "When he _______ home, I will call you.",
+      options: ["come", "comes", "will come", "came", "coming"],
+      correct: 1
+    },
+    {
+      id: 22,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "If it will rain, we won't go.",
+        "If it rains, we won't go.",
+        "If it rain, we won't go.",
+        "If it rained, we won't go.",
+        "If it is raining, we won't go."
+      ],
+      correct: 1
+    },
+    {
+      id: 23,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She has been studying _______ three hours.",
+      options: ["since", "for", "during", "until", "from"],
+      correct: 1
+    },
+    {
+      id: 24,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Although it was raining, but we went out.",
+        "Although it was raining, we went out.",
+        "Though it was raining, but we went out.",
+        "Despite it was raining, we went out.",
+        "In spite it was raining, we went out."
+      ],
+      correct: 1
+    },
+    {
+      id: 25,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is one of _______ movies I've ever seen.",
+      options: ["the most interesting", "the more interesting", "most interesting", "more interesting", "interesting"],
+      correct: 0
+    },
+    // 감각적 문법능력 - 오류 찾기 (26-35번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① don't ② know ③ where ④ does ⑤ he live.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① can ② speaks ③ three ④ different ⑤ languages.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Everyone ① in ② our ③ class ④ are ⑤ good students.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Both ① my ② parents ③ is ④ teachers ⑤ at school.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "My ① scissors ② is ③ very ④ sharp ⑤ and useful.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① number ② of ③ students ④ are ⑤ increasing.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① gave ② to ③ him ④ a ⑤ present.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① is ② looking ③ at ④ her ⑤ lost keys.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① soup ② tastes ③ very ④ well ⑤ today.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "We ① made ② him ③ to ④ study ⑤ harder.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    // 감각적 문법능력 - 빈칸 채우기 (36-45번)
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I'm _______ in learning foreign languages.",
+      options: ["interesting", "interested", "interest", "interests", "interestingly"],
+      correct: 1
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The baby _______ in the crib looks peaceful.",
+      options: ["sleeping", "slept", "sleeps", "sleep", "to sleep"],
+      correct: 0
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "When I _______ home, I'll call you immediately.",
+      options: ["will get", "get", "got", "getting", "gets"],
+      correct: 1
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "If you _______ hard, you will pass the exam.",
+      options: ["will study", "study", "studied", "studying", "studies"],
+      correct: 1
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ she was tired, she continued working.",
+      options: ["Although", "Despite", "Because", "So", "However"],
+      correct: 0
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't think he _______ right about this matter.",
+      options: ["is", "isn't", "was", "wasn't", "will be"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She is one of the _______ students in class.",
+      options: ["smartest", "most smart", "smarter", "more smart", "smart"],
+      correct: 0
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "We have been waiting _______ two hours already.",
+      options: ["since", "for", "during", "until", "from"],
+      correct: 1
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The news _______ very important for everyone to know.",
+      options: ["is", "are", "was", "were", "have been"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Neither John nor his friends _______ at the party.",
+      options: ["was", "were", "is", "are", "has been"],
+      correct: 1
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 우리말을 영어로 완성하시오.",
+      sentence: "너는 이 무거운 상자를 들 수 있니? (능력) = _______ you _______ this heavy box?",
+      answers: ["Can, carry", "Can,carry", "can, carry", "can,carry"]
+    },
+    {
+      id: 47,
+      question: "다음 문장을 3형식으로 바꾸시오.",
+      sentence: "He showed me his new car.",
+      answers: [
+        "He showed his new car to me.",
+        "He showed his new car to me"
+      ]
+    },
+    {
+      id: 48,
+      question: "빈칸에 알맞은 형태로 쓰시오.",
+      sentence: "The story was very _____________ (interest). I was _____________ (interest) in the story.",
+      answers: ["interesting, interested", "interesting,interested"]
+    },
+    {
+      id: 49,
+      question: "다음 문장을 완성하시오. (시간부사절 미래대용)",
+      sentence: "When the rain _____________ (stop), we will go out.",
+      answers: ["stops", "stop"]
+    },
+    {
+      id: 50,
+      question: "다음 우리말을 영어로 완성하시오.",
+      sentence: "나는 그가 옳다고 생각하지 않는다. (부정전이) = I _______ _______ he _______ right.",
+      answers: ["don't think, is", "don't think,is", "do not think, is", "do not think,is"]
+    }
+  ]
+}
+
+// 1급 테스트 문제 (고2~고3 수준)
+export const grade1Questions = {
+  objective: [
+    {
+      id: 1,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "He _______ always complaining about everything these days.",
+      options: ["was", "is", "has been", "will be", "had been"],
+      correct: 1
+    },
+    {
+      id: 2,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I wish I have more time to study.",
+        "I wish I had more time to study.",
+        "I wish I will have more time to study.",
+        "I wish I would have more time to study.",
+        "I wish I am having more time to study."
+      ],
+      correct: 1
+    },
+    {
+      id: 3,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "It _______ that he will resign from his position.",
+      options: ["says", "is said", "is saying", "has said", "was saying"],
+      correct: 1
+    },
+    {
+      id: 4,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Two-thirds of the students was absent.",
+        "Two-thirds of the students were absent.",
+        "Two-third of the students were absent.",
+        "Two-thirds of the student were absent.",
+        "Two-thirds of the students is absent."
+      ],
+      correct: 1
+    },
+    {
+      id: 5,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The majority of the committee _______ against the proposal.",
+      options: ["is", "are", "was", "were", "have been"],
+      correct: 1
+    },
+    {
+      id: 6,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Neither Tom nor his parents was at home.",
+        "Neither Tom nor his parents were at home.",
+        "Neither Tom nor his parent were at home.",
+        "Neither Tom nor his parents is at home.",
+        "Neither Tom and his parents were at home."
+      ],
+      correct: 1
+    },
+    {
+      id: 7,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I told him what _______ so disappointed about the results.",
+      options: ["made me feel", "did make me feel", "made me to feel", "make me feel", "making me feel"],
+      correct: 0
+    },
+    {
+      id: 8,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The question is too difficult for me to solve it.",
+        "The question is too difficult for me to solve.",
+        "The question is so difficult for me to solve it.",
+        "The question is very difficult for me to solve it.",
+        "The question is enough difficult for me to solve."
+      ],
+      correct: 1
+    },
+    {
+      id: 9,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "We found the situation extremely difficult _______.",
+      options: ["to handle", "to handle it", "handling", "for handling", "of handling"],
+      correct: 0
+    },
+    {
+      id: 10,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "When crossing the street, a car hit him.",
+        "When crossing the street, he was hit by a car.",
+        "When crossed the street, he was hit by a car.",
+        "When he crossing the street, a car hit him.",
+        "When to cross the street, he was hit by a car."
+      ],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ in 1990, he moved to Seoul when he was young.",
+      options: ["Born", "Being born", "Having born", "To be born", "Birth"],
+      correct: 0
+    },
+    {
+      id: 12,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The man believed to be rich turned out to be poor.",
+        "The man believed to being rich turned out to be poor.",
+        "The man believed being rich turned out to be poor.",
+        "The man believed rich turned out to be poor.",
+        "The man believing to be rich turned out to be poor."
+      ],
+      correct: 0
+    },
+    {
+      id: 13,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is the very book _______ I have been looking for.",
+      options: ["which", "what", "that", "who", "whose"],
+      correct: 2
+    },
+    {
+      id: 14,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The way which he solved the problem was brilliant.",
+        "The way in which he solved the problem was brilliant.",
+        "The way that he solved the problem was brilliant.",
+        "The way how he solved the problem was brilliant.",
+        "both ② and ③"
+      ],
+      correct: 4
+    },
+    {
+      id: 15,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The reason _______ he gave for being late was unconvincing.",
+      options: ["why", "that", "what", "which", "when"],
+      correct: 3
+    },
+    {
+      id: 16,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Should you need any help, please let me know.",
+        "Should you will need any help, please let me know.",
+        "Should you needed any help, please let me know.",
+        "Should you needing any help, please let me know.",
+        "Should you to need any help, please let me know."
+      ],
+      correct: 0
+    },
+    {
+      id: 17,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ he had not studied hard, he would have failed the exam.",
+      options: ["If", "Unless", "Even if", "As if", "Only if"],
+      correct: 0
+    },
+    {
+      id: 18,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Not until he arrived did the meeting begin.",
+        "Not until he arrived the meeting began.",
+        "Not until he arrived the meeting did begin.",
+        "Not until did he arrive the meeting began.",
+        "Until he arrived did not the meeting begin."
+      ],
+      correct: 0
+    },
+    {
+      id: 19,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Never _______ such a beautiful sunset before.",
+      options: ["I have seen", "have I seen", "I had seen", "had I seen", "I saw"],
+      correct: 1
+    },
+    {
+      id: 20,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Hardly had he left when it started to rain.",
+        "Hardly he had left when it started to rain.",
+        "Hardly had he left than it started to rain.",
+        "Hardly he left when it started to rain.",
+        "Hardly did he leave when it started to rain."
+      ],
+      correct: 0
+    },
+    {
+      id: 21,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ more diligent than Tom in our class.",
+      options: ["No one is", "Anyone is not", "No one are", "Not anyone is", "None are"],
+      correct: 0
+    },
+    {
+      id: 22,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I don't think he is not honest.",
+        "I think he is not honest.",
+        "I don't think he is honest.",
+        "I not think he is honest.",
+        "I think he isn't not honest."
+      ],
+      correct: 2
+    },
+    {
+      id: 23,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "There is no denying the fact _______ global warming is a serious problem.",
+      options: ["which", "what", "that", "whether", "if"],
+      correct: 2
+    },
+    {
+      id: 24,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The more you study, the better your grades become.",
+        "The more you study, the more better your grades become.",
+        "More you study, better your grades become.",
+        "The much you study, the better your grades become.",
+        "The more you study, your grades become better."
+      ],
+      correct: 0
+    },
+    {
+      id: 25,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I would rather you _______ me the truth.",
+      options: ["tell", "told", "telling", "to tell", "have told"],
+      correct: 1
+    },
+    // 감각적 문법능력 (26-45번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① is ② always ③ complained ④ about ⑤ the weather.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① wish ② I ③ will ④ be ⑤ taller.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "It ① is ② said ③ him ④ to ⑤ be honest.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Five ① million ② dollars ③ are ④ a ⑤ lot of money.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "Neither ① of ② the ③ answers ④ are ⑤ correct.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① explained ② her ③ how ④ to ⑤ solve the problem.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① While ② crossed ③ the ④ street, ⑤ he saw an accident.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① man ② said ③ to ④ be ⑤ a genius is actually ordinary.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "This ① is ② the ③ very ④ place ⑤ where I was looking for.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 4
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① Should ② you ③ will ④ come, ⑤ please call me.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He speaks English _______ he were a native speaker.",
+      options: ["as if", "as though", "both as if and as though", "like", "as"],
+      correct: 2
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ yesterday did I realize my mistake.",
+      options: ["Not until", "Until not", "Not when", "Until", "Not"],
+      correct: 0
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ had the concert begun when it started raining.",
+      options: ["Hardly", "Hard", "Hardily", "Hardy", "Harder"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I would rather _______ home than go out tonight.",
+      options: ["stay", "stayed", "staying", "to stay", "have stayed"],
+      correct: 0
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "There is no doubt _______ he is the best candidate.",
+      options: ["that", "what", "whether", "if", "which"],
+      correct: 0
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ carefully you read, the better you understand.",
+      options: ["The more", "More", "Much", "The much", "Most"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I don't think this plan _______ effectively.",
+      options: ["will work", "won't work", "doesn't work", "work", "working"],
+      correct: 0
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "It was not until midnight _______ he came home.",
+      options: ["that", "when", "which", "where", "while"],
+      correct: 0
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ difficult was the exam that many students failed.",
+      options: ["So", "Such", "Too", "Very", "Much"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He is _______ a teacher than I am a student.",
+      options: ["no more", "not more", "no less", "not less", "neither"],
+      correct: 0
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 문장을 가정법을 사용하여 다시 쓰시오.",
+      sentence: "He didn't listen to my advice, so he made a mistake.",
+      answers: [
+        "If he had listened to my advice, he wouldn't have made a mistake.",
+        "If he had listened to my advice, he would not have made a mistake."
+      ]
+    },
+    {
+      id: 47,
+      question: "다음 문장을 도치구문으로 바꾸시오.",
+      sentence: "He had hardly finished speaking when the phone rang.",
+      answers: ["Hardly had he finished speaking when the phone rang."]
+    },
+    {
+      id: 48,
+      question: "다음 두 문장을 접속사 + 분사구문으로 연결하시오.",
+      sentence: "When I was walking in the park, I met my old friend.",
+      answers: ["When walking in the park, I met my old friend."]
+    },
+    {
+      id: 49,
+      question: "다음 우리말을 영어로 완성하시오. (동격 that절)",
+      sentence: "그가 성공할 것이라는 사실은 의심의 여지가 없다. = There is no doubt _______",
+      answers: ["that he will succeed"]
+    },
+    {
+      id: 50,
+      question: "다음 우리말을 영어로 완성하시오. (부분부정)",
+      sentence: "모든 학생이 영어를 좋아하는 것은 아니다. = _______ English.",
+      answers: ["Not all students like", "All students do not like"]
+    }
+  ]
+}
+
+// 2급 테스트 문제 (중학교 3학년 수준 - 고급 문법 구조의 완성)
+export const grade2Questions = {
+  objective: [
+    // 인지적 문법능력 (1-25번)
+    {
+      id: 1,
+      question: "다음 빈칸에 알맞은 것을 고르시오.",
+      sentence: "You _______ harder when you were a student.",
+      options: ["should study", "should have studied", "should be studying", "should studied", "should to study"],
+      correct: 1
+    },
+    {
+      id: 2,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "He might have been arrived by now.",
+        "He might have arrived by now.",
+        "He might has arrived by now.",
+        "He might arrived by now.",
+        "He might be have arrived by now."
+      ],
+      correct: 1
+    },
+    {
+      id: 3,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "She _______ the exam if she had studied harder.",
+      options: ["could pass", "could have passed", "could passed", "could be passed", "could have been passed"],
+      correct: 1
+    },
+    {
+      id: 4,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "A number of students have arrived.",
+        "The number of students have arrived.",
+        "A number of student has arrived.",
+        "The number of student have arrived.",
+        "Number of students has arrived."
+      ],
+      correct: 0
+    },
+    {
+      id: 5,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "One of my friends _______ to Paris last year.",
+      options: ["have been", "has been", "have gone", "has gone", "had been"],
+      correct: 1
+    },
+    {
+      id: 6,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "What I need are more time.",
+        "What I need is more time.",
+        "What I need have more time.",
+        "What I needs is more time.",
+        "What I need were more time."
+      ],
+      correct: 1
+    },
+    {
+      id: 7,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Please turn _______ the music. It's too loud.",
+      options: ["off", "down", "up", "on", "over"],
+      correct: 1
+    },
+    {
+      id: 8,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I found it difficulty to solve the problem.",
+        "I found it difficult to solve the problem.",
+        "I found it difficultly to solve the problem.",
+        "I found difficulty to solve the problem.",
+        "I found it is difficult to solve the problem."
+      ],
+      correct: 1
+    },
+    {
+      id: 9,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He told me _______ I should study abroad.",
+      options: ["that", "what", "which", "whether", "who"],
+      correct: 3
+    },
+    {
+      id: 10,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "She seems to being happy today.",
+        "She seems to be happy today.",
+        "She seems being happy today.",
+        "She seems be happy today.",
+        "She seem to be happy today."
+      ],
+      correct: 1
+    },
+    {
+      id: 11,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ is necessary for good health.",
+      options: ["Exercise", "To exercise", "Exercising", "To exercising", "both ① and ③"],
+      correct: 4
+    },
+    {
+      id: 12,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I heard him to sing in the shower.",
+        "I heard him singing in the shower.",
+        "I heard him sang in the shower.",
+        "I heard him sings in the shower.",
+        "I heard him to singing in the shower."
+      ],
+      correct: 1
+    },
+    {
+      id: 13,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Having _______ all my homework, I went to bed.",
+      options: ["finish", "finished", "finishing", "to finish", "been finished"],
+      correct: 1
+    },
+    {
+      id: 14,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "Weather permitting, we will go camping.",
+        "Weather permits, we will go camping.",
+        "Weather to permit, we will go camping.",
+        "Weather permitted, we will go camping.",
+        "If weather permitting, we will go camping."
+      ],
+      correct: 0
+    },
+    {
+      id: 15,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I saw her _______ with her friends in the park.",
+      options: ["talked", "talking", "to talk", "talks", "talk"],
+      correct: 1
+    },
+    {
+      id: 16,
+      question: "다음 중 계속적 용법으로 쓰인 것은?",
+      options: [
+        "The book which I bought is interesting.",
+        "Tom, who is my friend, lives in Seoul.",
+        "The girl whom I met yesterday is kind.",
+        "The house that we live in is old.",
+        "The reason why he left is unknown."
+      ],
+      correct: 1
+    },
+    {
+      id: 17,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Those _______ want to join the club should sign here.",
+      options: ["which", "whom", "whose", "who", "what"],
+      correct: 3
+    },
+    {
+      id: 18,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "The house which we live is beautiful.",
+        "The house which we live in is beautiful.",
+        "The house in which we live in is beautiful.",
+        "The house what we live in is beautiful.",
+        "The house where we live in is beautiful."
+      ],
+      correct: 1
+    },
+    {
+      id: 19,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The movie was _______ boring that I fell asleep.",
+      options: ["so", "such", "very", "too", "enough"],
+      correct: 0
+    },
+    {
+      id: 20,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "However hard he tried, but he couldn't succeed.",
+        "However hard he tried, he couldn't succeed.",
+        "However he tried hard, he couldn't succeed.",
+        "However hardly he tried, he couldn't succeed.",
+        "However hard tried he, he couldn't succeed."
+      ],
+      correct: 1
+    },
+    {
+      id: 21,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ comes first will get the prize.",
+      options: ["Who", "Whom", "Whoever", "Whomever", "What"],
+      correct: 2
+    },
+    {
+      id: 22,
+      question: "다음 중 어법상 올바른 것은?",
+      options: [
+        "I wish I am taller than I am now.",
+        "I wish I was taller than I am now.",
+        "I wish I were taller than I am now.",
+        "I wish I will be taller than I am now.",
+        "I wish I have been taller than I am now."
+      ],
+      correct: 2
+    },
+    {
+      id: 23,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He speaks English _______ he were a native speaker.",
+      options: ["as", "like", "as if", "such as", "so as"],
+      correct: 2
+    },
+    {
+      id: 24,
+      question: "다음 중 강조구문으로 올바른 것은?",
+      options: [
+        "It was Tom who helped me yesterday.",
+        "It is Tom who helped me yesterday.",
+        "It was Tom whom helped me yesterday.",
+        "It was Tom which helped me yesterday.",
+        "It were Tom who helped me yesterday."
+      ],
+      correct: 0
+    },
+    {
+      id: 25,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Here _______ the bus we've been waiting for.",
+      options: ["come", "comes", "coming", "came", "is coming"],
+      correct: 1
+    },
+    // 감각적 문법능력 (26-45번)
+    {
+      id: 26,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "You ① should ② studied ③ harder ④ when ⑤ you were young.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "He ① might ② has ③ finished ④ his ⑤ homework by now.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "If ① she ② had ③ left ④ earlier, she ⑤ will arrive on time.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 4
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "The ① number ② of ③ accidents ④ have ⑤ increased this year.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "One ① of ② the ③ students ④ were ⑤ absent yesterday.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I'm ① looking ② forward ③ to ④ hear ⑤ from you soon.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 3
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "She ① found ② it ③ difficulty ④ to ⑤ understand the lesson.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "He ① asked ② me ③ that ④ I ⑤ could help him.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "① Having ② finish ③ my ④ work, ⑤ I went home.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 1
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 어법상 어색한 부분을 고르시오.",
+      sentence: "I ① heard ② him ③ to ④ play ⑤ the piano.",
+      options: ["①", "②", "③", "④", "⑤"],
+      correct: 2
+    },
+    {
+      id: 36,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Tom, _______ is my best friend, moved to Canada.",
+      options: ["who", "whom", "which", "whose", "what"],
+      correct: 0
+    },
+    {
+      id: 37,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "This is the house _______ I was born.",
+      options: ["which", "where", "that", "when", "what"],
+      correct: 1
+    },
+    {
+      id: 38,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The book was _______ interesting that I read it twice.",
+      options: ["so", "such", "very", "too", "enough"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ happens, don't give up hope.",
+      options: ["However", "Whatever", "Whenever", "Wherever", "Whoever"],
+      correct: 1
+    },
+    {
+      id: 40,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I wish I _______ speak French fluently.",
+      options: ["can", "could", "will", "would", "should"],
+      correct: 1
+    },
+    {
+      id: 41,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "He looks _______ he hasn't slept for days.",
+      options: ["as if", "like", "as", "such as", "so as"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "_______ was my mother who taught me to be kind.",
+      options: ["It", "There", "That", "This", "What"],
+      correct: 0
+    },
+    {
+      id: 43,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "Here _______ the principal with important news.",
+      options: ["come", "comes", "coming", "came", "is coming"],
+      correct: 1
+    },
+    {
+      id: 44,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "The problem is _______ difficult for me to solve.",
+      options: ["too", "so", "very", "enough", "such"],
+      correct: 0
+    },
+    {
+      id: 45,
+      question: "빈칸에 알맞은 것을 고르시오.",
+      sentence: "I prefer coffee _______ tea in the morning.",
+      options: ["than", "to", "over", "from", "with"],
+      correct: 1
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 우리말을 영어로 완성하시오. (과거 후회)",
+      sentence: "그때 그의 말을 들었어야 했는데. = I _______ to him then.",
+      answers: ["should have listened"]
+    },
+    {
+      id: 47,
+      question: "다음 두 문장을 관계대명사를 사용하여 하나로 연결하시오. (계속적 용법)",
+      sentence: "My brother lives in New York. He is a doctor.",
+      answers: ["My brother, who is a doctor, lives in New York.", "My brother, who is a doctor, lives in New York"]
+    },
+    {
+      id: 48,
+      question: "다음 문장을 분사구문으로 바꾸시오.",
+      sentence: "Because he was tired, he went to bed early.",
+      answers: ["Being tired, he went to bed early.", "Being tired, he went to bed early", "Tired, he went to bed early.", "Tired, he went to bed early"]
+    },
+    {
+      id: 49,
+      question: "다음 우리말을 영어로 완성하시오. (강조구문)",
+      sentence: "내가 어제 만난 사람은 바로 그였다. = _______ I met yesterday.",
+      answers: ["It was he that", "It was he who", "It was him that", "It was him who"]
+    },
+    {
+      id: 50,
+      question: "다음 우리말을 영어로 완성하시오. (복합관계사)",
+      sentence: "누구든지 먼저 도착하는 사람이 상을 받을 것이다. = _______ first will get the prize.",
+      answers: ["Whoever arrives", "Whoever comes"]
+    }
+  ]
+}
+
+// 7급 테스트 문제 (초등학교 5학년 수준)
+export const grade7Questions = {
+  objective: [
+    {
+      id: 1,
+      question: "다음 중 be동사가 들어갈 자리는?",
+      sentence: "My sister _____ very tall.",
+      options: ["am", "is", "are", "do", "does"],
+      correct: 1
+    },
+    {
+      id: 2,
+      question: "다음 문장을 의문문으로 바르게 바꾼 것은? \"They play tennis every Sunday.\"",
+      options: [
+        "Do they play tennis every Sunday?",
+        "Are they play tennis every Sunday?",
+        "Does they play tennis every Sunday?",
+        "They do play tennis every Sunday?",
+        "Playing they tennis every Sunday?"
+      ],
+      correct: 0
+    },
+    {
+      id: 3,
+      question: "다음 빈칸에 알맞은 것은?",
+      sentence: "_____ you like pizza?",
+      options: ["Is", "Are", "Do", "Does", "Am"],
+      correct: 2
+    },
+    {
+      id: 4,
+      question: "다음 중 현재진행형 문장은?",
+      options: [
+        "I play soccer.",
+        "I am playing soccer.",
+        "I played soccer.",
+        "I will play soccer.",
+        "I can play soccer."
+      ],
+      correct: 1
+    },
+    {
+      id: 5,
+      question: "다음 문장의 과거형으로 올바른 것은? \"She is happy.\"",
+      options: [
+        "She was happy.",
+        "She were happy.",
+        "She did happy.",
+        "She been happy.",
+        "She has happy."
+      ],
+      correct: 0
+    },
+    {
+      id: 6,
+      question: "다음 빈칸에 알맞은 동사는?",
+      sentence: "She _____ to school by bus.",
+      options: ["go", "goes", "going", "to go", "went"],
+      correct: 1
+    },
+    {
+      id: 7,
+      question: "다음 중 3인칭 단수 동사가 올바른 문장은?",
+      options: [
+        "He play basketball.",
+        "She like ice cream.",
+        "It works well.",
+        "Tom study hard.",
+        "The cat sleep a lot."
+      ],
+      correct: 2
+    },
+    {
+      id: 8,
+      question: "다음 중 주어와 동사가 올바르게 일치하는 문장은?",
+      options: [
+        "The boys plays soccer.",
+        "My friends is nice.",
+        "The children are happy.",
+        "People likes music.",
+        "The dogs barks loudly."
+      ],
+      correct: 2
+    },
+    {
+      id: 9,
+      question: "다음 빈칸에 알맞은 것은?",
+      sentence: "My brother and I _____ students.",
+      options: ["am", "is", "are", "be", "being"],
+      correct: 2
+    },
+    {
+      id: 10,
+      question: "다음 중 단수 명사는?",
+      options: ["children", "people", "teeth", "mouse", "feet"],
+      correct: 3
+    },
+    {
+      id: 11,
+      question: "다음 중 목적어 자리에 올바른 것은?",
+      sentence: "I like _____.",
+      options: ["he", "his", "him", "she", "we"],
+      correct: 2
+    },
+    {
+      id: 12,
+      question: "다음 문장에서 목적격 대명사를 찾으세요. \"She helps me with my homework.\"",
+      options: ["She", "helps", "me", "my", "homework"],
+      correct: 2
+    },
+    {
+      id: 13,
+      question: "다음 빈칸에 알맞은 것은?",
+      sentence: "This is _____ book.",
+      options: ["me", "my", "I", "mine", "myself"],
+      correct: 1
+    },
+    {
+      id: 14,
+      question: "다음 중 동사 뒤에 오는 단어의 성격이 다른 것은?",
+      options: [
+        "I eat pizza.",
+        "She reads books.",
+        "They watch TV.",
+        "He is happy.",
+        "We like music."
+      ],
+      correct: 3
+    },
+    {
+      id: 15,
+      question: "다음 문장에서 'sweet'과 같은 역할을 하는 단어가 있는 문장은? \"The flower smells sweet.\"",
+      options: [
+        "She looks beautiful.",
+        "They play games.",
+        "He eats slowly.",
+        "We study hard.",
+        "I run fast."
+      ],
+      correct: 0
+    },
+    {
+      id: 16,
+      question: "다음 빈칸에 알맞은 것은?",
+      sentence: "I want _____ pizza.",
+      options: ["eat", "to eat", "eating", "eats", "ate"],
+      correct: 1
+    },
+    {
+      id: 17,
+      question: "다음 중 형용사는?",
+      options: ["quickly", "run", "beautiful", "always", "very"],
+      correct: 2
+    },
+    {
+      id: 18,
+      question: "다음 문장에서 부사는? \"She sings very well.\"",
+      options: ["She", "sings", "very", "well", "c와 d 모두"],
+      correct: 4
+    },
+    {
+      id: 19,
+      question: "다음 중 올바른 문장은?",
+      options: [
+        "I like read books.",
+        "I like to read books.",
+        "I like reads books.",
+        "I like to reading books.",
+        "I like read to books."
+      ],
+      correct: 1
+    },
+    {
+      id: 20,
+      question: "다음 감탄문에서 빈칸에 알맞은 것은?",
+      sentence: "_____ a beautiful day!",
+      options: ["How", "What", "Very", "So", "Too"],
+      correct: 1
+    },
+    {
+      id: 21,
+      question: "다음 중 올바른 접속사 사용은?",
+      sentence: "I like apples _____ oranges.",
+      options: ["and", "but", "because", "when", "if"],
+      correct: 0
+    },
+    {
+      id: 22,
+      question: "다음 문장의 의미로 올바른 것은? \"I study hard because I want to be a doctor.\"",
+      options: [
+        "의사가 되고 싶지만 열심히 공부한다",
+        "의사가 되고 싶어서 열심히 공부한다",
+        "의사가 되고 싶을 때 열심히 공부한다",
+        "의사가 되고 싶으면 열심히 공부한다",
+        "의사가 되고 싶고 열심히 공부한다"
+      ],
+      correct: 1
+    },
+    {
+      id: 23,
+      question: "다음 중 비교급 표현은?",
+      options: ["tall", "taller", "tallest", "very tall", "too tall"],
+      correct: 1
+    },
+    {
+      id: 24,
+      question: "다음 빈칸에 알맞은 것은?",
+      sentence: "This book is _____ than that one.",
+      options: ["good", "better", "best", "well", "more good"],
+      correct: 1
+    },
+    {
+      id: 25,
+      question: "다음 중 강조 표현이 올바른 문장은?",
+      options: [
+        "The food is very delicious.",
+        "The food is too much delicious.",
+        "The food is so much delicious.",
+        "The food is many delicious.",
+        "The food is much delicious."
+      ],
+      correct: 0
+    },
+    {
+      id: 26,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "My sister [go] to [school] [by] [bus] everyday.",
+      options: ["go", "school", "by", "bus", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 27,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[I] and my friend [like] [ice cream] very [much].",
+      options: ["I", "like", "ice cream", "much", "틀린 곳 없음"],
+      correct: 4
+    },
+    {
+      id: 28,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "She [don't] [like] [vegetables] [very] much.",
+      options: ["don't", "like", "vegetables", "very", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 29,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "They [is] [playing] basketball [in] the [park] now.",
+      options: ["is", "playing", "in", "park", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 30,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[Does] [you] [want] to [eat] pizza tonight?",
+      options: ["Does", "you", "want", "eat", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 31,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "He [speaks] English [very] [good] at [school].",
+      options: ["speaks", "very", "good", "school", "틀린 곳 없음"],
+      correct: 2
+    },
+    {
+      id: 32,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "The [children] [plays] [games] [after] school.",
+      options: ["children", "plays", "games", "after", "틀린 곳 없음"],
+      correct: 1
+    },
+    {
+      id: 33,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "I [seen] [him] at the [mall] [yesterday].",
+      options: ["seen", "him", "mall", "yesterday", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 34,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[This] is [hers] [book] about [animals].",
+      options: ["This", "hers", "book", "animals", "틀린 곳 없음"],
+      correct: 1
+    },
+    {
+      id: 35,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "My [mother] [cook] [delicious] food [everyday].",
+      options: ["mother", "cook", "delicious", "everyday", "틀린 곳 없음"],
+      correct: 1
+    },
+    {
+      id: 36,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[Tom] and [Jerry] [is] [best] friends.",
+      options: ["Tom", "Jerry", "is", "best", "틀린 곳 없음"],
+      correct: 2
+    },
+    {
+      id: 37,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "She [sings] [beautiful] [songs] [always].",
+      options: ["sings", "beautiful", "songs", "always", "틀린 곳 없음"],
+      correct: 3
+    },
+    {
+      id: 38,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[Do] he [like] to [play] [soccer]?",
+      options: ["Do", "like", "play", "soccer", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 39,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "I [want] [go] to the [park] [with] you.",
+      options: ["want", "go", "park", "with", "틀린 곳 없음"],
+      correct: 1
+    },
+    {
+      id: 40,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "The [cat] [sleep] [under] the [table] now.",
+      options: ["cat", "sleep", "under", "table", "틀린 곳 없음"],
+      correct: 1
+    },
+    {
+      id: 41,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[Him] [gave] [me] a [present] yesterday.",
+      options: ["Him", "gave", "me", "present", "틀린 곳 없음"],
+      correct: 0
+    },
+    {
+      id: 42,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "She [runs] [very] [fast] in the [race].",
+      options: ["runs", "very", "fast", "race", "틀린 곳 없음"],
+      correct: 4
+    },
+    {
+      id: 43,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "[How] [many] [peoples] [are] there?",
+      options: ["How", "many", "peoples", "are", "틀린 곳 없음"],
+      correct: 2
+    },
+    {
+      id: 44,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "I [think] [that] he [are] [smart].",
+      options: ["think", "that", "are", "smart", "틀린 곳 없음"],
+      correct: 2
+    },
+    {
+      id: 45,
+      question: "다음 문장에서 문법적으로 틀린 부분을 찾으세요.",
+      sentence: "My brother is [taller] [more] [than] [me].",
+      options: ["taller", "more", "than", "me", "틀린 곳 없음"],
+      correct: 1
+    }
+  ],
+  subjective: [
+    {
+      id: 46,
+      question: "다음 한국어 문장을 영어로 쓰세요.",
+      sentence: "나는 매일 아침 7시에 일어나.",
+      answers: ["I get up at 7 every morning.", "I get up at 7 o'clock every morning.", "I wake up at 7 every morning.", "I wake up at 7 o'clock every morning."]
+    },
+    {
+      id: 47,
+      question: "다음 한국어 문장을 영어로 쓰세요.",
+      sentence: "그녀는 영어 선생님이야.",
+      answers: ["She is an English teacher.", "She is a teacher of English."]
+    },
+    {
+      id: 48,
+      question: "다음 한국어 문장을 영어로 쓰세요.",
+      sentence: "너는 피자를 좋아하니?",
+      answers: ["Do you like pizza?"]
+    },
+    {
+      id: 49,
+      question: "다음 한국어 문장을 영어로 쓰세요.",
+      sentence: "우리는 지금 숙제를 하고 있어.",
+      answers: ["We are doing homework now.", "We are doing our homework now."]
+    },
+    {
+      id: 50,
+      question: "다음 한국어 문장을 영어로 쓰세요.",
+      sentence: "그는 어제 공원에 갔어.",
+      answers: ["He went to the park yesterday."]
+    }
+  ]
+}
