@@ -74,14 +74,14 @@ export default function Home() {
                   <span className="text-yellow-300">문법센터</span>
                   <span className="md:inline"> </span>
                   <br className="md:hidden" />
-                  <span>설명회</span>
+                  <span>무료 레벨 테스트</span>
                 </h1>
                 <p className="text-lg md:text-xl mb-4 opacity-95">
                   전 정상어학원 원장 James.Yoo와<br className="md:hidden" />
                   <span className="md:inline-block">DYB최선이 함께하는 문법연구소</span>
                 </p>
                 <p className="text-base md:text-lg mb-8 opacity-90">
-                  8월 26일 화요일 오전 11:00<br className="md:hidden" />
+                  정확한 레벨 진단과 맞춤 상담<br className="md:hidden" />
                   <span className="hidden md:inline"> | </span>
                   <span className="md:inline-block">초5~중3 학생 및 학부모 대상</span>
                 </p>
@@ -312,15 +312,15 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-red-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            8월 26일 설명회에 참여하세요!
+            무료 레벨 테스트를 받아보세요!
           </h2>
           <p className="text-lg md:text-xl mb-6 md:mb-8 opacity-95">
-            문법을 끝내고, 문장을 마스터하라!
+            정확한 진단과 맞춤형 학습 가이드를 제공합니다!
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 md:px-6 py-3 md:py-4">
-              <p className="font-semibold text-sm md:text-base mb-1">일시</p>
-              <p className="text-sm md:text-base">8/26(화) 오전 11:00</p>
+              <p className="font-semibold text-sm md:text-base mb-1">소요시간</p>
+              <p className="text-sm md:text-base">약 20-30분</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 md:px-6 py-3 md:py-4">
               <p className="font-semibold text-sm md:text-base mb-1">대상</p>
