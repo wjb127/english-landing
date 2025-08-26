@@ -15,7 +15,8 @@ import {
   grade3Questions,
   grade4Questions,
   grade5Questions,
-  grade6Questions 
+  grade6Questions,
+  type SubjectiveQuestion
 } from "@/lib/testData"
 
 // 7급 테스트 문제 (초등학교 5학년 수준) - 객관식 40문항
@@ -839,7 +840,7 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
       
       // 복수 답변 문제 처리 (부분 점수 없음)
       if (answerCount > 1 && Array.isArray(userAnswer)) {
-        const correctAnswers = (question as any).answers || question.answer
+        const correctAnswers = (question as SubjectiveQuestion).answers || (question as SubjectiveQuestion).answer
         
         if (Array.isArray(correctAnswers)) {
           // 모든 답이 정확히 일치해야 정답 (부분 점수 없음)
@@ -857,8 +858,8 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
         const userAnswerStr = typeof userAnswer === 'string' ? userAnswer : ''
         const normalizedUserAnswer = normalizeAnswer(userAnswerStr)
         
-        const possibleAnswers = (question as any).answers || 
-                               (question as any).answer || 
+        const possibleAnswers = (question as SubjectiveQuestion).answers || 
+                               (question as SubjectiveQuestion).answer || 
                                []
         const answersArray = Array.isArray(possibleAnswers) ? possibleAnswers : [possibleAnswers]
         
@@ -1051,9 +1052,9 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                 <p className="font-semibold text-lg mb-2">
                   {currentTestQuestions[currentQuestion].question}
                 </p>
-                {currentTestQuestions[currentQuestion].sentence && (
+                {(currentTestQuestions[currentQuestion] as any).sentence && (
                   <p className="text-lg bg-white p-3 rounded border">
-                    {currentTestQuestions[currentQuestion].sentence}
+                    {(currentTestQuestions[currentQuestion] as any).sentence}
                   </p>
                 )}
               </div>
@@ -1137,9 +1138,9 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
                     {(currentSubjectiveQuestions[currentSubjective] as any).korean}
                   </p>
                 )}
-                {currentSubjectiveQuestions[currentSubjective].sentence && (
+                {(currentSubjectiveQuestions[currentSubjective] as any).sentence && (
                   <p className="text-lg bg-white p-3 rounded border font-mono">
-                    {currentSubjectiveQuestions[currentSubjective].sentence}
+                    {(currentSubjectiveQuestions[currentSubjective] as any).sentence}
                   </p>
                 )}
                 {(currentSubjectiveQuestions[currentSubjective] as any).prompt && (
