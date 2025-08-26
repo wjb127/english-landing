@@ -332,18 +332,21 @@ export const grade3Questions = {
     },
     {
       id: 48,
-      question: "나는 그녀가 그 일을 할 수 있을지 궁금하다.",
-      answer: "I wonder if/whether she can do the work."
+      question: "다음 문장의 빈칸을 채우시오.\n나는 그녀가 그 일을 할 수 있을지 궁금하다.\nI wonder _____ she _____ do the work.",
+      answerCount: 2,
+      answers: ["if/whether", "can"]
     },
     {
       id: 49,
-      question: "이 책은 많은 사람들에게 읽혀진다.",
-      answer: "This book is read by many people."
+      question: "다음 문장의 빈칸을 채우시오.\n이 책은 많은 사람들에게 읽혀진다.\nThis book _____ _____ by many people.",
+      answerCount: 2,
+      answers: ["is", "read"]
     },
     {
       id: 50,
-      question: "열심히 공부하는 학생들이 성공할 것이다. (관계대명사 사용)",
-      answer: "Students who study hard will succeed. / The students who study hard will succeed."
+      question: "다음 문장의 빈칸을 채우시오.\n열심히 공부하는 학생들이 성공할 것이다.\nStudents _____ study hard _____ succeed.",
+      answerCount: 2,
+      answers: ["who/that", "will"]
     }
   ]
 }
@@ -657,13 +660,15 @@ export const grade4Questions = {
     },
     {
       id: 47,
-      question: "이 편지는 그녀에 의해 쓰여졌다.",
-      answer: "This letter was written by her."
+      question: "다음 문장의 빈칸을 채우시오.\n이 편지는 그녀에 의해 쓰여졌다.\nThis letter _____ _____ by her.",
+      answerCount: 2,
+      answers: ["was", "written"]
     },
     {
       id: 48,
-      question: "그가 무엇을 원하는지 아니?",
-      answer: "Do you know what he wants?"
+      question: "다음 문장의 빈칸을 채우시오.\n그가 무엇을 원하는지 아니?\nDo you know _____ he _____?",
+      answerCount: 2,
+      answers: ["what", "wants"]
     },
     {
       id: 49,
@@ -672,8 +677,9 @@ export const grade4Questions = {
     },
     {
       id: 50,
-      question: "나는 어제 만난 소녀를 안다. (관계대명사 사용)",
-      answer: "I know the girl (whom/who/that) I met yesterday."
+      question: "다음 문장의 빈칸을 채우시오.\n나는 어제 만난 소녀를 안다.\nI know the girl _____ I _____ yesterday.",
+      answerCount: 2,
+      answers: ["whom/who/that", "met"]
     }
   ]
 }
@@ -957,13 +963,15 @@ export const grade5Questions = {
     },
     {
       id: 47,
-      question: "그녀는 나에게 문을 닫으라고 했다.",
-      answer: "She told me to close the door."
+      question: "다음 문장의 빈칸을 채우시오.\n그녀는 나에게 문을 닫으라고 했다.\nShe told _____ _____ close the door.",
+      answerCount: 2,
+      answers: ["me", "to"]
     },
     {
       id: 48,
-      question: "비록 피곤했지만, 나는 숙제를 끝냈다.",
-      answer: "Though/Although I was tired, I finished my homework."
+      question: "다음 문장의 빈칸을 채우시오.\n비록 피곤했지만, 나는 숙제를 끝냈다.\n_____ I was tired, I _____ my homework.",
+      answerCount: 2,
+      answers: ["Though/Although", "finished"]
     },
     {
       id: 49,
@@ -972,8 +980,9 @@ export const grade5Questions = {
     },
     {
       id: 50,
-      question: "그 영화는 보기에 재미있었다.",
-      answer: "The movie was interesting to watch."
+      question: "다음 문장의 빈칸을 채우시오.\n그 영화는 보기에 재미있었다.\nThe movie _____ interesting _____ watch.",
+      answerCount: 2,
+      answers: ["was", "to"]
     }
   ]
 }
