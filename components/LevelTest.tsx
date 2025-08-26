@@ -861,7 +861,19 @@ export default function LevelTest({ onComplete }: LevelTestProps) {
         const possibleAnswers = (question as SubjectiveQuestion).answers || 
                                (question as SubjectiveQuestion).answer || 
                                []
-        const answersArray = Array.isArray(possibleAnswers) ? possibleAnswers : [possibleAnswers]
+        
+        // answer가 문자열이고 슬래시(/)를 포함하는 경우 복수 정답으로 처리
+        let answersArray: string[] = []
+        if (Array.isArray(possibleAnswers)) {
+          answersArray = possibleAnswers
+        } else if (typeof possibleAnswers === 'string') {
+          // 슬래시로 구분된 복수 정답 처리
+          if (possibleAnswers.includes(' / ')) {
+            answersArray = possibleAnswers.split(' / ').map(s => s.trim())
+          } else {
+            answersArray = [possibleAnswers]
+          }
+        }
         
         const isCorrect = answersArray.some((answer: string) => {
           const normalizedAnswer = normalizeAnswer(answer)
