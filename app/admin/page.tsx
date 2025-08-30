@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock, Lock, Edit, Trash2, X } from "lucide-react"
+import { Users, BookOpen, Calendar, TrendingUp, Phone, Mail, User, GraduationCap, Award, Clock, Lock, Edit, Trash2, X, FileCheck } from "lucide-react"
 
 interface TestResult {
   id: number
@@ -240,6 +240,15 @@ export default function AdminDashboard() {
               DYB최선 문법연구소 × 정상어학원 - 관리자 대시보드
             </h1>
             <div className="flex items-center gap-4">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => window.open('/admin/xz9k-answer-key-2024', '_blank')}
+                className="flex items-center gap-2"
+              >
+                <FileCheck className="h-4 w-4" />
+                정답표 보기
+              </Button>
               <div className="text-sm text-gray-500">
                 문법센터 관리 시스템
               </div>
