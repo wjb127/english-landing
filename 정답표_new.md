@@ -3,6 +3,126 @@
 
 ---
 
+## 1급 (고등학교 1학년)
+
+### I. 인지 능력 문제 (1-25번)
+1. ② (is)
+2. ② (I wish I had more time to study)
+3. ② (is said)
+4. ② (Two-thirds of the students were absent)
+5. ② (are)
+6. ② (Neither Tom nor his parents were at home)
+7. ① (made me feel)
+8. ② (The question is too difficult for me to solve)
+9. ① (to handle)
+10. ② (When crossing the street, he was hit by a car)
+11. ① (Born)
+12. ① (The man believed to be rich turned out to be poor)
+13. ③ (that)
+14. ⑤ (both ② and ③)
+15. ④ (which)
+16. ① (Should you need any help, please let me know)
+17. ① (If)
+18. ① (Not until he arrived did the meeting begin)
+19. ② (have I seen)
+20. ① (Hardly had he left when it started to rain)
+21. ① (No one is)
+22. ③ (I don't think he is honest)
+23. ③ (that)
+24. ① (The more you study, the better your grades become)
+25. ② (told)
+
+### II. 감각 능력 문제 (26-45번)
+26. ③ complained → is always complaining
+27. ③ will → were
+28. ③ him → he/to be honest
+29. ③ are → is
+30. ④ are → is
+31. ② her → to her
+32. ② crossed → crossing
+33. ② said → said to be
+34. ⑤ where → which
+35. ③ will → come
+36. as if
+37. Not until
+38. Hardly
+39. stay
+40. that
+41. The more
+42. will work
+43. that
+44. So
+45. no more
+
+### III. 주관식 영작 (46-50번)
+46. If he had listened to my advice, he wouldn't have made a mistake
+47. Hardly had he finished speaking when the phone rang
+48. When walking in the park, I met my old friend
+49. that he will succeed
+50. Not all students like
+
+---
+
+## 2급 (중학교 3학년 ~ 고등학교 1학년)
+
+### I. 인지 능력 문제 (1-25번)
+1. ② (should have studied)
+2. ② (He might have arrived by now)
+3. ② (could have passed)
+4. ① (A number of students have arrived)
+5. ② (has been)
+6. ② (What I need is more time)
+7. ② (down)
+8. ② (I found it difficult to solve the problem)
+9. ④ (whether)
+10. ② (She seems to be happy today)
+11. ⑤ (both ① and ③)
+12. ② (I heard him singing in the shower)
+13. ② (finished)
+14. ① (Weather permitting, we will go camping)
+15. ② (talking)
+16. ② (Tom, who is my friend, lives in Seoul)
+17. ④ (who)
+18. ② (The house which we live in is beautiful)
+19. ① (so)
+20. ② (However hard he tried, he couldn't succeed)
+21. ③ (Whoever)
+22. ③ (I wish I were taller than I am now)
+23. ③ (as if)
+24. ① (It was Tom who helped me yesterday)
+25. ② (comes)
+
+### II. 감각 능력 문제 (26-45번)
+26. ② studied → have studied
+27. ② has → have
+28. ⑤ will arrive → would have arrived
+29. ④ have → has
+30. ④ were → was
+31. ④ hear → hearing
+32. ③ difficulty → difficult
+33. ③ that → whether/if
+34. ② finish → finished
+35. ③ to → 삭제
+36. who
+37. where
+38. so
+39. Whatever
+40. could
+41. as if
+42. It
+43. comes
+44. too
+45. to
+
+### III. 주관식 영작 (46-50번)
+46. should have listened
+47. My brother, who is a doctor, lives in New York
+48. Being tired, he went to bed early
+49. It was he (that/who)
+50. Whoever arrives
+
+---
+
 ## 3급 (중학교 2학년 2학기)
 
 ### I. 인지 능력 문제 (1-25번)
