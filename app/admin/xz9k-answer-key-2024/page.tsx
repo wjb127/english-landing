@@ -7,6 +7,74 @@ import { CheckCircle, XCircle, AlertCircle } from "lucide-react"
 
 export default function AnswerKeyPage() {
   const answerData = {
+    "1급": {
+      grade: "고등학교 1학년",
+      sections: [
+        {
+          title: "I. 인지능력 문법 (1-25번)",
+          answers: [
+            "② (is)", "② (I wish I had more time to study)", "② (is said)", "② (Two-thirds of the students were absent)", "② (are)",
+            "② (Neither Tom nor his parents were at home)", "① (made me feel)", "② (The question is too difficult for me to solve)", "① (to handle)", "② (When crossing the street, he was hit by a car)",
+            "① (Born)", "① (The man believed to be rich turned out to be poor)", "③ (that)", "⑤ (both ② and ③)", "④ (which)",
+            "① (Should you need any help, please let me know)", "① (If)", "① (Not until he arrived did the meeting begin)", "② (have I seen)", "① (Hardly had he left when it started to rain)",
+            "① (No one is)", "③ (I don't think he is honest)", "③ (that)", "① (The more you study, the better your grades become)", "② (told)"
+          ]
+        },
+        {
+          title: "II. 감각적 문법능력 (26-45번)",
+          answers: [
+            "③ complained → is always complaining", "③ will → were", "③ him → he/to be honest", "③ are → is", "④ are → is",
+            "② her → to her", "② crossed → crossing", "② said → said to be", "⑤ where → which", "③ will → come",
+            "as if", "Not until", "Hardly", "stay", "that",
+            "The more", "will work", "that", "So", "no more"
+          ]
+        },
+        {
+          title: "III. 주관식 문제 (46-50번)",
+          answers: [
+            "46. If he had listened to my advice, he wouldn't have made a mistake",
+            "47. Hardly had he finished speaking when the phone rang",
+            "48. When walking in the park, I met my old friend",
+            "49. that he will succeed",
+            "50. Not all students like"
+          ]
+        }
+      ]
+    },
+    "2급": {
+      grade: "중학교 3학년 ~ 고등학교 1학년",
+      sections: [
+        {
+          title: "I. 인지능력 문법 (1-25번)",
+          answers: [
+            "② (should have studied)", "② (He might have arrived by now)", "② (could have passed)", "① (A number of students have arrived)", "② (has been)",
+            "② (What I need is more time)", "② (down)", "② (I found it difficult to solve the problem)", "④ (whether)", "② (She seems to be happy today)",
+            "⑤ (both ① and ③)", "② (I heard him singing in the shower)", "② (finished)", "① (Weather permitting, we will go camping)", "② (talking)",
+            "② (Tom, who is my friend, lives in Seoul)", "④ (who)", "② (The house which we live in is beautiful)", "① (so)", "② (However hard he tried, he couldn't succeed)",
+            "③ (Whoever)", "③ (I wish I were taller than I am now)", "③ (as if)", "① (It was Tom who helped me yesterday)", "② (comes)"
+          ]
+        },
+        {
+          title: "II. 감각적 문법능력 (26-45번)",
+          answers: [
+            "② studied → have studied", "② has → have", "⑤ will arrive → would have arrived", "④ have → has", "④ were → was",
+            "④ hear → hearing", "③ difficulty → difficult", "③ that → whether/if", "② finish → finished", "③ to → 삭제",
+            "who", "where", "so", "Whatever", "could",
+            "as if", "It", "comes", "too", "to"
+          ]
+        },
+        {
+          title: "III. 주관식 문제 (46-50번)",
+          answers: [
+            "46. should have listened",
+            "47. My brother, who is a doctor, lives in New York",
+            "48. Being tired, he went to bed early",
+            "49. It was he (that/who)",
+            "50. Whoever arrives"
+          ]
+        }
+      ]
+    },
     "3급": {
       grade: "중학교 2학년 2학기",
       sections: [
@@ -211,8 +279,8 @@ export default function AnswerKeyPage() {
           <p className="text-center text-gray-600">new_test 폴더 기준</p>
         </div>
 
-        <Tabs defaultValue="3급" className="w-full">
-          <TabsList className="grid grid-cols-5 w-full max-w-3xl mx-auto mb-8">
+        <Tabs defaultValue="1급" className="w-full">
+          <TabsList className="grid grid-cols-7 w-full max-w-5xl mx-auto mb-8">
             {Object.keys(answerData).map((level) => (
               <TabsTrigger key={level} value={level}>
                 {level}
